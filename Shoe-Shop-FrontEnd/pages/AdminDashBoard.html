@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Dashboard</title>
+
+  <meta content="hello shoe pvt" name="keywords">
+  <meta content="This is hello shoe pvt web project" name="description">
+  <meta content="Lasini Prabashi" name="author">
+  <meta content="Lasini Prabashi" name="owner">
+  <meta content="width=device-width initial-scale=1 maximum-scale=1 minimum-scale=1 user-scalable=no" name="viewport">
+  <meta content="green" name="theme-color">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+        rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link rel="stylesheet" href="../assest/vendor/bootstrap-5.2.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assest/vendor/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="../assest/vendor/boxicons/css/boxicons.css">
+  <link rel="stylesheet" href="../assest/vendor/sweetalert2-11.6.16/sweetalert2.css">
+  <link rel="stylesheet" href="../assest/css/dashboardStyle.css">
+
+
+
+</head>
+<body>
+<!-- ======= Header ======= -->
+<header id="header" class="header fixed-top d-flex align-items-center">
+
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="AdminDashBoard.html" class="logo d-flex align-items-center">
+      <span class="d-none d-lg-block">Hello <span>Shoe.</span></span>
+    </a>
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+  </div>
+
+
+
+</header>
+
+
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+
+  <ul class="sidebar-nav" id="sidebar-nav">
+
+    <li class="nav-item">
+      <a class="nav-link " href="AdminDashBoard.html">
+        <i class="bi bi-grid"></i>
+        <span>Dashboard</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
+        <i class="bi bi-kanban"></i><span>Manage</span><i class="bi bi-chevron-down ms-auto"></i>
+      </a>
+      <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+        <li>
+          <a href="adminPages/Customer.html">
+            <i class="bi bi-circle"></i><span>Customer</span>
+          </a>
+        </li>
+        <li>
+          <a href="adminPages/Employee.html">
+            <i class="bi bi-circle"></i><span>Employee</span>
+          </a>
+        </li>
+        <li>
+          <a href="adminPages/Suppliers.html">
+            <i class="bi bi-circle"></i><span>Suppliers</span>
+          </a>
+        </li>
+
+        <li>
+          <a href="adminPages/Inventory.html">
+            <i class="bi bi-circle"></i><span>Inventory</span>
+          </a>
+        </li>
+
+      </ul>
+    </li>
+
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="login.html">
+        <i class="bi bi-box-arrow-in-right"></i>
+        <span>LogOut</span>
+      </a>
+    </li>
+
+
+  </ul>
+
+</aside>
+
+
+<!-- ======= Main ======= -->
+<main id="main" class="main">
+
+  <div class="pageTitle" id="pageOne">
+    <h1>Admin Dashboard</h1>
+    <nav>
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="AdminDashBoard.html">Home</a></li>
+        <li class="breadcrumb-item active">Dashboard</li>
+      </ol>
+    </nav>
+  </div>
+
+  <section class="section dashboard">
+    <div class="row">
+
+
+      <div class="col-lg-12">
+        <div class="row">
+
+
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card car-card">
+              <div class="card-body">
+                <h5 class="card-title">Today <span>| Customers</span></h5>
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-car-front-fill"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6 id="customerCount">0</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card car-card">
+              <div class="card-body">
+                <h5 class="card-title">Today <span>| Employees</span></h5>
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-car-front-fill"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6 id="employeeCount">0</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          >
+          <div class="col-xxl-4 col-md-6">
+            <div class="card info-card car-card">
+              <div class="card-body">
+                <h5 class="card-title">Today <span>| Suppliers</span></h5>
+                <div class="d-flex align-items-center">
+                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                    <i class="bi bi-car-front-fill"></i>
+                  </div>
+                  <div class="ps-3">
+                    <h6 id="suppliersCount">0</h6>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="img">
+          <img class="testimg" src="../assets/img/AdminDashBoard.jpg" alt="">
+        </div>
+      </div>
+
+    </div>
+  </section>
+</main>
+
+
+
+<!-- ======= Footer ======= -->
+<footer id="footer" class="footer">
+  <div class="copyright">
+    &copy; Copyright <strong><span>Hello Shoe pvt</span></strong>. All Rights Reserved
+  </div>
+  <div class="credits">
+    Designed by <a href="">Lasini Prabashi</a>
+  </div>
+</footer>
+
+<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+        class="bi bi-arrow-up-short"></i></a>
+
+<!-- Vendor JS Files -->
+<script src="../assest/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="../assest/vendor/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assest/vendor/jQuery/jquery-3.6.1.min.js"></script>
+<script src="../assest/vendor/sweetalert2-11.6.16/sweetalert2.all.min.js"></script>
+
+
+<!-- Template Dashboard Main JS File -->
+<script src="../assest/js/dashboardMain.js"></script>
+
+<!-- Controller JS File -->
+<script src="../controller/DashBoardController.js"></script>
+
+</body>
+</html>
