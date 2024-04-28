@@ -1,0 +1,8 @@
+package lk.ijse.gdse66.spring.repo;
+
+import lk.ijse.gdse66.spring.entity.Employee;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface EmployeeRepo extends JpaRepository<Employee, String> {
+}
+
