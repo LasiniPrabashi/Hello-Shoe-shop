@@ -2,6 +2,7 @@ package lk.ijse.gdse66.spring.entity;
 
 import jakarta.persistence.*;
 import lk.ijse.gdse66.spring.embeded.Address;
+import lk.ijse.gdse66.spring.enums.Designation;
 import lk.ijse.gdse66.spring.enums.Gender;
 import lk.ijse.gdse66.spring.enums.Role;
 import lombok.AllArgsConstructor;
@@ -11,10 +12,9 @@ import lombok.ToString;
 
 import java.time.LocalDate;
 
-@NoArgsConstructor
-@AllArgsConstructor
-@ToString
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 public class Employee {
     @Id
@@ -35,6 +35,8 @@ public class Employee {
     private String email;
     private String person;
     private String EmgContact;
+    @Enumerated(EnumType.STRING)
+    private Designation designation;
 
     @OneToOne(cascade = CascadeType.ALL)
     private User user;
