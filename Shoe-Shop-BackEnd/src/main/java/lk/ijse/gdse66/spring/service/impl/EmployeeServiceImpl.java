@@ -28,9 +28,18 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public void saveEmployee(EmployeeDTO dto){
         if (repo.existsById(dto.getCode())) {
-            throw new RuntimeException("Employee Already Exist. Please enter another id..!");
+            throw new RuntimeException("Employee Already Exists. Please enter another id.");
         }
-        repo.save(mapper.map(dto, Employee.class));
+
+        // Map the EmployeeDTO to Employee entity
+        Employee employee = mapper.map(dto, Employee.class);
+
+        // Set the address for the employee
+        employee.setAddress(dto.getAddress());
+
+        // Save the employee to the repository
+        repo.save(employee);
+
 
     }
 

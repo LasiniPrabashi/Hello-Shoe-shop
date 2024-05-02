@@ -19,5 +19,5 @@ public class CustomDTO {
 
     public CustomDTO(int count) {
         this.count=count;
-    }
+      }
 }

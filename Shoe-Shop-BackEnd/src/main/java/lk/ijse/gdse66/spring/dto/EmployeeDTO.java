@@ -8,9 +8,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
-import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDate;
+import java.sql.Date;
+
+
 
 @Data
 @AllArgsConstructor
@@ -24,8 +25,8 @@ public class EmployeeDTO {
     private String status;
     private String designation;
     private Role role;
-    private LocalDate birth;
-    private LocalDate joinDate ;
+    private Date birth;
+    private Date joinDate ;
     private String branch;
     private Address address;
     private String contact;
