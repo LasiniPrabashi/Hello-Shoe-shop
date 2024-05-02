@@ -143,9 +143,8 @@
                   <label class="form-label" for="E_gender">Gender</label>
                   <select class="form-control" id="E_gender" name="gender">
                     <option selected></option>
-                    <option>Male</option>
-                    <option>Female</option>
-                    <option>Other</option>
+                    <option value="MALE">MALE</option>
+                    <option value="FEMALE">FEMALE</option>
                   </select>
 
                   <span class="control-error"></span>
@@ -160,10 +159,10 @@
                   <label class="form-label" for="E_Designation">Designation</label>
                   <select class="form-control" id="E_Designation" name="designation">
                     <option selected></option>
-                    <option value="Manager">Manager</option>
-                    <option value="Accountant">Accountant</option>
-                    <option value="Senior Sales Assistant">Senior Sales Assistant</option>
-                    <option value="SalesAssistant">SalesAssistant</option>
+                    <option value="MANAGER">MANAGER</option>
+                    <option value="ACCOUNTANT">ACCOUNTANT</option>
+                    <option value="SENIOR_SALES_ASSISTANT">SENIOR_SALES_ASSISTANT</option>
+                    <option value="SALES_ASSISTANT">SALES_ASSISTANT</option>
                   </select>
 
                   <span class="control-error"></span>
@@ -173,15 +172,15 @@
                   <label class="form-label" for="E_AccessRole"> Access Role</label>
                   <select class="form-control" id="E_AccessRole" name="role">
                     <option selected></option>
-                    <option>Admin</option>
-                    <option>User</option>
+                    <option value="ADMIN">ADMIN</option>
+                    <option value="USER">USER</option>
                   </select>
 
                   <span class="control-error"></span>
                 </div>
                 <div class="mb-sm-0 mt-3">
                   <label class="form-label" for="E_dob">DOB</label>
-                  <input type="text" name="birth" class="form-control" id="E_dob"
+                  <input type="date" name="birth" class="form-control" id="E_dob"
                          placeholder="DOB">
                   <span class="control-error"></span>
                 </div>
@@ -190,7 +189,7 @@
               <section id="sec2Customer" class="col-md-4 mt-3">
                 <div class="mb-sm-0">
                   <label class="form-label" for="E_DOF">Date of Join</label>
-                  <input type="text" name="joinDate" class="form-control" id="E_DOF"
+                  <input type="date" name="joinDate" class="form-control" id="E_DOF"
                          placeholder="Date of Join">
                   <span class="control-error"></span>
                 </div>
@@ -202,29 +201,29 @@
                 </div>
                 <div class="mb-sm-0 mt-3">
                   <label class="form-label" for="E_address_1">Address 01</label>
-                  <input type="text" name="E_address_1" class="form-control" id="E_address_1">
+                  <input type="text" name="address1" class="form-control" id="E_address_1">
                   <span class="control-error"></span>
                 </div>
                 <div class="mb-sm-0 mt-3">
                   <label class="form-label" for="E_address_2">Address 02</label>
-                  <input type="text" name="E_address_2" class="form-control" id="E_address_2">
+                  <input type="text" name="address2" class="form-control" id="E_address_2">
                   <span class="control-error"></span>
                 </div>
                 <div class="mb-sm-0 mt-3">
                   <label class="form-label" for="E_address_3">Address 03</label>
-                  <input type="text" name="E_address_3" class="form-control" id="E_address_3">
+                  <input type="text" name="address3" class="form-control" id="E_address_3">
                   <span class="control-error"></span>
                 </div>
 
                 <div class="mb-sm-0 mt-3">
                   <label class="form-label" for="E_address_4">Address 04</label>
-                  <input type="text" name="E_address_4" class="form-control" id="E_address_4">
+                  <input type="text" name="address4" class="form-control" id="E_address_4">
                   <span class="control-error"></span>
                 </div>
 
                 <div class="mb-sm-0 mt-3">
                   <label class="form-label" for="E_address_5">Address 05</label>
-                  <input type="text" name="E_address_5" class="form-control" id="E_address_5">
+                  <input type="text" name="address5" class="form-control" id="E_address_5">
                   <span class="control-error"></span>
                 </div>
                 <div class="mb-sm-0 mt-3">
@@ -278,6 +277,8 @@
                 <!--                  <span class="control-error"></span>-->
                 <!--                </div>-->
 
+                <img id="img" src="../../assest/img/login.jpg" width="300px">
+
                 <div class="mt-4 mb-3 d-grid gap-2 d-sm-flex justify-content-md-center">
                   <button class="btn btn-success me-md-1" id="btnSaveEmployee" type="button">Save</button>
                   <button class="btn btn-warning me-md-1" id="btnUpdateEmployee" type="button">Update</button>
@@ -299,7 +300,7 @@
                   <tr>
                     <th scope="col">Employee code</th>
                     <th scope="col">Employee name</th>
-                    <th scope="col">Employee Profile Pic</th>
+                    <!--<th scope="col">Employee Profile Pic</th>-->
                     <th scope="col">Gender</th>
                     <th scope="col">Status</th>
                     <th scope="col">Designation</th>
@@ -340,8 +341,7 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
 
-<!-- Vendor JS Files -->
-<!--<script src="../../assest/vendor/apexcharts/apexcharts.min.js"></script>-->
+<script src="../../assest/vendor/apexcharts/apexcharts.min.js"></script>
 <script src="../../assest/vendor/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../assest/vendor/jQuery/jquery-3.6.1.min.js"></script>
 <script src="../../assest/vendor/sweetalert2-11.6.16/sweetalert2.min.js"></script>
@@ -350,12 +350,13 @@
 <script src="../../assest/js/dashboardMain.js"></script>
 <script src="../../controller/EmployeeController.js"></script>
 <script src="../../util/alert.js"></script>
+<script src="../../util/validation.js"></script>
 
 <!-- Controller JS File -->
 <!--<script src="../../controller/Reg_UserController.js"></script>-->
 <!--<script src="../../controller/DashBoardController.js"></script>-->
 
 
-<!--<script src="../../util/validation.js" rel="script"></script>-->
+
 </body>
 </html>
