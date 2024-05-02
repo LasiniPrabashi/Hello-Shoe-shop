@@ -11,7 +11,6 @@ import org.modelmapper.TypeToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import java.util.ArrayList;
 
 @Service
@@ -28,18 +27,9 @@ public class EmployeeServiceImpl implements EmployeeService{
     @Override
     public void saveEmployee(EmployeeDTO dto){
         if (repo.existsById(dto.getCode())) {
-            throw new RuntimeException("Employee Already Exists. Please enter another id.");
+            throw new RuntimeException("Employee Already Exist. Please enter another id..!");
         }
-
-        // Map the EmployeeDTO to Employee entity
-        Employee employee = mapper.map(dto, Employee.class);
-
-        // Set the address for the employee
-        employee.setAddress(dto.getAddress());
-
-        // Save the employee to the repository
-        repo.save(employee);
-
+        repo.save(mapper.map(dto, Employee.class));
 
     }
 
@@ -84,6 +74,6 @@ public class EmployeeServiceImpl implements EmployeeService{
 
     @Override
     public CustomDTO getSumEmployee() {
-        return null;
+        return new CustomDTO(repo.getSumEmployee());
     }
 }

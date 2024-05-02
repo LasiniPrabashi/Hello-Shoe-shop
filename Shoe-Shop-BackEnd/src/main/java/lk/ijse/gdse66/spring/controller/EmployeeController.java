@@ -20,12 +20,15 @@ public class EmployeeController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping
-    public ResponseUtil saveEmployee(@ModelAttribute EmployeeDTO employeeDTO, Address address,String profilePic){
+    public ResponseUtil saveEmployee(@ModelAttribute EmployeeDTO employeeDTO, Address address){
         System.out.println(employeeDTO.toString());
+        System.out.println(employeeDTO.getAddress());
         employeeDTO.setAddress(address);
+        /*String profile = UtilMatter.convertBase64(profilePic);
+        employeeDTO.setPic(profile);*/
         service.saveEmployee(employeeDTO);
-        return new ResponseUtil("OK", "Successfully Registered.!",null);
-
+        System.out.println(employeeDTO.getCode());
+        return new ResponseUtil("200", "Successfully Registered.!", null);
           }
 
     @ResponseStatus(HttpStatus.CREATED)
