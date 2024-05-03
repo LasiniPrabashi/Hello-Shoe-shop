@@ -259,23 +259,22 @@ $("#btnUpdateEmployee").click(function () {
     });
 });
 
+
 $("#btnDeleteEmployee").click(function () {
     let id = $("#Employee_code").val();
     $.ajax({
-        url: "http://localhost:8080/back_End/employee",
+        url:"http://localhost:8080/back_End/employee?code=" + id ,
         method: "delete",
         dataType: "json",
         success: function (resp) {
-            saveUpdateAlert("Delete", resp.message);
-            loadAllEmployee()
+            saveUpdateAlert("Employee", resp.message);
+            loadAllEmployee();
         }, error: function (error) {
             let message = JSON.parse(error.responseText).message;
             unSuccessUpdateAlert("Employee", message);
         }
     });
 });
-
-
 
 /*
 $("#search_Id").on("keypress", function (event) {
