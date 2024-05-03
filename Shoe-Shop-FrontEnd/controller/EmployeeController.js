@@ -7,8 +7,8 @@ loadAllEmployee();
  * Employee Save
  * */
 $("#btnSaveEmployee").attr('disabled', false);
-$("#btnUpdateEmployee").attr('disabled', true);
-$("#btnDeleteEmployee").attr('disabled', true);
+$("#btnUpdateEmployee").attr('disabled', false);
+$("#btnDeleteEmployee").attr('disabled', false);
 
 /**
  * Employee Save
@@ -60,16 +60,17 @@ $("#btnSaveEmployee").click(function (){
         //swal("Error", "Take Item Photo.!", "error");
     }
 
-        let formData = $("#EmployeeForm").serialize();
+    let formData = $("#EmployeeForm").serialize();
     console.log(formData);
     $.ajax({
         url: "http://localhost:8080/back_End/employee",
         method: "POST",
         data: formData,
-        dataType: "application/json",
+        dataType: "json",
         success: function (res) {
             console.log(res)
             saveUpdateAlert("Employee", res.message);
+            loadAllEmployee()
             /*generateEmployeeID();*/
 
         }, error: function (error) {
@@ -106,7 +107,7 @@ function setTextFieldValues(code, name, pic, gender,status,designation,role,birt
     $("#Employee_code").focus();
     // checkValidity(employeeValidations);
 
-    $("#btnAddEmployee").attr('disabled', false);
+    $("#btnSaveEmployee").attr('disabled', false);
     $("#btnUpdateEmployee").attr('disabled', false);
     $("#btnDeleteEmployee").attr('disabled',false);
 }
@@ -155,7 +156,7 @@ function loadAllEmployee() {
                 let row = `<tr><td>${code}</td><td>${name}</td><td>${gender}</td><td>${status}</td><td>${designation}</td><td>${role}</td><td>${birth}</td><td>${joinDate}</td><td>${branch}</td><td>${addressColumn}</td><td>${contact}</td><td>${email}</td><td>${person}</td><td>${EmgContact}</td></tr>`;
                 $("#employeeTable").append(row);
             }
-        /*    blindClickEventsE();*/
+           blindClickEventsE();
             generateEmployeeID();
             setTextFieldValues("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "","","");
             console.log(res.message);
@@ -188,6 +189,93 @@ $('#EProfile_pic').change(function() {
     }
 
 });
+
+function blindClickEventsE() {
+    $("#employeeTable").on("click", "tr", function () {
+        let code = $(this).children().eq(0).text();
+        let name = $(this).children().eq(1).text();
+        let gender = $(this).children().eq(2).text();
+        let status = $(this).children().eq(3).text();
+        let designation = $(this).children().eq(4).text();
+        let role = $(this).children().eq(5).text();
+        let birth = $(this).children().eq(6).text();
+        let joinDate = $(this).children().eq(7).text();
+        let branch = $(this).children().eq(8).text();
+        let addressColumn = $(this).children().eq(9).text(); // Assuming address is in one column
+
+        // Split address into individual components
+        let addressComponents = addressColumn.split(', ');
+        let address1 = addressComponents[0] || '';
+        let address2 = addressComponents[1] || '';
+        let address3 = addressComponents[2] || '';
+        let address4 = addressComponents[3] || '';
+        let address5 = addressComponents[4] || '';
+
+        let contact = $(this).children().eq(10).text();
+        let email = $(this).children().eq(11).text();
+        let person = $(this).children().eq(12).text();
+        let EmgContact = $(this).children().eq(13).text();
+
+        // Set values to respective input fields
+        $("#Employee_code").val(code);
+        $("#employee_name").val(name);
+        $("#E_gender").val(gender);
+        $("#E_status").val(status);
+        $("#E_Designation").val(designation);
+        $("#E_AccessRole").val(role);
+        $("#E_dob").val(birth);
+        $("#E_DOF").val(joinDate);
+        $("#E_Attached").val(branch);
+        $("#E_address_1").val(address1);
+        $("#E_address_2").val(address2);
+        $("#E_address_3").val(address3);
+        $("#E_address_4").val(address4);
+        $("#E_address_5").val(address5);
+        $("#E_ContactNo").val(contact);
+        $("#E_email").val(email);
+        $("#ICE").val(person);
+        $("#E_E_contact").val(EmgContact);
+    });
+
+    $("#btnSaveEmployee").attr('disabled',false);
+}
+
+$("#btnUpdateEmployee").click(function () {
+    let formData = $("#EmployeeForm").serialize();
+    console.log(formData);
+    $.ajax({
+        url: "http://localhost:8080/back_End/employee/update",
+        method: "PUT",
+        data: formData,
+        dataType: "json",
+        success: function (res) {
+            console.log(res)
+            saveUpdateAlert("updated", res.message);
+            loadAllEmployee()
+        },
+        error: function (error) {
+            unSuccessUpdateAlert("updated", JSON.parse(error.responseText).message);
+        }
+    });
+});
+
+$("#btnDeleteEmployee").click(function () {
+    let id = $("#Employee_code").val();
+    $.ajax({
+        url: "http://localhost:8080/back_End/employee",
+        method: "delete",
+        dataType: "json",
+        success: function (resp) {
+            saveUpdateAlert("Delete", resp.message);
+            loadAllEmployee()
+        }, error: function (error) {
+            let message = JSON.parse(error.responseText).message;
+            unSuccessUpdateAlert("Employee", message);
+        }
+    });
+});
+
+
 
 /*
 $("#search_Id").on("keypress", function (event) {

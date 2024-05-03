@@ -126,7 +126,7 @@
                             <section id="sec1Customer" class="col-md-4 mt-3">
                                 <div class="mb-sm-0">
                                     <label class="form-label" for="supplier_code"> Supplier code</label>
-                                    <input type="text" name="supplier_code" class="form-control" readonly id="supplier_code"
+                                    <input type="text" name="Code" class="form-control" readonly id="supplier_code"
                                            placeholder="S00-001">
                                     <span class="control-error"></span>
                                 </div>
@@ -140,8 +140,8 @@
                                     <label class="form-label" for="category">Category</label>
                                     <select class="form-control" id="category" name="category">
                                         <option selected></option>
-                                        <option>International</option>
-                                        <option>Local</option>
+                                        <option value="INTERNATIONAL">INTERNATIONAL</option>
+                                        <option VALUE="LOCAL">LOCAL</option>
                                     </select>
 
                                     <span class="control-error"></span>
@@ -153,58 +153,54 @@
 
                                 <div class="mb-sm-0 mt-3">
                                     <label class="form-label" for="line1">Address 01</label>
-                                    <input type="text" name="line1" class="form-control" id="line1">
+                                    <input type="text" name="address1" class="form-control" id="line1">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
                                     <label class="form-label" for="line2">Address 02</label>
-                                    <input type="text" name="line2" class="form-control" id="line2">
+                                    <input type="text" name="address2" class="form-control" id="line2">
                                     <span class="control-error"></span>
                                 </div>
 
                                 <div class="mb-sm-0 mt-3">
                                     <label class="form-label" for="line3">Address 03</label>
-                                    <input type="text" name="line3" class="form-control" id="line3">
+                                    <input type="text" name="address3" class="form-control" id="line3">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
                                     <label class="form-label" for="line4">Address 04</label>
-                                    <input type="text" name="line4" class="form-control" id="line4">
+                                    <input type="text" name="address4" class="form-control" id="line4">
                                     <span class="control-error"></span>
                                 </div>
 
 
                                 <div class="mb-sm-0 mt-3">
                                     <label class="form-label" for="line5">Address 05</label>
-                                    <input type="text" name="line5" class="form-control" id="line5">
+                                    <input type="text" name="address5" class="form-control" id="line5">
                                     <span class="control-error"></span>
                                 </div>
 
                             </section>
 
                             <section id="sec3" class="col-md-4 mt-3">
-                                <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="line6">Address 06</label>
-                                    <input type="text" name="line6" class="form-control" id="line6">
-                                    <span class="control-error"></span>
-                                </div>
+
                                 <div class="mb-sm-0 mt-3">
                                     <label class="form-label" for=" ContactNo.1"> ContactNo.1</label>
-                                    <input type="text" name=" ContactNo.1" class="form-control" id=" ContactNo.1"
+                                    <input type="text" name="contact1" class="form-control" id=" ContactNo.1"
                                            placeholder=" ContactNo.1">
                                     <span class="control-error"></span>
                                 </div>
 
                                 <div class="mb-sm-0 mt-3">
                                     <label class="form-label" for=" ContactNo.2"> ContactNo.2</label>
-                                    <input type="text" name=" ContactNo.2" class="form-control" id=" ContactNo.2"
+                                    <input type="text" name="contact2" class="form-control" id=" ContactNo.2"
                                            placeholder=" ContactNo.2">
                                     <span class="control-error"></span>
                                 </div>
 
                                 <div class="mb-sm-0">
                                     <label class="form-label" for="email.">Email</label>
-                                    <input type="text" name="Email" class="form-control" id="email."
+                                    <input type="text" name="email" class="form-control" id="email."
                                            placeholder="Email">
                                     <span class="control-error"></span>
                                 </div>
@@ -232,7 +228,7 @@
                                 <!--                  <span class="control-error"></span>-->
                                 <!--                </div>-->
                                 <div class="mt-4 mb-3 d-grid gap-2 d-sm-flex justify-content-md-center">
-                                    <button class="btn btn-success me-md-1" id="btnAddSupplier" type="button">Add</button>
+                                    <button class="btn btn-success me-md-1" id="btnSaveSupplier" type="button">Add</button>
                                     <button class="btn btn-warning me-md-1" id="btnUpdateSupplier" type="button">Update</button>
                                     <button type="button" class="btn btn-danger me-md-1" id="btnDeleteSupplier">Delete</button>
                                 </div>
@@ -253,12 +249,7 @@
                                         <th scope="col">Supplier code</th>
                                         <th scope="col">Supplier name</th>
                                         <th scope="col">Category</th>
-                                        <th scope="col">Address Line 01</th>
-                                        <th scope="col">Address Line 02</th>
-                                        <th scope="col">Address Line 03</th>
-                                        <th scope="col">Address Line 04</th>
-                                        <th scope="col">Address Line 05</th>
-                                        <th scope="col">Address Line 06</th>
+                                        <th scope="col">Address</th>
                                         <th scope="col">ContactNo.1</th>
                                         <th scope="col">ContactNo.2</th>
                                         <th scope="col">Email</th>
