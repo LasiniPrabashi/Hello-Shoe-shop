@@ -1,6 +1,5 @@
 package lk.ijse.gdse66.spring.dto;
 
-import jdk.jfr.Name;
 import lk.ijse.gdse66.spring.embeded.Address;
 import lk.ijse.gdse66.spring.enums.Gender;
 import lk.ijse.gdse66.spring.enums.Role;
@@ -10,8 +9,6 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.sql.Date;
-
-
 
 @Data
 @AllArgsConstructor

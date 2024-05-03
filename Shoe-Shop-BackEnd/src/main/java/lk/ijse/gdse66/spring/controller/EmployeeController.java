@@ -32,7 +32,7 @@ public class EmployeeController {
           }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(path = "/update")
+    @PutMapping(path = "/update")
     public ResponseUtil updateEmployee(@ModelAttribute EmployeeDTO employeeDTO,Address address){
         employeeDTO.setAddress(address);
         service.updateEmployee(employeeDTO);
