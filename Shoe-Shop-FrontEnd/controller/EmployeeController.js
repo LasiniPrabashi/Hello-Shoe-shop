@@ -114,7 +114,7 @@ function setTextFieldValues(code, name, pic, gender,status,designation,role,birt
 
 
 /**
-load all customers Method
+load all Employee Method
 * */
 
 function loadAllEmployee() {
