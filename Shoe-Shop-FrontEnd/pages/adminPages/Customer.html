@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="../../assest/css/dashboardStyle.css">
 
 
+
 </head>
 <body>
 <!-- ======= Header ======= -->
@@ -122,14 +123,14 @@
                         <form class="row" id="customerForm">
                             <section id="sec1Customer" class="col-md-4 mt-3">
                                 <div class="mb-sm-0">
-                                    <label class="form-label" for="customer_code">Customer code</label>
-                                    <input type="text" name="customer_Id" class="form-control" readonly id="customer_code"
+                                    <label class="form-label" for="cusId">Customer code</label>
+                                    <input type="text" name="customer_Id" class="form-control" readonly id="cusId"
                                            placeholder="C00-001">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="firstName">Customer name</label>
-                                    <input type="text" name="firstName" class="form-control" id="firstName"
+                                    <label class="form-label" for="customer_name">Customer name</label>
+                                    <input type="text" name="name" class="form-control" id="customer_name"
                                            placeholder="First Name">
                                     <span class="control-error"></span>
                                 </div>
@@ -137,9 +138,8 @@
                                     <label class="form-label" for="gender">Gender</label>
                                     <select class="form-control" id="gender" name="gender">
                                         <option selected></option>
-                                        <option>Male</option>
-                                        <option>Female</option>
-                                        <option>Other</option>
+                                        <option value="MALE">MALE</option>
+                                        <option value="FEMALE">FEMALE</option>
                                     </select>
                                     <!--                  <input type="text" name="lastName" class="form-control" id="lastName"-->
                                     <!--                         placeholder="Last Name">-->
@@ -147,27 +147,27 @@
                                 </div>
 
                                 <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="gender">Level</label>
-                                    <select class="form-control" id="Level" name="Level">
+                                    <label class="form-label" for="level">Level</label>
+                                    <select class="form-control" id="level" name="level">
                                         <option selected></option>
-                                        <option>Gold</option>
-                                        <option>Silver</option>
-                                        <option>Bronze</option>
-                                        <option>New</option>
+                                        <option value="GOLD">GOLD</option>
+                                        <option value="SILVER">SILVER</option>
+                                        <option value="BRONZE">BRONZE</option>
+                                        <option value="NEW">NEW</option>
                                     </select>
                                     <!--                  <input type="text" name="lastName" class="form-control" id="lastName"-->
                                     <!--                         placeholder="Last Name">-->
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="JD-else">Join date as a loyalty customer</label>
-                                    <input type="text" name="JD-else" class="form-control" id="JD-else"
+                                    <label class="form-label" for="customer_jdlc">Join date as a loyalty customer</label>
+                                    <input type="date" name="loyaltyDate" class="form-control" id="customer_jdlc"
                                            placeholder="Contact Number">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="Total_points">Total points</label>
-                                    <input type="text" name="Total points" class="form-control" id="Total_points"
+                                    <label class="form-label" for="total_point">Total points</label>
+                                    <input type="text" name="loyaltyPoints" class="form-control" id="total_point"
                                            placeholder="Total points">
                                     <span class="control-error"></span>
                                 </div>
@@ -182,34 +182,34 @@
 <!--                                </div>-->
                                 <div class="mb-sm-0 mt-3">
                                     <label class="form-label" for="DOB">DOB</label>
-                                    <input type="text" name="DOB" class="form-control" id="DOB"
+                                    <input type="date" name="dob" class="form-control" id="DOB"
                                            placeholder="DOB">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="line1">Address 01</label>
-                                    <input type="text" name="line1" class="form-control" id="line1">
+                                    <label class="form-label" for="c_address_01">Address 01</label>
+                                    <input type="text" name="address1" class="form-control" id="c_address_01">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="line2">Address 02</label>
-                                    <input type="text" name="line2" class="form-control" id="line2">
+                                    <label class="form-label" for="c_address_02">Address 02</label>
+                                    <input type="text" name="address2" class="form-control" id="c_address_02">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="line3">Address 03</label>
-                                    <input type="text" name="line3" class="form-control" id="line3">
+                                    <label class="form-label" for="c_address_03">Address 03</label>
+                                    <input type="text" name="address3" class="form-control" id="c_address_03">
                                     <span class="control-error"></span>
                                 </div>
 
                                 <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="line4">Address 04</label>
-                                    <input type="text" name="line4" class="form-control" id="line4">
+                                    <label class="form-label" for="c_address_04">Address 04</label>
+                                    <input type="text" name="address4" class="form-control" id="c_address_04">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="line5">Address 05</label>
-                                    <input type="text" name="line5" class="form-control" id="line5">
+                                    <label class="form-label" for="c_address_05">Address 05</label>
+                                    <input type="text" name="address5" class="form-control" id="c_address_05">
                                     <span class="control-error"></span>
                                 </div>
 
@@ -217,19 +217,26 @@
 
                             <section id="sec3" class="col-md-4 mt-3">
                                 <div class="mb-sm-0">
-                                    <label class="form-label" for="ContactNo.">ContactNo.</label>
-                                    <input type="text" name="ContactNo." class="form-control" id="ContactNo."
+                                    <label class="form-label" for="c_contact_num">ContactNo</label>
+                                    <input type="text" name="contact" class="form-control" id="c_contact_num"
                                            placeholder="ContactNo.">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0">
-                                    <label class="form-label" for="email.">Email</label>
-                                    <input type="text" name="Email" class="form-control" id="email."
+                                    <label class="form-label" for="customer_email">Email</label>
+                                    <input type="text" name="email" class="form-control" id="customer_email"
                                            placeholder="Email">
                                     <span class="control-error"></span>
                                 </div>
+                                <div class="mb-sm-0">
+                                    <label class="form-label" for="recentPurchaseDate">recent_Purchase_Date</label>
+                                    <input type="text" id="recentPurchaseDate" name="recentPurchaseDate" class="form-control">
+                                    <span class="control-error"></span>
+                                </div>
+
+
                                 <div class="mt-4 mb-3 d-grid gap-2 d-sm-flex justify-content-md-center">
-                                    <button class="btn btn-success me-md-1" id="btnAddCustomer" type="button">Add</button>
+                                    <button class="btn btn-success me-md-1" id="btnSaveCustomer" type="button">Add</button>
                                     <button class="btn btn-warning me-md-1" id="btnUpdateCustomer" type="button">Update</button>
                                     <button type="button" class="btn btn-danger me-md-1" id="btnDeleteCustomer">Delete</button>
                                 </div>
@@ -254,11 +261,7 @@
                                         <th scope="col">Level</th>
                                         <th scope="col">Total points</th>
                                         <th scope="col">DOB</th>
-                                        <th scope="col">Address Line 01</th>
-                                        <th scope="col">Address Line 02</th>
-                                        <th scope="col">Address Line 03</th>
-                                        <th scope="col">Address Line 04</th>
-                                        <th scope="col">Address Line 05</th>
+                                        <th scope="col">Address</th>
                                         <th scope="col">ContactNo</th>
                                         <th scope="col">Email</th>
                                     </tr>
@@ -299,10 +302,8 @@
 
 <!-- Template Dashboard Main JS File -->
 <script src="../../assest/js/dashboardMain.js"></script>
+<script src="../../controller/CustomerController.js"></script>
 
-<!-- Controller JS File -->
-<script src="../../controller/Reg_UserController.js"></script>
-<script src="../../controller/DashBoardController.js"></script>
 
 
 <!-- Util JS File -->

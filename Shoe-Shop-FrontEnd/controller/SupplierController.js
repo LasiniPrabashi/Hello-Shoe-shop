@@ -5,7 +5,7 @@
  * */
 $("#btnSaveSupplier").attr('disabled', false);
 $("#btnUpdateSupplier").attr('disabled', false);
-$("#btnDeleteEmployee").attr('disabled', false);
+$("#btnDeleteSupplier").attr('disabled', false);
 
 
 $(document).ready(function() {
@@ -177,4 +177,20 @@ $("#btnUpdateSupplier").click(function () {
     });
 });
 
+$("#btnDeleteSupplier").click(function () {
+    let id = $("#supplier_code").val();
+    $.ajax({
+        url: "http://localhost:8080/back_End/supplier?code=" + id,
+        method: "DELETE",
+        dataType: "json",
+        success: function (resp) {
+            saveUpdateAlert("Supplier", resp.message);
+            loadAllSupplier();
+        },
+        error: function (xhr, status, error) {
+            let message = JSON.parse(xhr.responseText).message;
+            unSuccessUpdateAlert("Supplier", message);
+        }
+    });
+});
 
