@@ -43,10 +43,10 @@ public class EmployeeController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @DeleteMapping
-    public ResponseUtil deleteEmployee(@RequestBody EmployeeDTO dto){
-        service.deleteEmployee(dto);
-        return new ResponseUtil("OK", "Successfully Deleted. :"+ dto.getCode(),null);
-    }
+    public ResponseUtil deleteEmployee(@RequestParam String code){
+        service.deleteEmployee(code);
+        return new ResponseUtil("200", "Successfully Deleted. :"+ code,null);
+           }
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/searchEmployee", params = {"emp_id"})
