@@ -124,7 +124,7 @@
                             <section id="sec1Customer" class="col-md-4 mt-3">
                                 <div class="mb-sm-0">
                                     <label class="form-label" for="cusId">Customer code</label>
-                                    <input type="text" name="customer_Id" class="form-control" readonly id="cusId"
+                                    <input type="text" name="code" class="form-control" readonly id="cusId"
                                            placeholder="C00-001">
                                     <span class="control-error"></span>
                                 </div>
@@ -147,6 +147,13 @@
                                 </div>
 
                                 <div class="mb-sm-0 mt-3">
+                                    <label class="form-label" for="customer_jdlc">Join date as a loyalty customer</label>
+                                    <input type="date" name="loyaltyDate" class="form-control" id="customer_jdlc"
+                                           placeholder="Contact Number">
+                                    <span class="control-error"></span>
+                                </div>
+
+                                <div class="mb-sm-0 mt-3">
                                     <label class="form-label" for="level">Level</label>
                                     <select class="form-control" id="level" name="level">
                                         <option selected></option>
@@ -157,12 +164,6 @@
                                     </select>
                                     <!--                  <input type="text" name="lastName" class="form-control" id="lastName"-->
                                     <!--                         placeholder="Last Name">-->
-                                    <span class="control-error"></span>
-                                </div>
-                                <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="customer_jdlc">Join date as a loyalty customer</label>
-                                    <input type="date" name="loyaltyDate" class="form-control" id="customer_jdlc"
-                                           placeholder="Contact Number">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
@@ -257,13 +258,14 @@
                                         <th scope="col">Customer Code</th>
                                         <th scope="col">Customer Name</th>
                                         <th scope="col">Gender</th>
-                                        <th scope="col">JDALC</th>
                                         <th scope="col">Level</th>
+                                        <th scope="col">JDALC</th>
                                         <th scope="col">Total points</th>
                                         <th scope="col">DOB</th>
                                         <th scope="col">Address</th>
                                         <th scope="col">ContactNo</th>
                                         <th scope="col">Email</th>
+                                        <th scope="col">PurchaseDate</th>
                                     </tr>
                                     </thead>
                                     <tbody id="customerTable"></tbody>

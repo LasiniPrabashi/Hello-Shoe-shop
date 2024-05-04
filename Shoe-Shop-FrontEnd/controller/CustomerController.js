@@ -62,43 +62,52 @@ function loadAllCus() {
         url: "http://localhost:8080/back_End/customer",
         method: "GET",
         dataType: "json",
-        success: function(res) {
-            for (let customer of res.data) {
-                let code = customer.code;
-                let name = customer.name;
-                let gender = customer.gender;
-                let contact = customer.loyaltyDate;
-                let level = customer.level;
-                let points = customer.points;
-                let dob = customer.dob;
-                let address = customer.address || {};
-                let time = customer.contact;
-                let email = customer.email;
+        success: function (res) {
+            console.log(res);
 
+            for (let i of res.data) {
+                let code = i.code;
+                let name = i.name;
+                let gender = i.gender
+                let level = i.level;
+                let contact = i.loyaltyDate
+                let points = i.loyaltyPoints;
+                let dob = i.dob;
+                let address = i.address;
+                let time = i.contact;
+                let email = i.email
+                let recentPurchaseDate =i.recentPurchaseDate;
 
-                let ad1 = address.address1 || '';
-                let ad2 = address.address2 || '';
-                let ad3 = address.address3 || '';
-                let ad4 = address.address4 || '';
-                let ad5 = address.address5 || '';
-                let addressColumn =  `${ad1}, ${ad2}, ${ad3}, ${ad4}, ${ad5}`;
+                let ad1 = address.address1;
+                let ad2 = address.address2;
+                let ad3 = address.address3;
+                let ad4 = address.address4;
+                let ad5 = address.address5;
 
-                let row = `<tr><td>${code}</td><td>${name}</td><td>${gender}</td><td>${contact}</td><td>${level}</td><td>${points}</td><td>${dob}</td><td>${addressColumn}</td><td>${time}</td>><td>${email}</td></tr>`;
-                $("#suppliersTable").append(row);
+                let addressColumn = ad1 + ", " + ad2 + ", " + ad3 + ", " + ad4 + ", " + ad5;
+
+                let row = "<tr><td>" + code + "</td><td>" + name + "</td><td>" + gender + "</td><td>" + level + "</td><td>" +contact+ "</td><td>" +points + "</td><td>" + dob + "</td><td>" + addressColumn + "</td><td>" + time + "</td><td>" + email + "</td><td>" + recentPurchaseDate + "</td></tr>";
+                $("#customerTable").append(row);
+
             }
-            blindClickEventsS()
-            generateCustomerID()
-            setTextFieldValuesC("","","","","","","","","","","","","","","");
-        },
-        error: function(error) {
-            console.error(error);
+            generateCustomerID();
+             blindClickEventsC()
+            setTextFieldValuesC("", "", "", "", "", "", "", "", "", "", "","");
+
+            console.log(res.message);
+        }, error: function (error) {
+            let message = JSON.parse(error.responseText).message;
+            console.log(message);
         }
+
     });
 }
 
 $("#btnSaveCustomer").click(function (){
     $('#recentPurchaseDate').val(`${formattedDate} ${formattedTime}`);
     let formData = $("#customerForm").serialize();
+    let cusId = $("#cusId").val();
+    formData += "&code="+cusId;
     console.log(formData);
     $.ajax({
         url: "http://localhost:8080/back_End/customer",
@@ -108,7 +117,7 @@ $("#btnSaveCustomer").click(function (){
         success: function (res) {
             console.log(res)
             saveUpdateAlert("Customer", res.message);
-            loadAllEmployee()
+            loadAllCus()
              generateCustomerID()
 
         }, error: function (error) {
@@ -142,7 +151,7 @@ function setTextFieldValuesC(code, name,gender,loyaltyDate,level,loyaltyPoints,d
     $("#btnDeleteCustomer").attr('disabled', false);
 }
 
-function blindClickEventsS() {
+function blindClickEventsC() {
     $("#customerTable").on("click", "tr", function () {
         let code = $(this).children().eq(0).text();
         let name = $(this).children().eq(1).text();
@@ -188,6 +197,43 @@ function blindClickEventsS() {
 
     $("#btnSaveCustomer").attr('disabled',false);
 }
+
+$("#btnUpdateCustomer").click(function () {
+    let formData = $("#customerForm").serialize();
+    console.log(formData);
+    $.ajax({
+        url: "http://localhost:8080/back_End/customer",
+        method: "PUT",
+        data: formData,
+        dataType: "json",
+        success: function (res) {
+            console.log(res)
+            saveUpdateAlert("updated", res.message);
+            loadAllCus()
+        },
+        error: function (error) {
+            unSuccessUpdateAlert("updated", JSON.parse(error.responseText).message);
+        }
+    });
+});
+
+$("#btnDeleteCustomer").click(function () {
+    let id = $("#cusId").val();
+    $.ajax({
+        url: "http://localhost:8080/back_End/customer?code=" + id,
+        method: "DELETE",
+        dataType: "json",
+        success: function (resp) {
+            saveUpdateAlert("Customer", resp.message);
+            loadAllCus()
+        },
+        error: function (xhr, status, error) {
+            let message = JSON.parse(xhr.responseText).message;
+            unSuccessUpdateAlert("Customer", message);
+        }
+    });
+});
+
 
 
 
