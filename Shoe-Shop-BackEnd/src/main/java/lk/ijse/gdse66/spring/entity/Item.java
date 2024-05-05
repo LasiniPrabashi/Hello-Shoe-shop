@@ -26,4 +26,6 @@ public class Item {
     private Double expectedProfit;
     private Double profitMargin;
     private String status;
+    private String supName;
+
 }
