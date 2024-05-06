@@ -2,9 +2,7 @@ package lk.ijse.gdse66.spring.service.impl;
 
 import jakarta.transaction.Transactional;
 import lk.ijse.gdse66.spring.dto.CustomDTO;
-import lk.ijse.gdse66.spring.dto.EmployeeDTO;
 import lk.ijse.gdse66.spring.dto.ItemDTO;
-import lk.ijse.gdse66.spring.entity.Employee;
 import lk.ijse.gdse66.spring.entity.Item;
 import lk.ijse.gdse66.spring.repo.ItemRepo;
 import lk.ijse.gdse66.spring.service.ItemService;
@@ -51,11 +49,11 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public Item searchItemCode(String id) {
+    public ItemDTO searchItemId(String id) {
         if (!repo.existsById(id)){
             throw new RuntimeException("Wrong ID. Please enter Valid id..!");
         }
-        return mapper.map(repo.findById(id).get(),Item.class);
+        return mapper.map(repo.findById(id).get(),ItemDTO.class);
     }
 
     @Override

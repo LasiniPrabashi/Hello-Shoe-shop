@@ -4,19 +4,20 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.ToString;
+
 
 @Entity
 @Data
-@NoArgsConstructor
 @AllArgsConstructor
-@ToString
+@NoArgsConstructor
 @IdClass(SaleDetail_PK.class)
-public class SaleDetails{
+public class SaleDetails {
+
     @Id
     private String oId;
     @Id
     private String code;
+
 
     private int qty;
     private double unitPrice;
@@ -28,5 +29,4 @@ public class SaleDetails{
     @ManyToOne
     @JoinColumn(name = "code",referencedColumnName = "code",insertable = false,updatable = false)
     private Item items;
-
 }

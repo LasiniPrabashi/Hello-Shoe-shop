@@ -14,7 +14,7 @@ public interface ItemService {
     void saveItem(ItemDTO dto);
     void updateItem(ItemDTO dto);
     void deleteItem(String id);
-    Item searchItemCode(String id);
+    ItemDTO searchItemId(String id);
     ArrayList<ItemDTO> loadAllItem();
 
     @ResponseBody

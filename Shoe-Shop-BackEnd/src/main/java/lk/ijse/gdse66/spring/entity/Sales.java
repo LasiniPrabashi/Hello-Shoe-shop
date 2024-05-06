@@ -5,14 +5,16 @@ import lk.ijse.gdse66.spring.enums.Payment;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 import java.util.ArrayList;
 import java.util.List;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@ToString
 public class Sales {
     @Id
     private String oId;
@@ -28,6 +30,4 @@ public class Sales {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "oId")
     private List<SaleDetails> saleDetails = new ArrayList<>();
-
-
 }

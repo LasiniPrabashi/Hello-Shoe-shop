@@ -50,7 +50,7 @@ public class SupplierController {
     @GetMapping(path = "/searchSupplier")
     public SupplierDTO searchSupId(String code){
         return service.searchSupId(code);
-    }
+     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/SupplierIdGenerate")

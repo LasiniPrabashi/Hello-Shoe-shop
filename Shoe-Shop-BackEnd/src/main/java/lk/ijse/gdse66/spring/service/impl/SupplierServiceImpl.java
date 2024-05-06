@@ -55,8 +55,12 @@ public class SupplierServiceImpl implements SupplierService {
 
     @Override
     public SupplierDTO searchSupId(String id) {
-        return null;
-    }
+        if (!repo.existsById(id)) {
+            throw new RuntimeException("Wrong ID. Please enter Valid id..!");
+        }
+        return mapper.map(repo.findById(id).get(), SupplierDTO.class);
+
+}
 
     @Override
     public ArrayList<SupplierDTO> loadAllSupplier() {
