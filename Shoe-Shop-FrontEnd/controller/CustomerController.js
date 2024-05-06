@@ -70,7 +70,7 @@ function loadAllCus() {
                 let name = i.name;
                 let gender = i.gender
                 let level = i.level;
-                let contact = i.loyaltyDate
+                let loyaltyDate = i.loyaltyDate
                 let points = i.loyaltyPoints;
                 let dob = i.dob;
                 let address = i.address;
@@ -86,7 +86,7 @@ function loadAllCus() {
 
                 let addressColumn = ad1 + ", " + ad2 + ", " + ad3 + ", " + ad4 + ", " + ad5;
 
-                let row = "<tr><td>" + code + "</td><td>" + name + "</td><td>" + gender + "</td><td>" + level + "</td><td>" +contact+ "</td><td>" +points + "</td><td>" + dob + "</td><td>" + addressColumn + "</td><td>" + time + "</td><td>" + email + "</td><td>" + recentPurchaseDate + "</td></tr>";
+                let row = "<tr><td>" + code + "</td><td>" + name + "</td><td>" + gender + "</td><td>" + level + "</td><td>" +loyaltyDate+ "</td><td>" +points + "</td><td>" + dob + "</td><td>" + addressColumn + "</td><td>" + time + "</td><td>" + email + "</td><td>" + recentPurchaseDate + "</td></tr>";
                 $("#customerTable").append(row);
 
             }
@@ -130,7 +130,7 @@ function setTextFieldValuesC(code, name,gender,loyaltyDate,level,loyaltyPoints,d
     $("#cusId").val(code);
     $("#customer_name").val(name);
     $("#gender").val(gender);
-    $("#customer_jdlc").val(loyaltyDate);
+    $("#loyaltyDate").val(loyaltyDate);
     $("#level").val(level);
     $("#total_point").val(loyaltyPoints);
     $("#DOB").val(dob);
@@ -180,7 +180,7 @@ function blindClickEventsC() {
         $("#cusId").val(code);
         $("#customer_name").val(name);
         $("#gender").val(gender);
-        $("#customer_jdlc").val(loyaltyDate);
+        $("#loyaltyDate").val(loyaltyDate);
         $("#level").val(level);
         $("#total_point").val(loyaltyPoints);
         $("#DOB").val(dob);
@@ -200,19 +200,18 @@ function blindClickEventsC() {
 
 $("#btnUpdateCustomer").click(function () {
     let formData = $("#customerForm").serialize();
-    console.log(formData);
+
     $.ajax({
         url: "http://localhost:8080/back_End/customer",
         method: "PUT",
         data: formData,
         dataType: "json",
         success: function (res) {
-            console.log(res)
-            saveUpdateAlert("updated", res.message);
+            saveUpdateAlert("Customer updated", res.message);
             loadAllCus()
         },
-        error: function (error) {
-            unSuccessUpdateAlert("updated", JSON.parse(error.responseText).message);
+        error: function (xhr, status, error) {
+            unSuccessUpdateAlert("Customer update failed", JSON.parse(xhr.responseText).message);
         }
     });
 });

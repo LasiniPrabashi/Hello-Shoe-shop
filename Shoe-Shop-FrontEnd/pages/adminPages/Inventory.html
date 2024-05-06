@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Admin Dashboard</title>
-    <link href="../../assets/icon/logo.png" rel="icon">
+
 
     <meta content="Hello Shoe PVT" name="keywords">
     <meta content="This is Hello shoe Web Project." name="description">
@@ -121,76 +121,102 @@
                     <div class="col-12 m-3 p-1">
                         <form class="row" id="InventoryForm">
                             <section id="sec1Customer" class="col-md-4 mt-3">
-                                <div class="mb-sm-0">
-                                    <label class="form-label" for="Item_code">Item code</label>
-                                    <input type="text" name="Employee_code" class="form-control" readonly id="Item_code"
-                                           placeholder="I00-001">
+
+                                <div class="mb-sm-0 mt-3">
+                                    <label class="form-label" for="itemId">Item code</label>
+                                    <input  type="text" name="code" class="form-control" id="itemId">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="Item_Desc">Item Desc</label>
-                                    <input type="text" name="Item_code" class="form-control" id="Item_Desc"
+                                    <label class="form-label" for="itemName">Item Name</label>
+                                    <input type="text" name="name" class="form-control" id="itemName"
                                            placeholder="Item Desc">
                                     <span class="control-error"></span>
                                 </div>
-                                <div class="mb-sm-0 mt-3 col-md-11">
-                                    <label class="form-label" for="Item_pic">Item picture</label>
-                                    <input class="form-control" id="Item_pic" type="file" name="Item_pic">
-                                    <span class="control-error"></span>
-                                </div>
                                 <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="Category">Category</label>
-                                    <input type="text" name="Category" class="form-control" id="Category"
-                                           placeholder="Category">
+                                    <label class="form-label" for="qty">Item Qty</label>
+                                    <input type="text" name="qty" class="form-control" id="qty">
                                     <span class="control-error"></span>
                                 </div>
-                                <div class="mb-sm-0">
-                                    <label class="form-label" for="Supplier_Code">Supplier Code</label>
-                                    <input type="text" name="Supplier_Code" class="form-control" readonly id="Supplier_Code"
-                                           placeholder="S00-001">
-                                    <span class="control-error"></span>
-                                </div>
-                                <div class="mb-sm-0">
-                                    <label class="form-label" for="Supplier_name">Supplier name</label>
-                                    <input type="text" name="Supplier_name" class="form-control" readonly id="Supplier_name"
-                                           placeholder="Supplier name">
-                                    <span class="control-error"></span>
-                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="col me-3">
+                                        <input type="file" class="form-control" id="itemPicture">
+                                        <label class="input-group-text  w-25  text-white" for="itemPicture">Upload</label>
+                                    </div>
+
+                                    </div>
+
+
+                                <div class="col">
+                                    <label for="category" class="form-label">Category</label>
+                                    <select id="category" name="category" class="form-select" aria-label="Default select example">
+                                        <option selected></option>
+                                        <option value="MEN">Men</option>
+                                        <option value="WOMEN">Women</option>
+                                    </select>
+                                    </div>
+                                <div class="col">
+                                    <label for="size" class="form-label">Size</label>
+                                    <select id="size" name="size" class="form-select" aria-label="Default select example">
+                                        <option selected></option>
+                                        <option value="5">Size 5</option>
+                                        <option value="6">Size 6</option>
+                                        <option value="7">Size 7</option>
+                                        <option value="8">Size 8</option>
+                                        <option value="9">Size 9</option>
+                                        <option value="10">Size 10</option>
+                                    </select>
+                                    </div>
 
                             </section>
 
                             <section id="sec2Customer" class="col-md-4 mt-3">
+                                <div class="col">
+                                    <label for="supplier_id" class="form-label">Supplier Code</label>
+                                    <select value="SUPPLIER_ID" id="supplier_id" name="supplier" class="form-select" aria-label="Default select example" >
+
+                                    </select>
+                                    </div>
+
                                 <div class="mb-sm-0">
-                                    <label class="form-label" for="Unit_price">Unit price-Sale</label>
-                                    <input type="text" name="DOF" class="form-control" id="Unit_price"
+                                    <label class="form-label" for="supName">Supplier name</label>
+                                    <input type="text" name="supName" class="form-control" readonly id="supName"
+                                           placeholder="Supplier name">
+                                    <span class="control-error"></span>
+                                </div>
+
+                                <div class="mb-sm-0">
+                                    <label class="form-label" for="salePrice">Unit price-Sale</label>
+                                    <input type="text" name="salePrice" class="form-control" id="salePrice"
                                            placeholder="Unit price-Sale">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="unit_price-Buy">unit price-Buy</label>
-                                    <input type="text" name="Attached" class="form-control" id="unit_price-Buy"
+                                    <label class="form-label" for="buyPrice">unit price-Buy</label>
+                                    <input type="text" name="buyPrice" class="form-control" id="buyPrice"
                                            placeholder="unit price-Buy">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="Expected_Profit">Expected Profit</label>
-                                    <input type="text" name="Expected_Profit" class="form-control" id="Expected_Profit">
+                                    <label class="form-label" for="expectedProfit">Expected Profit</label>
+                                    <input type="text" name="expectedProfit" class="form-control" id="expectedProfit">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="Profit_margin">Profit margin</label>
-                                    <input type="text" name="Profit_margin" class="form-control" id="Profit_margin">
-                                    <span class="control-error"></span>
-                                </div>
-                                <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="Status">Status</label>
-                                    <input type="text" name="Status" class="form-control" id="Status">
+                                    <label class="form-label" for="profitMargin">Profit margin</label>
+                                    <input type="text" name="profitMargin" class="form-control" id="profitMargin">
                                     <span class="control-error"></span>
                                 </div>
 
                             </section>
 
                             <section id="sec3" class="col-md-4 mt-3">
+                                <div class="mb-sm-0 mt-3">
+                                    <label class="form-label" for="status">Status</label>
+                                    <input type="text" name="Status" class="form-control" id="status">
+                                    <span class="control-error"></span>
+                                </div>
 
                                 <!--                <div class="mb-sm-0">-->
                                 <!--                  <label for="role_Type" class="form-label">Role type</label>-->
@@ -214,8 +240,14 @@
                                 <!--                         placeholder="Enter Password">-->
                                 <!--                  <span class="control-error"></span>-->
                                 <!--                </div>-->
+
+                                <img name="itemPicture" id="imgItem" src="../../assest/img/login.jpg" height="300px" width="300px"/>
+                               <input type="file" id="imgInput" accept="image/*" style="display:none">
+
+
+
                                 <div class="mt-4 mb-3 d-grid gap-2 d-sm-flex justify-content-md-center">
-                                    <button class="btn btn-success me-md-1" id="btnAddInventory" type="button">Add</button>
+                                    <button class="btn btn-success me-md-1" id="btnSaveInventory" type="button">Save</button>
                                     <button class="btn btn-warning me-md-1" id="btnUpdateInventory" type="button">Update</button>
                                     <button type="button" class="btn btn-danger me-md-1" id="btnDeleteInventory">Delete</button>
                                 </div>
@@ -234,8 +266,8 @@
                                     <thead class="text-dark table-danger text-center  table-bordered sticky-top">
                                     <tr>
                                         <th scope="col">Item code</th>
-                                        <th scope="col">Item Desc</th>
-                                        <th scope="col">Item picture</th>
+                                        <th scope="col">Item Name</th>
+                                        <th scope="col">Item Qty</th>
                                         <th scope="col">Category</th>
                                         <th scope="col">Size</th>
                                         <th scope="col">Supplier Code</th>
@@ -283,10 +315,8 @@
 
 <!-- Template Dashboard Main JS File -->
 <script src="../../assest/js/dashboardMain.js"></script>
+<script src="../../controller/ItemController.js"></script>
 
-<!-- Controller JS File -->
-<script src="../../controller/Reg_UserController.js"></script>
-<script src="../../controller/DashBoardController.js"></script>
 
 
 <!-- Util JS File -->
