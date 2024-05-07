@@ -49,10 +49,10 @@ public class EmployeeController {
            }
 
     @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping(path = "/searchEmployee", params = {"emp_id"})
-    public Employee searchEmpId(String emp_id){
-        return service.searchEmpId(emp_id);
-    }
+    @GetMapping(path = "/searchEmployee")
+    public EmployeeDTO searchEmpId(String code){
+        return service.searchEmpId(code);
+     }
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/loadAllEmployee")
