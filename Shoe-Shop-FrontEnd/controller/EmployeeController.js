@@ -53,14 +53,15 @@ function generateEmployeeID() {
 
 $("#btnSaveEmployee").click(function (){
 
-    var image = $("#img");
+    var image = $("#imgEmp");
     var imageUrl = image.attr('src');
-    if (!imageUrl || imageUrl === '../../assets/img/login.jpg') {
-        //alert("Error");
-        //swal("Error", "Take Item Photo.!", "error");
+    if (!imageUrl || imageUrl === '../../assest/img/login.jpg') {
+        alert("Error");
     }
 
-    let formData = $("#EmployeeForm").serialize();
+    let formData = $("#EmployeeForm").serializeArray();
+    formData.push({name: "EmpPicture", value: imageUrl});
+
     console.log(formData);
     $.ajax({
         url: "http://localhost:8080/back_End/employee",
@@ -168,7 +169,6 @@ function loadAllEmployee() {
     });
 }
 
-
 $('#EProfile_pic').change(function() {
     var fileInput = $('#EProfile_pic')[0];
     var file = fileInput.files[0];
@@ -178,7 +178,7 @@ $('#EProfile_pic').change(function() {
         reader.onload = function (e) {
 
             //itmCaptureClear();
-            $('#img').attr('src', e.target.result);
+            $('#imgEmp').attr('src', e.target.result);
         };
         reader.readAsDataURL(file);
         // $("#itmClear").prop("disabled", false);
@@ -189,6 +189,7 @@ $('#EProfile_pic').change(function() {
     }
 
 });
+
 
 function blindClickEventsE() {
     $("#employeeTable").on("click", "tr", function () {
@@ -276,42 +277,57 @@ $("#btnDeleteEmployee").click(function () {
     });
 });
 
-/*
-$("#search_Id").on("keypress", function (event) {
+$("#form1").on("keypress", function (event) {
     if (event.which === 13) {
-        var search = $("#search_Id").val();
+        var search = $("#form1").val();
         $("#employeeTable").empty();
         $.ajax({
-            url: employeeBaseUrl + "employee/searchEmployee/?employee_Id="+ search,
+            url: "http://localhost:8080/back_End/employee/searchEmployee?code="+ search,
             method: "GET",
             contentType: "application/json",
             dataType: "json",
             success: function (res) {
                 console.log(res);
-                $("#Employee_code").val(res.Employee_code);
-                $("#employee_name").val(res.employee_name);
-                $("#EProfile_pic").val(res.EProfile_pic);
-                $("#E_gender").val(res.E_gender);
-                $("#E_status").val(res.E_status);
-                $("#email").val(res.email);
-                $("#nic_No").val(res.nic_No);
-                $("#license_No").val(res.license_No);
-                $("#license_Img").prop(res.license_Img);
-                $("#driverAvailability").val(res.driverAvailability);
-                $("#role_Type").val(res.user.role_Type);
-                $("#user_Name").val(res.user.user_Name);
-                $("#password").val(res.user.password);
+                if (res) {
+                    let code = res.code;
+                    let name = res.name;
+                    let gender = res.gender
+                    let status = res.status
+                    let designation = res.designation;
+                    let role = res.role;
+                    let joinDate = res.joinDate;
+                    let dob = res.birth;
+                    let branch = res.branch;
+                    let address = res.address || '';
+                    let contact = res.contact;
+                    let person = res.person;
+                    let eContact = res.emgContact;
+                    let email = res.email;
 
+                    let ad1 = address.address1 || '';
+                    let ad2 = address.address2 || '';
+                    let ad3 = address.address3 || '';
+                    let ad4 = address.address4 || '';
+                    let ad5 = address.address5 || '';
 
-                let row = "<tr><td>" + res.user_Id + "</td><td>" + res.name.firstName + "</td><td>" + res.name.lastName + "</td><td>" + res.contact_No + "</td><td>" + res.address + "</td><td>" + res.email + "</td><td>" + res.nic_No + "</td><td>" + res.license_No + "</td><td>" + res.driverAvailability + "</td><td>" + res.user.role_Type + "</td><td>" + res.user.user_Name + "</td><td>" + res.user.password + "</td></tr>";
-                $("#driverTable").append(row);
+                    let addressColumn = `${ad1}, ${ad2}, ${ad3}, ${ad4}, ${ad5}`;
+
+                    let row = "<tr><td>" + code + "</td><td>" + name + "</td><td>" + gender + "</td><td>" + status + "</td><td>" + designation + "</td><td>" + role + "</td><td>" + joinDate + "</td><td>" + dob + "</td><td>" + branch + "</td><td>" + addressColumn + "</td><td>" + contact + "</td><td>" + person + "</td><td>" + eContact + "</td><td>" + email + "</td></tr>";
+                    $("#employeeTable").append(row);
+                   blindClickEventsE()
+                }
             },
             error: function (error) {
-                loadAllDrivers();
+               loadAllEmployee()
                 let message = JSON.parse(error.responseText).message;
-                emptyMassage(message);
+                Swal.fire({
+                    icon: "error",
+                    title: "Request failed",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             }
         })
     }
 
-});*/
+});

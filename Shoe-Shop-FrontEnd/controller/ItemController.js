@@ -3,13 +3,13 @@ loadAllItem();
 
 $("#btnSaveInventory").attr('disabled', false);
 $("#btnUpdateInventory").attr('disabled', false);
-
+$("#btnDeleteInventory").attr('disabled', false);
 
 $("#btnSaveInventory").click(function() {
 
     var image = $("#imgItem");
     var imageUrl = image.attr('src');
-    if (!imageUrl || imageUrl === '../img/other/img.png') {
+    if (!imageUrl || imageUrl === '../../assest/img/login.jpg') {
         alert("Error");
     }
 
@@ -18,14 +18,14 @@ $("#btnSaveInventory").click(function() {
 
 
     $.ajax({
-        url: "http://localhost:8080/back_End/item",
-        method: "POST",
-        data: formData,
-        dataType: "json",
         success: function(res) {
             saveUpdateAlert("Item", res.message);
             loadAllItem()
         },
+        url: "http://localhost:8080/back_End/item",
+        method: "POST",
+        data: formData,
+        dataType: "json",
         error: function(xhr, status, error) {
             unSuccessUpdateAlert("Item", JSON.parse(xhr.responseText).message);
         }
@@ -176,6 +176,23 @@ $("#btnUpdateInventory").click(function () {
         },
         error: function (xhr, status, error) {
             unSuccessUpdateAlert("Item update failed", JSON.parse(xhr.responseText).message);
+        }
+    });
+});
+
+$("#btnDeleteInventory").click(function () {
+    let id = $("#itemId").val();
+    $.ajax({
+        url: "http://localhost:8080/back_End/item?code=" + id,
+        method: "DELETE",
+        dataType: "json",
+        success: function (resp) {
+            saveUpdateAlert("Supplier", resp.message);
+            loadAllItem()
+        },
+        error: function (xhr, status, error) {
+            let message = JSON.parse(xhr.responseText).message;
+            unSuccessUpdateAlert("Supplier", message);
         }
     });
 });

@@ -110,19 +110,19 @@
         </ol>
       </nav>
 
-      <div class="row mt-3">
-        <div class="card info-card">
+      <div class="row mt-3" >
+        <div class="card info-card" style="background-color: #dfe4ea ">
           <div class="search-bar mt-4">
             <div class="search-form d-flex align-items-center">
-              <input type="search" name="user_Id" id="search_Id" placeholder="Search" title="Enter search keyword">
+              <input type="search" id="form1" class="form-control" style="width: 300px" placeholder="Search"/>
               <button type="button" title="Search"><i class="bi bi-search"></i></button>
             </div>
           </div>
           <!-- End Search Bar -->
-          <div class="col-12 m-3 p-1">
+          <div class="col-12 m-3 p-1"  >
             <form class="row" id="EmployeeForm">
-              <section id="sec1Customer" class="col-md-4 mt-3">
-                <div class="mb-sm-0">
+              <section id="sec1Customer" class="col-md-4 mt-3" >
+                <div class="mb-sm-0" >
                   <label class="form-label" for="Employee_code">Employee code</label>
                   <input type="text" name="code" class="form-control" readonly id="Employee_code"
                          placeholder="E00-001">
@@ -134,11 +134,15 @@
                          placeholder="First Name">
                   <span class="control-error"></span>
                 </div>
-                <div class="mb-sm-0 mt-3 col-md-11">
-                  <label class="form-label" for="EProfile_pic">Employee Profile Pic</label>
-                  <input class="form-control" id="EProfile_pic" type="file" name="pic">
-                  <span class="control-error"></span>
-                </div>
+
+                <div class="input-group mb-3">
+                  <div class="col me-3">
+                    <input type="file" class="form-control" id="EProfile_pic">
+                    <label class="input-group-text  w-25  text-white" for="EProfile_pic">Upload</label>
+                  </div>
+
+                  </div>
+
                 <div class="mb-sm-0 mt-3">
                   <label class="form-label" for="E_gender">Gender</label>
                   <select class="form-control" id="E_gender" name="gender">
@@ -277,7 +281,8 @@
                 <!--                  <span class="control-error"></span>-->
                 <!--                </div>-->
 
-                <img id="img" src="../../assest/img/login.jpg" width="300px">
+
+                <img  name="EmpPicture" id="imgEmp" src="../../assest/img/login.jpg" height="300px" width="300px"/>
                 <input type="file" id="imgInput" accept="image/*" style="display:none">
 
                 <div class="mt-4 mb-3 d-grid gap-2 d-sm-flex justify-content-md-center">
@@ -290,14 +295,14 @@
             </form>
           </div>
         </div>
-        <div class="card info-card">
+        <div class="card info-card" style="background-color:#dfe4ea">
           <!-- View Employee Details Table Start -->
-          <div class="row mt-1 mt-md-2 mt-lg-4 mm-2 p-2 justify-content-around" style="height: 350px;">
+          <div class="row mt-1 mt-md-2 mt-lg-4 mm-2 p-2 justify-content-around" style="height: 350px;" >
             <div class="col-11 justify-content-around sectionBorder"
                  style="height: 290px; background: white">
-              <div class="table-responsive customerTableDiv overflow-auto " style="height: 300px;">
+              <div class="table-responsive customerTableDiv overflow-auto " style="height: 300px;" >
                 <table class="table table-light table-striped table-bordered table-hover">
-                  <thead class="text-dark table-danger text-center  table-bordered sticky-top">
+                  <thead class="text-black table-danger text-center  table-bordered sticky-top"  >
                   <tr>
                     <th scope="col">Employee code</th>
                     <th scope="col">Employee name</th>

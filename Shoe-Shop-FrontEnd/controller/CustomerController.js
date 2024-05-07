@@ -207,11 +207,11 @@ $("#btnUpdateCustomer").click(function () {
         data: formData,
         dataType: "json",
         success: function (res) {
-            saveUpdateAlert("Customer updated", res.message);
+            saveUpdateAlert("Item updated", res.message);
             loadAllCus()
         },
         error: function (xhr, status, error) {
-            unSuccessUpdateAlert("Customer update failed", JSON.parse(xhr.responseText).message);
+            unSuccessUpdateAlert("Item update failed", JSON.parse(xhr.responseText).message);
         }
     });
 });
