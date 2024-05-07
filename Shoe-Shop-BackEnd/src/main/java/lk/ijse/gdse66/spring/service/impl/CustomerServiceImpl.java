@@ -3,7 +3,10 @@ package lk.ijse.gdse66.spring.service.impl;
 import jakarta.transaction.Transactional;
 import lk.ijse.gdse66.spring.dto.CustomDTO;
 import lk.ijse.gdse66.spring.dto.CustomerDTO;
+import lk.ijse.gdse66.spring.dto.EmployeeDTO;
+import lk.ijse.gdse66.spring.dto.ItemDTO;
 import lk.ijse.gdse66.spring.entity.Customer;
+import lk.ijse.gdse66.spring.entity.Employee;
 import lk.ijse.gdse66.spring.repo.CustomerRepo;
 import lk.ijse.gdse66.spring.service.CustomerService;
 import org.modelmapper.ModelMapper;
@@ -54,9 +57,14 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public CustomerDTO searchCusId(String id) {
-        return null;
+    public CustomerDTO searchCusId(String code, String name) {
+        Customer customer = customerRepo.findEmployeeByCodeOrName(code, name);
+        if (customer == null) {
+            throw new RuntimeException("Employee not found with code: " + code + " or name: " + name);
+        }
+        return mapper.map(customer, CustomerDTO.class);
     }
+
 
     @Override
     public CustomDTO customerIdGenerate() {
@@ -64,8 +72,8 @@ public class CustomerServiceImpl implements CustomerService {
     }
 
     @Override
-    public CustomerDTO getSumCustomer() {
-        return null;
+    public CustomDTO getSumCustomer() {
+        return new CustomDTO(customerRepo.getSumCustomer());
 
              }
 
