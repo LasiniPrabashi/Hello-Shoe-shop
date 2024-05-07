@@ -239,31 +239,33 @@ $("#form1").on("keypress", function (event) {
         var search = $("#form1").val();
         $("#inventoryTable").empty();
         $.ajax({
-            url: "http://localhost:8080/back_End/item/searchItem?code="+ search,
+            url: "http://localhost:8080/back_End/item/searchItem",
             method: "GET",
+            data: {
+                code: search, // Provide the 'code' parameter
+                name: search  // Provide the 'name' parameter
+            },
             contentType: "application/json",
             dataType: "json",
             success: function (res) {
                 console.log(res);
                 if (res) {
-                    let code = i.code;
-                    let name = i.name;
-                    let qty = i.qty;
+                    let code = res.code;
+                    let name = res.name;
+                    let qty = res.qty;
                     let itemPicture = i.itemPicture || '';
-                    let category = i.category;
-                    let size = i.size;
-                    let supplier = i.supplier;
-                    let supName = i.supName;
-                    let salePrice = i.salePrice;
-                    let buyPrice = i.buyPrice;
-                    let expectedProfit = i.expectedProfit;
-                    let profitMargin = i.profitMargin;
-                    let status = i.status;
-
-
-                    // Access address properties correctly
+                    let category = res.category;
+                    let size = res.size;
+                    let supplier = res.supplier;
+                    let supName = res.supName;
+                    let salePrice = res.salePrice;
+                    let buyPrice = res.buyPrice;
+                    let expectedProfit = res.expectedProfit;
+                    let profitMargin = res.profitMargin;
+                    let status = res.status;
 
                     let supId = supplier.code;
+
                     let row = `<tr><td>${code}</td><td>${name}</td><td>${qty}</td><td>${category}</td><td>${size}</td><td>${supId}</td><td>${supName}</td><td>${salePrice}</td><td>${buyPrice}</td><td>${expectedProfit}</td><td>${profitMargin}</td><td>${status}</td></tr>`;
                     $("#inventoryTable").append(row);
                     blindClickEventsI()
@@ -279,7 +281,78 @@ $("#form1").on("keypress", function (event) {
                     timer: 1500
                 });
             }
-        })
+        });
     }
-
 });
+
+/*$("#form3").on("keypress", function (event) {
+    if (event.which === 13) {
+        var search = $("#form").val();
+        $("#inventoryTable").empty();
+        $.ajax({
+            url: "http://localhost:8080/back_End/item/searchItem?code=" + search,
+            method: "GET",
+            contentType: "application/json",
+            dataType: "json",
+            data: { supplier_Id: search }, // Send the search parameter as an object
+            success: function (res) {
+                console.log(res);
+                if (res) {
+                    let code = res.code;
+                    let name = res.name;
+                    let qty = res.qty;
+                    let itemPicture = i.itemPicture || '';
+                    let category = res.category;
+                    let size = res.size;
+                    let supplier = res.supplier;
+                    let supName = res.supName;
+                    let salePrice = res.salePrice;
+                    let buyPrice = res.buyPrice;
+                    let expectedProfit = res.expectedProfit;
+                    let profitMargin = res.profitMargin;
+                    let status = res.status;
+
+                    let supId = supplier.code;
+
+                    let row = `<tr><td>${code}</td><td>${name}</td><td>${qty}</td><td>${category}</td><td>${size}</td><td>${supId}</td><td>${supName}</td><td>${salePrice}</td><td>${buyPrice}</td><td>${expectedProfit}</td><td>${profitMargin}</td><td>${status}</td></tr>`;
+                    $("#inventoryTable").append(row);
+                    blindClickEventsI()
+                } else {
+                    // No data found
+                    console.log("No data found");
+                    // Handle this case if required
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("Error:", error);
+                loadAllItem() // Load all employees as fallback
+                let message = xhr.responseJSON ? xhr.responseJSON.message : "An error occurred";
+                emptyMassage(message);
+            }
+        });
+    }
+});*/
+
+function profitMargin(){
+    let salePrice = parseFloat($("#salePrice").val());
+    let buyPrice = parseFloat($("#buyPrice").val());
+
+    if (!isNaN(salePrice) && !isNaN(buyPrice)) {
+        let profit = salePrice - buyPrice;
+        let profitMargin = Math.round((profit / salePrice) * 100);
+        profitMargin = profitMargin.toFixed(1);
+        $("#expectedProfit").val(profit);
+        $("#profitMargin").val(profitMargin);
+    } else {
+        $("#expectedProfit").val('');
+        $("#profitMargin").val('');
+    }
+}
+
+// Attach an event listener to the buyPrice input field
+$("#buyPrice").on("input", function() {
+    // Call the profitMargin function
+    profitMargin();
+});
+
+

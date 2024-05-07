@@ -238,6 +238,63 @@ $("#form2").on("keypress", function (event) {
         var search = $("#form2").val();
         $("#customerTable").empty();
         $.ajax({
+            url: "http://localhost:8080/back_End/customer/searchCustomer",
+            method: "GET",
+            data: {
+                code: search, // Provide the 'code' parameter
+                name: search  // Provide the 'name' parameter
+            },
+            contentType: "application/json",
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                if (res) {
+                    let code = res.code;
+                    let name = res.name;
+                    let gender = res.gender;
+                    let level = res.level;
+                    let loyaltyDate = res.loyaltyDate;
+                    let points = res.points;
+                    let dob = res.dob;
+                    let address = res.address || '';
+                    let time = res.contact;
+                    let email = res.email;
+                    let recentPurchaseDate = res.recentPurchaseDate;
+
+                    let ad1 = address.address1 || '';
+                    let ad2 = address.address2 || '';
+                    let ad3 = address.address3 || '';
+                    let ad4 = address.address4 || '';
+                    let ad5 = address.address5 || '';
+
+                    // Concatenate address properties
+                    let addressColumn = `${ad1}, ${ad2}, ${ad3}, ${ad4}, ${ad5}`;
+
+                    let row = "<tr><td>" + code + "</td><td>" + name  + "</td><td>" + gender + "</td><td>" + level + "</td><td>" + loyaltyDate + "</td><td>" + points + "</td><td>" + dob + "</td><td>" + addressColumn + "</td><td>" + time + "</td><td>" + email + "</td><td>" + recentPurchaseDate +"</td></tr>";
+                    $("#customerTable").append(row);
+                    blindClickEventsC()
+                }
+            },
+            error: function (error) {
+                loadAllCus()
+                let message = JSON.parse(error.responseText).message;
+                Swal.fire({
+                    icon: "error",
+                    title: "Request failed",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            }
+        });
+    }
+});
+
+
+/*$("#form2").on("keypress", function (event) {
+    if (event.which === 13) {
+        var search = $("#form2").val();
+        $("#customerTable").empty();
+        $.ajax({
             url: "http://localhost:8080/back_End/customer/searchCustomer?code=" + search,
             method: "GET",
             contentType: "application/json",
@@ -284,7 +341,7 @@ $("#form2").on("keypress", function (event) {
             }
         });
     }
-});
+});*/
 
 
 
