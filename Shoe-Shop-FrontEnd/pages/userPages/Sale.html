@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User DashBoard</title>
+    <title>Title</title>
 
     <meta content="hello shoe pvt" name="keywords">
     <meta content="This is hello shoe pvt web project" name="description">
@@ -24,24 +24,21 @@
     <link rel="stylesheet" href="../../assest/vendor/bootstrap-5.2.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assest/css/UserDashBord.css">
 
-
 </head>
 <body>
 
-<!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
 
-    <div class="d-flex align-items-center justify-content-between">
-        <a href="../UserDashBoard.html" class="logo d-flex align-items-center">
-            <span class="d-none d-lg-block">Hello <span>Shoe.</span></span>
-        </a>
-        <i class="bi bi-list toggle-sidebar-btn"></i>
-    </div>
-
+  <div class="d-flex align-items-center justify-content-between">
+    <a href="../UserDashBoard.html" class="logo d-flex align-items-center">
+      <span class="d-none d-lg-block">Hello <span>Shoe.</span></span>
+    </a>
+    <i class="bi bi-list toggle-sidebar-btn"></i>
+  </div>
 
 </header>
 
-<!-- ======= Sidebar ======= -->
+
 <aside id="sidebar" class="sidebar">
 
     <ul class="sidebar-nav" id="sidebar-nav">
@@ -103,70 +100,6 @@
     </ul>
 
 </aside>
-
-<main id="main" class="main">
-
-    <section class="container-fluid mt-3" id="manageEmployee">
-        <nav>
-            <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="../UserDashBoard.html">Home</a></li>
-                <li class="breadcrumb-item active">Details / Inventory</li>
-            </ol>
-        </nav>
-
-        <div class="row mt-3" >
-            <div class="card info-card" style="background-color: #dfe4ea ">
-                <div class="search-bar mt-4">
-                    <div class="search-form d-flex align-items-center">
-                        <input type="search" id="form1" class="form-control" style="width: 300px" placeholder="Search"/>
-                        <button type="button" title="Search"><i class="bi bi-search"></i></button>
-                    </div>
-                </div>
-            </div>
-            <div class="card info-card" style="background-color: #dfe4ea ">
-                <!-- View Customer Details Table Start -->
-                <div class="row mt-1 mt-md-2 mt-lg-4 mm-2 p-2 justify-content-around" style="height: 350px;">
-                    <div class="col-11 justify-content-around sectionBorder"
-                         style="height: 290px; background: white">
-                        <div class="table-responsive customerTableDiv overflow-auto " style="height: 300px;">
-                            <table class="table table-light table-striped table-bordered table-hover">
-                                <thead class="text-dark table-danger text-center  table-bordered sticky-top">
-                                <tr>
-                                    <th scope="col">Item code</th>
-                                    <th scope="col">Item Name</th>
-                                    <th scope="col">Item Qty</th>
-                                    <th scope="col">Category</th>
-                                    <th scope="col">Size</th>
-                                    <th scope="col">Supplier Code</th>
-                                    <th scope="col">Supplier name</th>
-                                    <th scope="col">Unit price-Sale</th>
-                                    <th scope="col">unit price-Buy</th>
-                                    <th scope="col">Expected Profit</th>
-                                    <th scope="col">Profit margin</th>
-                                    <th scope="col">Status</th>
-                                </tr>
-                                </thead>
-                                <tbody id="inventoryTable"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-
-
-</main>
-
-<script src="../../assest/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="../../assest/vendor/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
-<script src="../../assest/vendor/jQuery/jquery-3.6.1.min.js"></script>
-<script src="../../assest/vendor/sweetalert2-11.6.16/sweetalert2.all.min.js"></script>
-
-<script src="../../UserController/InventoryView.js"></script>
 
 </body>
 </html>

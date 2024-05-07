@@ -71,7 +71,7 @@ function loadAllCus() {
                 let gender = i.gender
                 let level = i.level;
                 let loyaltyDate = i.loyaltyDate
-                let points = i.points;
+                let loyaltyPoints = i.loyaltyPoints;
                 let dob = i.dob;
                 let address = i.address;
                 let time = i.contact;
@@ -86,7 +86,7 @@ function loadAllCus() {
 
                 let addressColumn = ad1 + ", " + ad2 + ", " + ad3 + ", " + ad4 + ", " + ad5;
 
-                let row = "<tr><td>" + code + "</td><td>" + name + "</td><td>" + gender + "</td><td>" + level + "</td><td>" +loyaltyDate+ "</td><td>" +points + "</td><td>" + dob + "</td><td>" + addressColumn + "</td><td>" + time + "</td><td>" + email + "</td><td>" + recentPurchaseDate + "</td></tr>";
+                let row = "<tr><td>" + code + "</td><td>" + name + "</td><td>" + gender + "</td><td>" + level + "</td><td>" +loyaltyDate+ "</td><td>" +loyaltyPoints + "</td><td>" + dob + "</td><td>" + addressColumn + "</td><td>" + time + "</td><td>" + email + "</td><td>" + recentPurchaseDate + "</td></tr>";
                 $("#customerTable").append(row);
 
             }
@@ -102,6 +102,7 @@ function loadAllCus() {
 
     });
 }
+
 
 $("#btnSaveCustomer").click(function (){
     $('#recentPurchaseDate').val(`${formattedDate} ${formattedTime}`);
@@ -125,6 +126,7 @@ $("#btnSaveCustomer").click(function (){
         }
     });
 });
+
 
 function setTextFieldValuesC(code, name,gender,loyaltyDate,level,loyaltyPoints,dob,address1,address2,address3,address4,address5,contact,email,recentPurchaseDate) {
     $("#cusId").val(code);
@@ -254,7 +256,7 @@ $("#form2").on("keypress", function (event) {
                     let gender = res.gender;
                     let level = res.level;
                     let loyaltyDate = res.loyaltyDate;
-                    let points = res.points;
+                    let loyaltyPoints = res.loyaltyPoints;
                     let dob = res.dob;
                     let address = res.address || '';
                     let time = res.contact;
@@ -270,7 +272,7 @@ $("#form2").on("keypress", function (event) {
                     // Concatenate address properties
                     let addressColumn = `${ad1}, ${ad2}, ${ad3}, ${ad4}, ${ad5}`;
 
-                    let row = "<tr><td>" + code + "</td><td>" + name  + "</td><td>" + gender + "</td><td>" + level + "</td><td>" + loyaltyDate + "</td><td>" + points + "</td><td>" + dob + "</td><td>" + addressColumn + "</td><td>" + time + "</td><td>" + email + "</td><td>" + recentPurchaseDate +"</td></tr>";
+                    let row = "<tr><td>" + code + "</td><td>" + name  + "</td><td>" + gender + "</td><td>" + level + "</td><td>" + loyaltyDate + "</td><td>" + loyaltyPoints + "</td><td>" + dob + "</td><td>" + addressColumn + "</td><td>" + time + "</td><td>" + email + "</td><td>" + recentPurchaseDate +"</td></tr>";
                     $("#customerTable").append(row);
                     blindClickEventsC()
                 }
