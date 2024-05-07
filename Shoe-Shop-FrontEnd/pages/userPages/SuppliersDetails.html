@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../../assest/vendor/bootstrap-5.2.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assest/css/UserDashBord.css">
 
+
 </head>
 <body>
 <!-- ======= Header ======= -->
@@ -115,43 +116,41 @@
             </ol>
         </nav>
 
-        <div class="row mt-3">
-            <div class="card info-card">
-                <div class="search-bar mt-4">
-                    <div class="search-form d-flex align-items-center">
-                        <input type="search" name="user_Id" id="search_Id" placeholder="Search" title="Enter search keyword">
-                        <button type="button" title="Search"><i class="bi bi-search"></i></button>
-                    </div>
+        <div class="card info-card" style="background-color: #dfe4ea ">
+            <div class="search-bar mt-4">
+                <div class="search-form d-flex align-items-center">
+                    <input type="search" id="form1" class="form-control" style="width: 300px" placeholder="Search"/>
+                    <button type="button" title="Search"><i class="bi bi-search"></i></button>
                 </div>
+            </div>
 
             </div>
             <div class="card info-card">
 
-                <div class="row mt-1 mt-md-2 mt-lg-4 mm-2 p-2 justify-content-around" style="height: 350px;">
-                    <div class="col-11 justify-content-around sectionBorder"
-                         style="height: 290px; background: white">
-                        <div class="table-responsive customerTableDiv overflow-auto " style="height: 300px;">
-                            <table class="table table-light table-striped table-bordered table-hover">
-                                <thead class="text-dark table-danger text-center  table-bordered sticky-top">
-                                <tr>
-                                    <th scope="col">Supplier code</th>
-                                    <th scope="col">Supplier name</th>
-                                    <th scope="col">Category </th>
-                                    <th scope="col">Address Line 01 </th>
-                                    <th scope="col">Address Line 02</th>
-                                    <th scope="col">Address Line 03</th>
-                                    <th scope="col">Address Line 04</th>
-                                    <th scope="col">Address Line 05</th>
-                                    <th scope="col">Address Line 06</th>
-                                    <th scope="col">Contact No.1</th>
-                                    <th scope="col">Contact No.2</th>
-                                    <th scope="col">email</th>
+                <div class="card info-card" style="background-color: #dfe4ea ">
+                    <!-- View Customer Details Table Start -->
+                    <div class="row mt-1 mt-md-2 mt-lg-4 mm-2 p-2 justify-content-around" style="height: 350px;">
+                        <div class="col-11 justify-content-around sectionBorder"
+                             style="height: 290px; background: white">
+                            <div class="table-responsive customerTableDiv overflow-auto " style="height: 300px;">
+                                <table class="table table-light table-striped table-bordered table-hover">
+                                    <thead class="text-dark table-danger text-center  table-bordered sticky-top">
+                                    <tr>
+                                        <th scope="col">Supplier code</th>
+                                        <th scope="col">Supplier name</th>
+                                        <th scope="col">Category</th>
+                                        <th scope="col">Address</th>
+                                        <th scope="col">ContactNo.1</th>
+                                        <th scope="col">ContactNo.2</th>
+                                        <th scope="col">Email</th>
                                     </tr>
-                                </thead>
-                                <tbody id="suppliersDetailsTable"></tbody>
-                            </table>
+                                    </thead>
+                                    <tbody id="suppliersTable"></tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
+
                 </div>
 
             </div>
@@ -185,9 +184,8 @@
 
 <!-- Template Dashboard Main JS File -->
 <script src="../../assest/js/dashboardMain.js"></script>
+<script src="../../UserController/SupplierView.js"></script>
 
-<!-- Controller JS File -->
-<script src="../controller/DashBoardController.js"></script>
 
 </body>
 </html>

@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>User DashBoard</title>
+    <title>Title</title>
 
     <meta content="hello shoe pvt" name="keywords">
     <meta content="This is hello shoe pvt web project" name="description">
@@ -27,6 +27,7 @@
 
 </head>
 <body>
+
 <!-- ======= Header ======= -->
 <header id="header" class="header fixed-top d-flex align-items-center">
 
@@ -39,7 +40,6 @@
 
 
 </header>
-
 
 <!-- ======= Sidebar ======= -->
 <aside id="sidebar" class="sidebar">
@@ -104,15 +104,13 @@
 
 </aside>
 
-
-<!-- ======= Main ======= -->
 <main id="main" class="main">
 
     <section class="container-fluid mt-3" id="manageEmployee">
         <nav>
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="../UserDashBoard.html">Home</a></li>
-                <li class="breadcrumb-item active">Details / Employee</li>
+                <li class="breadcrumb-item active">Details / Inventory</li>
             </ol>
         </nav>
 
@@ -125,34 +123,30 @@
                     </div>
                 </div>
             </div>
-
-            <div class="card info-card" style="background-color:#dfe4ea">
-                <!-- View Employee Details Table Start -->
-                <div class="row mt-1 mt-md-2 mt-lg-4 mm-2 p-2 justify-content-around" style="height: 350px;" >
+            <div class="card info-card" style="background-color: #dfe4ea ">
+                <!-- View Customer Details Table Start -->
+                <div class="row mt-1 mt-md-2 mt-lg-4 mm-2 p-2 justify-content-around" style="height: 350px;">
                     <div class="col-11 justify-content-around sectionBorder"
                          style="height: 290px; background: white">
-                        <div class="table-responsive customerTableDiv overflow-auto " style="height: 300px;" >
+                        <div class="table-responsive customerTableDiv overflow-auto " style="height: 300px;">
                             <table class="table table-light table-striped table-bordered table-hover">
-                                <thead class="text-black table-danger text-center  table-bordered sticky-top"  >
+                                <thead class="text-dark table-danger text-center  table-bordered sticky-top">
                                 <tr>
-                                    <th scope="col">Employee code</th>
-                                    <th scope="col">Employee name</th>
-                                    <!--<th scope="col">Employee Profile Pic</th>-->
-                                    <th scope="col">Gender</th>
+                                    <th scope="col">Item code</th>
+                                    <th scope="col">Item Name</th>
+                                    <th scope="col">Item Qty</th>
+                                    <th scope="col">Category</th>
+                                    <th scope="col">Size</th>
+                                    <th scope="col">Supplier Code</th>
+                                    <th scope="col">Supplier name</th>
+                                    <th scope="col">Unit price-Sale</th>
+                                    <th scope="col">unit price-Buy</th>
+                                    <th scope="col">Expected Profit</th>
+                                    <th scope="col">Profit margin</th>
                                     <th scope="col">Status</th>
-                                    <th scope="col">Designation</th>
-                                    <th scope="col">Access Role</th>
-                                    <th scope="col">DOB</th>
-                                    <th scope="col">Date of Join</th>
-                                    <th scope="col">branch</th>
-                                    <th scope="col">Address</th>
-                                    <th scope="col">ContactNo</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Inform In Emergency</th>
-                                    <th scope="col">Emergency Contact</th>
                                 </tr>
                                 </thead>
-                                <tbody id="employeeTable"></tbody>
+                                <tbody id="inventoryTable"></tbody>
                             </table>
                         </div>
                     </div>
@@ -166,32 +160,13 @@
 
 
 </main>
-<!-- End #main -->
 
-<!-- ======= Footer ======= -->
-<footer id="footer" class="footer">
-    <div class="copyright">
-        &copy; Copyright <strong><span>Hello Shoe PVT</span></strong>. All Rights Reserved
-    </div>
-    <div class="credits">
-        Designed by <a href="">Lasini Prabashi</a>
-    </div>
-</footer><!-- End Footer -->
-
-<a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
-        class="bi bi-arrow-up-short"></i></a>
-
-<!-- Vendor JS Files -->
 <script src="../../assest/vendor/apexcharts/apexcharts.min.js"></script>
 <script src="../../assest/vendor/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../assest/vendor/jQuery/jquery-3.6.1.min.js"></script>
 <script src="../../assest/vendor/sweetalert2-11.6.16/sweetalert2.all.min.js"></script>
 
-
-<!-- Template Dashboard Main JS File -->
-<script src="../../assest/js/dashboardMain.js"></script>
-<script src="../../UserController/EmployeeView.js"></script>
-
+<script src="../../UserController/InventoryView.js"></script>
 
 </body>
 </html>
