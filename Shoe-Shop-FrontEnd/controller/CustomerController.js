@@ -71,7 +71,7 @@ function loadAllCus() {
                 let gender = i.gender
                 let level = i.level;
                 let loyaltyDate = i.loyaltyDate
-                let points = i.loyaltyPoints;
+                let points = i.points;
                 let dob = i.dob;
                 let address = i.address;
                 let time = i.contact;
@@ -107,7 +107,7 @@ $("#btnSaveCustomer").click(function (){
     $('#recentPurchaseDate').val(`${formattedDate} ${formattedTime}`);
     let formData = $("#customerForm").serialize();
     let cusId = $("#cusId").val();
-    formData += "&code="+cusId;
+    /*formData += "&code="+cusId;*/
     console.log(formData);
     $.ajax({
         url: "http://localhost:8080/back_End/customer",
@@ -232,6 +232,60 @@ $("#btnDeleteCustomer").click(function () {
         }
     });
 });
+
+$("#form2").on("keypress", function (event) {
+    if (event.which === 13) {
+        var search = $("#form2").val();
+        $("#customerTable").empty();
+        $.ajax({
+            url: "http://localhost:8080/back_End/customer/searchCustomer?code=" + search,
+            method: "GET",
+            contentType: "application/json",
+            dataType: "json",
+            data: { supplier_Id: search }, // Send the search parameter as an object
+            success: function (res) {
+                console.log(res);
+                if (res) {
+                    let code = res.code;
+                    let name = res.name;
+                    let gender = res.gender;
+                    let level = res.level;
+                    let loyaltyDate = res.loyaltyDate;
+                    let points = res.points;
+                    let dob = res.dob;
+                    let address = res.address || '';
+                    let time = res.contact;
+                    let email = res.email;
+                    let recentPurchaseDate = res.recentPurchaseDate;
+
+                    let ad1 = address.address1 || '';
+                    let ad2 = address.address2 || '';
+                    let ad3 = address.address3 || '';
+                    let ad4 = address.address4 || '';
+                    let ad5 = address.address5 || '';
+
+                    // Concatenate address properties
+                    let addressColumn = `${ad1}, ${ad2}, ${ad3}, ${ad4}, ${ad5}`;
+
+                    let row = "<tr><td>" + code + "</td><td>" + name  + "</td><td>" + gender + "</td><td>" + level + "</td><td>" + loyaltyDate + "</td><td>" + points + "</td><td>" + dob + "</td><td>" + addressColumn + "</td><td>" + time + "</td><td>" + email + "</td><td>" + recentPurchaseDate +"</td></tr>";
+                    $("#customerTable").append(row);
+                    blindClickEventsC()
+                } else {
+                    // No data found
+                    console.log("No data found");
+                    // Handle this case if required
+                }
+            },
+            error: function (xhr, status, error) {
+                console.error("Error:", error);
+                loadAllCus() // Load all employees as fallback
+                let message = xhr.responseJSON ? xhr.responseJSON.message : "An error occurred";
+                emptyMassage(message);
+            }
+        });
+    }
+});
+
 
 
 
