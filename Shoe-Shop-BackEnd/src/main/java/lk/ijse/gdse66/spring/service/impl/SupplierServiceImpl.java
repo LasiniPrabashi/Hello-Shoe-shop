@@ -2,8 +2,8 @@ package lk.ijse.gdse66.spring.service.impl;
 
 import jakarta.transaction.Transactional;
 import lk.ijse.gdse66.spring.dto.CustomDTO;
+import lk.ijse.gdse66.spring.dto.CustomerDTO;
 import lk.ijse.gdse66.spring.dto.SupplierDTO;
-import lk.ijse.gdse66.spring.entity.Employee;
 import lk.ijse.gdse66.spring.entity.Supplier;
 import lk.ijse.gdse66.spring.repo.SupplierRepo;
 import lk.ijse.gdse66.spring.service.SupplierService;
@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -53,14 +54,13 @@ public class SupplierServiceImpl implements SupplierService {
         repo.deleteById(id);
     }
 
-    @Override
-    public SupplierDTO searchSupId(String id) {
-        if (!repo.existsById(id)) {
-            throw new RuntimeException("Wrong ID. Please enter Valid id..!");
+    public SupplierDTO searchSupId(String code, String name) {
+        Supplier supplier = repo.findEmployeeByCodeOrName(code, name);
+        if (supplier == null) {
+            throw new RuntimeException("Employee not found with code: " + code + " or name: " + name);
         }
-        return mapper.map(repo.findById(id).get(), SupplierDTO.class);
-
-}
+        return mapper.map(supplier, SupplierDTO.class);
+    }
 
     @Override
     public ArrayList<SupplierDTO> loadAllSupplier() {
@@ -77,4 +77,13 @@ public class SupplierServiceImpl implements SupplierService {
     public SupplierDTO getSumSupplier() {
         return null;
     }
+
+    @Override
+    public SupplierDTO searchSupId(String code) {
+        Optional<Supplier> supplier = repo.findById(code);
+        if (supplier == null) {
+            throw new RuntimeException("supplier not found with code: " + code);
+        }
+        return mapper.map(supplier, SupplierDTO.class);
+        }
 }

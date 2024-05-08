@@ -1,6 +1,7 @@
 package lk.ijse.gdse66.spring.controller;
 
 import lk.ijse.gdse66.spring.dto.CustomDTO;
+import lk.ijse.gdse66.spring.dto.EmployeeDTO;
 import lk.ijse.gdse66.spring.dto.SupplierDTO;
 import lk.ijse.gdse66.spring.embeded.Address;
 import lk.ijse.gdse66.spring.service.SupplierService;
@@ -46,11 +47,11 @@ public class SupplierController {
         return new ResponseUtil("200", "Successfully Deleted. :"+ code,null);
     }
 
-    @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/searchSupplier")
-    public SupplierDTO searchSupId(String code){
-        return service.searchSupId(code);
-     }
+    @ResponseStatus(HttpStatus.CREATED)
+    public SupplierDTO searchSupId(@RequestParam String code, @RequestParam String name){
+        return service.searchSupId(code, name); // Adjusted method call
+    }
 
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/SupplierIdGenerate")
@@ -58,5 +59,11 @@ public class SupplierController {
     CustomDTO supplierIdGenerate() {
         return service.supplierIdGenerate();
       }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/searchSup")
+    public SupplierDTO searchSupId(String code){
+        return service.searchSupId(code);
+       }
 
 }
