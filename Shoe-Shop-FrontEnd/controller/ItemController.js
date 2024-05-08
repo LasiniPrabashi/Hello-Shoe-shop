@@ -104,7 +104,7 @@ $.ajax({
 $("#supplier_id").click(function () {
     var search = $("#supplier_id").val();
     $.ajax({
-        url: "http://localhost:8080/back_End/supplier/searchSupplier?code="+ search,
+        url: "http://localhost:8080/back_End/supplier/searchSup?code="+ search,
         method: "GET",
         contentType: "application/json",
         dataType: "json",
@@ -238,12 +238,13 @@ $("#form1").on("keypress", function (event) {
     if (event.which === 13) {
         var search = $("#form1").val();
         $("#inventoryTable").empty();
+
         $.ajax({
             url: "http://localhost:8080/back_End/item/searchItem",
             method: "GET",
             data: {
-                code: search, // Provide the 'code' parameter
-                name: search  // Provide the 'name' parameter
+                code: search,
+                name: search
             },
             contentType: "application/json",
             dataType: "json",
@@ -252,10 +253,9 @@ $("#form1").on("keypress", function (event) {
                 if (res) {
                     let code = res.code;
                     let name = res.name;
-                    let qty = res.qty;
-                    let itemPicture = i.itemPicture || '';
-                    let category = res.category;
-                    let size = res.size;
+                    let qty = res.shoeType;
+                    let category = res.size;
+                    let size = res.qty;
                     let supplier = res.supplier;
                     let supName = res.supName;
                     let salePrice = res.salePrice;
@@ -264,26 +264,38 @@ $("#form1").on("keypress", function (event) {
                     let profitMargin = res.profitMargin;
                     let status = res.status;
 
-                    let supId = supplier.code;
+                    let supId = supplier_id.code;
 
-                    let row = `<tr><td>${code}</td><td>${name}</td><td>${qty}</td><td>${category}</td><td>${size}</td><td>${supId}</td><td>${supName}</td><td>${salePrice}</td><td>${buyPrice}</td><td>${expectedProfit}</td><td>${profitMargin}</td><td>${status}</td></tr>`;
+
+                    let row = "<tr>" +
+                        "<td>" + code + "</td>" +
+                        "<td>" + name + "</td>" +
+                        "<td>" + category + "</td>" +
+                        "<td>" + size + "</td>" +
+                        "<td>" + qty + "</td>" +
+                        "<td>" + supId + "</td>" +
+                        "<td>" + supName + "</td>" +
+                        "<td>" + salePrice + "</td>" +
+                        "<td>" + buyPrice + "</td>" +
+                        "<td>" + expectedProfit + "</td>" +
+                        "<td>" + profitMargin + "</td>" +
+                        "<td>" + status + "</td>" +
+                        "</tr>";
                     $("#inventoryTable").append(row);
-                    blindClickEventsI()
+                    blindClickEventsI();
                 }
             },
             error: function (error) {
-                loadAllItem()
+                loadAllItem();
                 let message = JSON.parse(error.responseText).message;
-                Swal.fire({
-                    icon: "error",
-                    title: "Request failed",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
+                console.error("Error:", message);
             }
         });
     }
 });
+
+
+
 
 /*$("#form3").on("keypress", function (event) {
     if (event.which === 13) {

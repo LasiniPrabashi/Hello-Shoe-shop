@@ -45,3 +45,63 @@ function loadAllItemD() {
     });
 
 }
+
+$("#form1").on("keypress", function (event) {
+    if (event.which === 13) {
+        var search = $("#form1").val();
+        $("#inventoryTable").empty();
+
+        $.ajax({
+            url: "http://localhost:8080/back_End/item/searchItem",
+            method: "GET",
+            data: {
+                code: search,
+                name: search
+            },
+            contentType: "application/json",
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                if (res) {
+                    let code = res.code;
+                    let name = res.name;
+                    let qty = res.shoeType;
+                    let category = res.size;
+                    let size = res.qty;
+                    let supplier = res.supplier;
+                    let supName = res.supName;
+                    let salePrice = res.salePrice;
+                    let buyPrice = res.buyPrice;
+                    let expectedProfit = res.expectedProfit;
+                    let profitMargin = res.profitMargin;
+                    let status = res.status;
+
+                    let supId = supplier_id.code;
+
+
+                    let row = "<tr>" +
+                        "<td>" + code + "</td>" +
+                        "<td>" + name + "</td>" +
+                        "<td>" + category + "</td>" +
+                        "<td>" + size + "</td>" +
+                        "<td>" + qty + "</td>" +
+                        "<td>" + supId + "</td>" +
+                        "<td>" + supName + "</td>" +
+                        "<td>" + salePrice + "</td>" +
+                        "<td>" + buyPrice + "</td>" +
+                        "<td>" + expectedProfit + "</td>" +
+                        "<td>" + profitMargin + "</td>" +
+                        "<td>" + status + "</td>" +
+                        "</tr>";
+                    $("#inventoryTable").append(row);
+                    blindClickEventsI();
+                }
+            },
+            error: function (error) {
+                loadAllItem();
+                let message = JSON.parse(error.responseText).message;
+                console.error("Error:", message);
+            }
+        });
+    }
+});
