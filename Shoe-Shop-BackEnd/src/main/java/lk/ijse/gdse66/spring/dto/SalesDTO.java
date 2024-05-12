@@ -1,15 +1,20 @@
 package lk.ijse.gdse66.spring.dto;
 
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
+import lk.ijse.gdse66.spring.entity.Customer;
+import lk.ijse.gdse66.spring.entity.SaleDetails;
 import lk.ijse.gdse66.spring.enums.Payment;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@ToString
 public class SalesDTO {
     private String oId;
     private String purchaseDate;
@@ -17,5 +22,9 @@ public class SalesDTO {
     private Payment paymentMethod;
     private Integer totalPoints;
     private String cashier;
+    private Customer customerName;
+
+    private List<SaleDetails> saleDetails = new ArrayList<>();
+
 
 }

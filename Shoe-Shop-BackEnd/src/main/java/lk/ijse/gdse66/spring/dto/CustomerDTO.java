@@ -24,4 +24,5 @@ public class CustomerDTO {
     private String contact;
     private String email;
     private String recentPurchaseDate;
+
 }

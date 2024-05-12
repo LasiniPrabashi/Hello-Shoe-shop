@@ -1,9 +1,6 @@
 package lk.ijse.gdse66.spring.controller;
 
-
-import lk.ijse.gdse66.spring.dto.EmployeeDTO;
 import lk.ijse.gdse66.spring.dto.ItemDTO;
-import lk.ijse.gdse66.spring.dto.SupplierDTO;
 import lk.ijse.gdse66.spring.entity.Supplier;
 import lk.ijse.gdse66.spring.service.ItemService;
 import lk.ijse.gdse66.spring.util.ResponseUtil;
