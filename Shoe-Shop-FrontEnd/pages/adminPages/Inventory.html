@@ -25,7 +25,6 @@
     <link rel="stylesheet" href="../../assest/css/dashboardStyle.css">
 
 
-
 </head>
 <body>
 <!-- ======= Header ======= -->
@@ -54,31 +53,38 @@
         </li>
 
         <li class="nav-item">
-            <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-                <i class="bi bi-kanban"></i><span>Manage</span><i class="bi bi-chevron-down ms-auto"></i>
+            <a class="nav-link collapsed" href="../adminPages/Customer.html">
+                <i class="bi bi-grid"></i>
+                <span>Customer</span>
             </a>
-            <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-                <li>
-                    <a href="../adminPages/Customer.html">
-                        <i class="bi bi-circle"></i><span>Customer</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../adminPages/Employee.html">
-                        <i class="bi bi-circle"></i><span>Employee</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../adminPages/Suppliers.html">
-                        <i class="bi bi-circle"></i><span>Suppliers</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="../adminPages/Inventory.html">
-                        <i class="bi bi-circle"></i><span>Inventory</span>
-                    </a>
-                </li>
-            </ul>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="../adminPages/Employee.html">
+                <i class="bi bi-grid"></i>
+                <span>Employee</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="../adminPages/Inventory.html">
+                <i class="bi bi-grid"></i>
+                <span>Inventory</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="../adminPages/Suppliers.html">
+                <i class="bi bi-grid"></i>
+                <span>Suppliers</span>
+            </a>
+        </li>
+
+        <li class="nav-item">
+            <a class="nav-link collapsed" href="../adminPages/userSetting.html">
+                <i class="bi bi-grid"></i>
+                <span>UserSetting</span>
+            </a>
         </li>
 
 
@@ -99,15 +105,15 @@
 
     <!-- ======= Customer Manage ======= -->
     <div class="pageTitle" id="pagetwo">
-        <h1>Manage</h1>
+        <h1>Inventory Manage</h1>
 
         <section class="container-fluid mt-3" id="manageInventory">
-            <nav>
+            <!--<nav>
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="../AdminDashBoard.html">Home</a></li>
                     <li class="breadcrumb-item active">Manage / Inventory</li>
                 </ol>
-            </nav>
+            </nav>-->
 
             <div class="row mt-3" >
                 <div class="card info-card" style="background-color: #dfe4ea ">
@@ -129,8 +135,7 @@
                                 </div>
                                 <div class="mb-sm-0 mt-3">
                                     <label class="form-label" for="itemName">Item Name</label>
-                                    <input type="text" name="name" class="form-control" id="itemName"
-                                           placeholder="Item Desc">
+                                    <input type="text" name="name" class="form-control" id="itemName">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
@@ -138,14 +143,6 @@
                                     <input type="text" name="qty" class="form-control" id="qty">
                                     <span class="control-error"></span>
                                 </div>
-
-                                <div class="input-group mb-3">
-                                    <div class="col me-3">
-                                        <input type="file" class="form-control" id="itemPicture">
-                                        <label class="input-group-text  w-25  text-white" for="itemPicture">Upload</label>
-                                    </div>
-
-                                    </div>
 
 
                                 <div class="col">
@@ -169,6 +166,8 @@
                                     </select>
                                     </div>
 
+
+
                             </section>
 
                             <section id="sec2Customer" class="col-md-4 mt-3">
@@ -177,7 +176,7 @@
                                     <select value="SUPPLIER_ID" id="supplier_id" name="supplier" class="form-select" aria-label="Default select example" >
 
                                     </select>
-                                    </div>
+                                </div>
 
                                 <div class="mb-sm-0">
                                     <label class="form-label" for="supName">Supplier name</label>
@@ -188,14 +187,12 @@
 
                                 <div class="mb-sm-0">
                                     <label class="form-label" for="salePrice">Unit price-Sale</label>
-                                    <input type="text" name="salePrice" class="form-control" id="salePrice"
-                                           placeholder="Unit price-Sale">
+                                    <input type="text" name="salePrice" class="form-control" id="salePrice">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
                                     <label class="form-label" for="buyPrice">unit price-Buy</label>
-                                    <input type="text" name="buyPrice" class="form-control" id="buyPrice"
-                                           placeholder="unit price-Buy">
+                                    <input type="text" name="buyPrice" class="form-control" id="buyPrice">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
@@ -209,6 +206,7 @@
                                     <span class="control-error"></span>
                                 </div>
 
+
                             </section>
 
                             <section id="sec3" class="col-md-4 mt-3">
@@ -216,6 +214,14 @@
                                     <label class="form-label" for="status">Status</label>
                                     <input type="text" name="Status" class="form-control" id="status">
                                     <span class="control-error"></span>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <div class="col me-3">
+                                        <input type="file" class="form-control" id="itemPicture">
+                                        <label class="input-group-text  w-25  text-white" for="itemPicture">Upload</label>
+                                    </div>
+
                                 </div>
 
                                 <!--                <div class="mb-sm-0">-->
@@ -294,15 +300,6 @@
 </main>
 
 
-<!-- ======= Footer ======= -->
-<footer id="footer" class="footer">
-    <div class="copyright">
-        &copy; Copyright <strong><span>Hello Shoe pvt</span></strong>. All Rights Reserved
-    </div>
-    <div class="credits">
-        Designed by <a href="">Lasini Prabashi</a>
-    </div>
-</footer>
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>

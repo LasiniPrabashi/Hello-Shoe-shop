@@ -25,7 +25,6 @@
   <link rel="stylesheet" href="../../assest/css/dashboardStyle.css">
 
 
-
 </head>
 <body>
 <!-- ======= Header ======= -->
@@ -54,31 +53,39 @@
     </li>
 
     <li class="nav-item">
-      <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
-        <i class="bi bi-kanban"></i><span>Manage</span><i class="bi bi-chevron-down ms-auto"></i>
+      <a class="nav-link collapsed" href="../adminPages/Customer.html">
+        <i class="bi bi-grid"></i>
+        <span>Customer</span>
       </a>
-      <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
-        <li>
-          <a href="../adminPages/Customer.html">
-            <i class="bi bi-circle"></i><span>Customer</span>
-          </a>
-        </li>
-        <li>
-          <a href="../adminPages/Employee.html">
-            <i class="bi bi-circle"></i><span>Employee</span>
-          </a>
-        </li>
-        <li>
-          <a href="../adminPages/Suppliers.html">
-            <i class="bi bi-circle"></i><span>Suppliers</span>
-          </a>
-        </li>
-        <li>
-          <a href="../adminPages/Customer.html">
-            <i class="bi bi-circle"></i><span>Inventory</span>
-          </a>
-        </li>
-      </ul>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="../adminPages/Employee.html">
+        <i class="bi bi-grid"></i>
+        <span>Employee</span>
+      </a>
+    </li>
+
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="../adminPages/Inventory.html">
+        <i class="bi bi-grid"></i>
+        <span>Inventory</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="../adminPages/Suppliers.html">
+        <i class="bi bi-grid"></i>
+        <span>Suppliers</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="../adminPages/userSetting.html">
+        <i class="bi bi-grid"></i>
+        <span>UserSetting</span>
+      </a>
     </li>
 
 
@@ -100,15 +107,15 @@
 
   <!-- ======= Customer Manage ======= -->
   <div class="pageTitle" id="pagetwo">
-    <h1>Manage</h1>
+    <h1>Employee Manage</h1>
 
     <section class="container-fluid mt-3" id="manageEmployee">
-      <nav>
+    <!--  <nav>
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="../AdminDashBoard.html">Home</a></li>
-          <li class="breadcrumb-item active">Manage / Inventory</li>
+          &lt;!&ndash;<li class="breadcrumb-item"><a href="../AdminDashBoard.html">Home</a></li>&ndash;&gt;
+&lt;!&ndash;          <li class="breadcrumb-item active">Manage / Inventory</li>&ndash;&gt;
         </ol>
-      </nav>
+      </nav>-->
 
       <div class="row mt-3" >
         <div class="card info-card" style="background-color: #dfe4ea ">
@@ -128,20 +135,13 @@
                          placeholder="E00-001">
                   <span class="control-error"></span>
                 </div>
+
                 <div class="mb-sm-0 mt-3">
                   <label class="form-label" for="employee_name">Employee name</label>
-                  <input type="text" name="name" class="form-control" id="employee_name"
-                         placeholder="First Name">
+                  <input type="text" name="name" class="form-control" id="employee_name">
                   <span class="control-error"></span>
                 </div>
 
-                <div class="input-group mb-3">
-                  <div class="col me-3">
-                    <input type="file" class="form-control" id="EProfile_pic">
-                    <label class="input-group-text  w-25  text-white" for="EProfile_pic">Upload</label>
-                  </div>
-
-                  </div>
 
                 <div class="mb-sm-0 mt-3">
                   <label class="form-label" for="E_gender">Gender</label>
@@ -155,8 +155,7 @@
                 </div>
                 <div class="mb-sm-0 mt-3">
                   <label class="form-label" for="E_status">Status</label>
-                  <input type="text" name="status" class="form-control" id="E_status"
-                         placeholder="status">
+                  <input type="text" name="status" class="form-control" id="E_status">
                   <span class="control-error"></span>
                 </div>
                 <div class="mb-sm-0 mt-3">
@@ -188,45 +187,44 @@
                          placeholder="DOB">
                   <span class="control-error"></span>
                 </div>
-              </section>
-
-              <section id="sec2Customer" class="col-md-4 mt-3">
                 <div class="mb-sm-0">
                   <label class="form-label" for="E_DOF">Date of Join</label>
                   <input type="date" name="joinDate" class="form-control" id="E_DOF"
                          placeholder="Date of Join">
                   <span class="control-error"></span>
                 </div>
+              </section>
+
+              <section id="sec2Customer" class="col-md-4 mt-3">
                 <div class="mb-sm-0 mt-3">
                   <label class="form-label" for="E_Attached">Attached Branch</label>
-                  <input type="text" name="branch" class="form-control" id="E_Attached"
-                         placeholder="Attached Branch">
+                  <input type="text" name="branch" class="form-control" id="E_Attached">
                   <span class="control-error"></span>
                 </div>
                 <div class="mb-sm-0 mt-3">
-                  <label class="form-label" for="E_address_1">Address 01</label>
+                  <label class="form-label" for="E_address_1">No Or Name</label>
                   <input type="text" name="address1" class="form-control" id="E_address_1">
                   <span class="control-error"></span>
                 </div>
                 <div class="mb-sm-0 mt-3">
-                  <label class="form-label" for="E_address_2">Address 02</label>
+                  <label class="form-label" for="E_address_2">Lane</label>
                   <input type="text" name="address2" class="form-control" id="E_address_2">
                   <span class="control-error"></span>
                 </div>
                 <div class="mb-sm-0 mt-3">
-                  <label class="form-label" for="E_address_3">Address 03</label>
+                  <label class="form-label" for="E_address_3">City</label>
                   <input type="text" name="address3" class="form-control" id="E_address_3">
                   <span class="control-error"></span>
                 </div>
 
                 <div class="mb-sm-0 mt-3">
-                  <label class="form-label" for="E_address_4">Address 04</label>
+                  <label class="form-label" for="E_address_4">State</label>
                   <input type="text" name="address4" class="form-control" id="E_address_4">
                   <span class="control-error"></span>
                 </div>
 
                 <div class="mb-sm-0 mt-3">
-                  <label class="form-label" for="E_address_5">Address 05</label>
+                  <label class="form-label" for="E_address_5">Code</label>
                   <input type="text" name="address5" class="form-control" id="E_address_5">
                   <span class="control-error"></span>
                 </div>
@@ -236,15 +234,16 @@
                          placeholder=" ContactNo">
                   <span class="control-error"></span>
                 </div>
-              </section>
-
-              <section id="sec3" class="col-md-4 mt-3">
                 <div class="mb-sm-0">
                   <label class="form-label" for="E_email">Email</label>
                   <input type="text" name="email" class="form-control" id="E_email"
                          placeholder="Email">
                   <span class="control-error"></span>
                 </div>
+              </section>
+
+              <section id="sec3" class="col-md-4 mt-3">
+
                 <div class="mb-sm-0">
                   <label class="form-label" for="ICE">Inform in case of
                     emergency</label>
@@ -257,6 +256,14 @@
                   <input type="text" name="EmgContact" class="form-control" id="E_E_contact"
                          placeholder="Contact">
                   <span class="control-error"></span>
+                </div>
+
+                <div class="input-group mb-3">
+                  <div class="col me-3">
+                    <input type="file" class="form-control" id="EProfile_pic">
+                    <label class="input-group-text  w-25  text-black" for="EProfile_pic">Upload</label>
+                  </div>
+
                 </div>
                 <!--                <div class="mb-sm-0">-->
                 <!--                  <label for="role_Type" class="form-label">Role type</label>-->
@@ -334,15 +341,6 @@
 </main>
 
 
-<!-- ======= Footer ======= -->
-<footer id="footer" class="footer">
-  <div class="copyright">
-    &copy; Copyright <strong><span>Hello Shoe pvt</span></strong>. All Rights Reserved
-  </div>
-  <div class="credits">
-    Designed by <a href="">Lasini Prabashi</a>
-  </div>
-</footer>
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
@@ -358,9 +356,7 @@
 <script src="../../util/alert.js"></script>
 <script src="../../util/validation.js"></script>
 
-<!-- Controller JS File -->
-<!--<script src="../../controller/Reg_UserController.js"></script>-->
-<!--<script src="../../controller/DashBoardController.js"></script>-->
+
 
 
 
