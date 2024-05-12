@@ -5,7 +5,7 @@
 
 body {
     font-family: "Open Sans", sans-serif;
-    background: #50727B;
+    background: white;
     color: #444444;
 }
 
@@ -385,7 +385,7 @@ h6 {
 }
 
 .logo span span {
-    color: #ce1212;
+    color: #378CE7;
 }
 
 .header {
@@ -709,7 +709,7 @@ form .btn {
 }
 
 .sidebar-nav .nav-item {
-    margin-bottom: 5px;
+    margin-bottom: 30px;
 }
 
 .sidebar-nav .nav-heading {

@@ -387,7 +387,7 @@ h6 {
 }
 
 .logo span span {
-    color: #ce1212;
+    color: #378CE7;
 }
 
 .header {
@@ -727,9 +727,9 @@ form .btn {
     align-items: center;
     font-size: 15px;
     font-weight: 600;
-    color: #4154f1;
+    color: black;
     transition: 0.3s;
-    background: #f6f9ff;
+    background: #dfe4ea;
     padding: 10px 15px;
     border-radius: 4px;
 }
@@ -756,6 +756,7 @@ form .btn {
 
 .sidebar-nav .nav-link:hover i {
     color: #4154f1;
+
 }
 
 .sidebar-nav .nav-link .bi-chevron-down {
