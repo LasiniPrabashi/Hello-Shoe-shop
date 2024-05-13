@@ -1,9 +1,6 @@
 package lk.ijse.gdse66.spring.controller;
 
-import lk.ijse.gdse66.spring.dto.CustomDTO;
-import lk.ijse.gdse66.spring.dto.CustomerDTO;
-import lk.ijse.gdse66.spring.dto.EmployeeDTO;
-import lk.ijse.gdse66.spring.dto.ItemDTO;
+import lk.ijse.gdse66.spring.dto.*;
 import lk.ijse.gdse66.spring.embeded.Address;
 import lk.ijse.gdse66.spring.service.CustomerService;
 import lk.ijse.gdse66.spring.util.ResponseUtil;
@@ -69,4 +66,11 @@ public class CustomerController {
     public CustomDTO getSumCustomer(){
         return service.getSumCustomer();
     }
+
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/searchCus")
+    public CustomerDTO searchCustId(String code){
+        return service.searchCustId(code);
+    }
+
 }

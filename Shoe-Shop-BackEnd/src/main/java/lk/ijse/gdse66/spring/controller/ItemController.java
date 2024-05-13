@@ -1,5 +1,6 @@
 package lk.ijse.gdse66.spring.controller;
 
+import lk.ijse.gdse66.spring.dto.CustomerDTO;
 import lk.ijse.gdse66.spring.dto.ItemDTO;
 import lk.ijse.gdse66.spring.entity.Supplier;
 import lk.ijse.gdse66.spring.service.ItemService;
@@ -74,7 +75,11 @@ public class ItemController {
         return itemService.searchItemId(code, name); // Adjusted method call
     }
 
-
+    @ResponseStatus(HttpStatus.CREATED)
+    @GetMapping(path = "/searchItemId")
+    public ItemDTO searchItemId(String code){
+        return itemService.searchItemId(code);
+    }
 
 
 }

@@ -1,6 +1,7 @@
 package lk.ijse.gdse66.spring.service;
 
 import lk.ijse.gdse66.spring.dto.CustomDTO;
+import lk.ijse.gdse66.spring.dto.CustomerDTO;
 import lk.ijse.gdse66.spring.dto.EmployeeDTO;
 import lk.ijse.gdse66.spring.dto.ItemDTO;
 import lk.ijse.gdse66.spring.entity.Employee;
@@ -17,7 +18,7 @@ public interface ItemService {
    /* ItemDTO searchItemId(String id);*/
    ItemDTO searchItemId(String code, String name);
     ArrayList<ItemDTO> loadAllItem();
-
+    ItemDTO searchItemId(String id);
     @ResponseBody
     CustomDTO getSumItem();
 }

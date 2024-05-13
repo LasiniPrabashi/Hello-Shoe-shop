@@ -14,11 +14,13 @@ public class SalesController {
     @Autowired
     private SaleService service;
 
+
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/SaleIdGenerate")
     public @ResponseBody
     CustomDTO SaleIdGenerate(){
         return service.SaleIdGenerate();
+
   }
 
 

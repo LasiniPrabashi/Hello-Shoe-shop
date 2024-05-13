@@ -2,8 +2,10 @@ package lk.ijse.gdse66.spring.service.impl;
 
 import jakarta.transaction.Transactional;
 import lk.ijse.gdse66.spring.dto.CustomDTO;
+import lk.ijse.gdse66.spring.dto.CustomerDTO;
 import lk.ijse.gdse66.spring.dto.EmployeeDTO;
 import lk.ijse.gdse66.spring.dto.ItemDTO;
+import lk.ijse.gdse66.spring.entity.Customer;
 import lk.ijse.gdse66.spring.entity.Employee;
 import lk.ijse.gdse66.spring.entity.Item;
 import lk.ijse.gdse66.spring.repo.ItemRepo;
@@ -14,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -72,6 +75,16 @@ public class ItemServiceImpl implements ItemService {
         return mapper.map(repo.findAll(), new TypeToken<ArrayList<Item>>() {
         }.getType());
     }
+
+    @Override
+    public ItemDTO searchItemId(String code) {
+        Optional<Item> item = repo.findById(code);
+        if (item == null) {
+            throw new RuntimeException("supplier not found with code: " + code);
+        }
+        return mapper.map(item, ItemDTO.class);
+    }
+
 
     @Override
     public CustomDTO getSumItem() {

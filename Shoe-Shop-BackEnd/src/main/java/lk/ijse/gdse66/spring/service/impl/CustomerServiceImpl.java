@@ -1,12 +1,10 @@
 package lk.ijse.gdse66.spring.service.impl;
 
 import jakarta.transaction.Transactional;
-import lk.ijse.gdse66.spring.dto.CustomDTO;
-import lk.ijse.gdse66.spring.dto.CustomerDTO;
-import lk.ijse.gdse66.spring.dto.EmployeeDTO;
-import lk.ijse.gdse66.spring.dto.ItemDTO;
+import lk.ijse.gdse66.spring.dto.*;
 import lk.ijse.gdse66.spring.entity.Customer;
 import lk.ijse.gdse66.spring.entity.Employee;
+import lk.ijse.gdse66.spring.entity.Supplier;
 import lk.ijse.gdse66.spring.repo.CustomerRepo;
 import lk.ijse.gdse66.spring.service.CustomerService;
 import org.modelmapper.ModelMapper;
@@ -15,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -56,6 +55,7 @@ public class CustomerServiceImpl implements CustomerService {
         }.getType());
     }
 
+
     @Override
     public CustomerDTO searchCusId(String code, String name) {
         Customer customer = customerRepo.findEmployeeByCodeOrName(code, name);
@@ -78,6 +78,14 @@ public class CustomerServiceImpl implements CustomerService {
              }
 
 
+    @Override
+    public CustomerDTO searchCustId(String code) {
+        Optional<Customer> customer = customerRepo.findById(code);
+        if (customer == null) {
+            throw new RuntimeException("supplier not found with code: " + code);
+        }
+        return mapper.map(customer, CustomerDTO.class);
+    }
 
 
 }
