@@ -1,25 +1,26 @@
 
 loadAllCus()
 
-// Get the current date and time
-let currentDateTime = new Date();
+function updateDateTime() {
+    let currentDateTime = new Date();
 
-// Get the date components
-let year = currentDateTime.getFullYear();
-let month = currentDateTime.getMonth() + 1;
-let day = currentDateTime.getDate();
+    let year = currentDateTime.getFullYear();
+    let month = currentDateTime.getMonth() + 1;
+    let day = currentDateTime.getDate();
 
-// Get the time components
-let hours = currentDateTime.getHours();
-let minutes = currentDateTime.getMinutes();
-let seconds = currentDateTime.getSeconds();
+    let hours = currentDateTime.getHours();
+    let minutes = currentDateTime.getMinutes();
+    let seconds = currentDateTime.getSeconds();
 
-// Format the date and time as strings
-let formattedDate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-let formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    let formattedDate = `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+    let formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
-// Set the value of the input field with id 'cusName' to the formatted date and time
-$('#recentPurchaseDate').val(`${formattedDate} ${formattedTime}`);
+    $('#recentPurchaseDate').val(`${formattedDate} ${formattedTime}`);
+}
+
+updateDateTime();
+
+setInterval(updateDateTime,1000);
 
 $("#btnSaveCustomer").attr('disabled', false);
 $("#btnUpdateCustomer").attr('disabled', false);
@@ -105,7 +106,6 @@ function loadAllCus() {
 
 
 $("#btnSaveCustomer").click(function (){
-    $('#recentPurchaseDate').val(`${formattedDate} ${formattedTime}`);
     let formData = $("#customerForm").serialize();
     let cusId = $("#cusId").val();
     /*formData += "&code="+cusId;*/
