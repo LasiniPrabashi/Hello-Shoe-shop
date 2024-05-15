@@ -1,11 +1,11 @@
 
 loadAllSales()
-
+loadAllOrderDetails()
 
 function loadAllSales() {
     $("#tblOrder").empty();
     $.ajax({
-        url:  "http://localhost:8080/back_End/sales/LoadSales",
+        url:  "http://localhost:8080/back_End/sales/LoadOrders",
         method: "GET",
         dataType: "json",
         success: function (res) {
@@ -13,14 +13,14 @@ function loadAllSales() {
 
             for (let i of res.data) {
                 let oid = i.oid;
-                let date = i.date;
+                let purchaseDate = i.purchaseDate;
                 let total = i.total;
-                let Payment = i.Payment;
-                let totalPoint = i.point;
-                let cashierName = i.cashierName;
-                let customerName = i.cusName;
+                let paymentMethod = i.paymentMethod;
+                let totalPoints = i.totalPoints;
+                let cashier = i.cashier;
+                let cusName = i.cusName;
 
-                let row = "<tr><td>" + oid + "</td><td>" + date + "</td><td>" + total + "</td><td>" + Payment + "</td><td>"+ totalPoint + "</td><td>" + cashierName + "</td><td>" + customerName + "</td></tr>";
+                let row = "<tr><td>" + oid + "</td><td>" + purchaseDate + "</td><td>" + total + "</td><td>" + paymentMethod + "</td><td>"+ totalPoints + "</td><td>" + cashier + "</td><td>" + cusName + "</td></tr>";
                 $("#tblOrder").append(row);
             }
             console.log(res.message);
@@ -32,11 +32,10 @@ function loadAllSales() {
     });
 }
 
-/*
 function loadAllOrderDetails() {
     $("#tblOrderDetails").empty();
     $.ajax({
-        url: "http://localhost:8080/back_End/sales",
+        url: "http://localhost:8080/back_End/sales/LoadOrderDetails",
         method: "GET",
         dataType: "json",
         success: function (res) {
@@ -58,4 +57,6 @@ function loadAllOrderDetails() {
         }
 
     });
-}*/
+}
+
+

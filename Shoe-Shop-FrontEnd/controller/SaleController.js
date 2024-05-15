@@ -6,7 +6,7 @@ $("#btnPurchase").attr('disabled', true);
 
 function generateOrderID() {
     $.ajax({
-        url: "http://localhost:8080/back_End/sales/SaleIdGenerate",
+        url: "http://localhost:8080/back_End/sales/OrderIdGenerate",
         method: "GET",
         contentType: "application/json",
         dataType: "json",
@@ -264,26 +264,42 @@ $("#btnPurchase").click(function () {
         SaleDetails.push(detailOb);
     }
     var saleId = $("#oid").val();
+
+    if (!saleId) {
+        alert("Order ID must not be null");
+        return;
+    }
+
+    var customerCode = $("#Customer_Id").val();
+    var customerName = $("#cusName").val();
+
+    if (!customerCode || !customerName) {
+        alert("Customer information must not be null");
+        return;
+    }
     var date = $("#oDate").val();
-    var total = $("#txtTotal").val();
     var payment = $("#Payment").val();
+    var total = $("#txtTotal").val();
     var totalPoint = $("#point").val();
     var cashierName = $("#cashierName").val();
-    var customerName = $("#cusName option:selected").text();
 
 
     var orderOb = {
-        "oid": saleId,
-        "date": date,
-        "txtTotal": total,
-        "payment":payment,
-        "Point":totalPoint,
-        "cashierName": cashierName,
-        "cusName": customerName,
-        "SaleDetails": SaleDetails
-    }
-    console.log(orderOb)
-    console.log(SaleDetails)
+        oid: saleId,
+        purchaseDate: date,
+        total: total,
+        paymentMethod:payment,
+        cashier: cashierName,
+        customer: {
+            code: customerCode,
+            name: customerName
+        },
+        saleDetails: SaleDetails
+    };
+
+
+   /* console.log(orderOb)
+    console.log(SaleDetails)*/
 
     $.ajax({
         url: "http://localhost:8080/back_End/sales",
@@ -308,3 +324,4 @@ $("#btnPurchase").click(function () {
     $("#btnAddToCart").attr('disabled', true);
     total = 0;
 });
+
