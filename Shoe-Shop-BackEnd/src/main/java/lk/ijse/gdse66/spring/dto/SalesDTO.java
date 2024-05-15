@@ -1,7 +1,5 @@
 package lk.ijse.gdse66.spring.dto;
 
-import lk.ijse.gdse66.spring.entity.Customer;
-import lk.ijse.gdse66.spring.entity.SaleDetails;
 import lk.ijse.gdse66.spring.enums.Payment;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,15 +14,15 @@ import java.util.List;
 @NoArgsConstructor
 @ToString
 public class SalesDTO {
-    private String oId;
+    private String oid;
     private String purchaseDate;
     private Double total;
     private Payment paymentMethod;
     private Integer totalPoints;
     private String cashier;
-    private Customer customerName;
+    private CustomerDTO customer;
 
-    private List<SaleDetails> saleDetails = new ArrayList<>();
+    private List<SaleDetailsDTO> saleDetails = new ArrayList<>();
 
 
 }
