@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="../../assest/css/UserDashBord.css">
 
 
+
 </head>
 <body>
 <!-- ======= Header ======= -->
@@ -205,11 +206,19 @@
                             <div class="col-12 col-md-6 col-lg-6 mt-4 ">
                                 <button class="btn btn-primary rounded-2" id="btnAddToCart" type="button">Add To Cart</button>
                             </div>
+                        </div>
 
+                            <div class="row mt-1">
                             <div class="col-12 col-md-6 col-lg-6">
                                 <label class="fw-bold" for="cashierName">Cashier Name</label>
-                                <input class="form-control border-dark"  id="cashierName" type="text" style="width: 360px">
+                                <input class="form-control border-dark"  id="cashierName" type="text" >
                                 </div>
+
+                            <div class="col-12 col-md-6 col-lg-6">
+                                <label class="fw-bold" for="point">Point</label>
+                                <input class="form-control border-dark"  id="point" type="text">
+                                </div>
+
                         </div>
                     </div>
                     <!-- Order Item Details Section End -->
@@ -275,7 +284,7 @@
 
                          <div class="row mt-1">
                         <div class="d-grid col-12 col-md-5 mt-4">
-                            <button class="btn btn-success rounded-2 bold sectionBorder" id="purchase" type="button">Purchase
+                            <button class="btn btn-success rounded-2 bold sectionBorder" id="btnPurchase" type="button">Purchase
                             </button>
                         </div>
 
@@ -346,7 +355,8 @@
 <!-- Template Dashboard Main JS File -->
 <script src="../../assest/js/dashboardMain.js"></script>
 <script src="../../controller/SaleController.js"></script>
-
+<script src="../../UserController/SaleViewController.js"></script>
+<script src="../../util/alert.js"></script>
 
 </body>
 </html>

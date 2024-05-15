@@ -1,6 +1,9 @@
 
 generateOrderID();
 
+$("#btnPurchase").attr('disabled', true);
+/*$("#btnAddToCart").attr('disabled', true);*/
+
 function generateOrderID() {
     $.ajax({
         url: "http://localhost:8080/back_End/sales/SaleIdGenerate",
@@ -136,6 +139,7 @@ function updateDateTime() {
     let formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
 
     $('#oDate').val(`${formattedDate} ${formattedTime}`);
+
 }
 
 updateDateTime();
@@ -231,4 +235,76 @@ $(document).on("change keyup blur", "#txtDiscount", function () {
     subTotal = total - discount;
 
     $("#txtSubTotal").val(subTotal);
+});
+
+$(document).on("change keyup blur", "#txtCash", function () {
+    let cash = $("#txtCash").val();
+    let balance = cash - subTotal;
+    $("#txtBalance").val(balance);
+    if (balance < 0) {
+        $("#lblCheckSubtotal").parent().children('strong').text(balance + " : plz enter valid Balance");
+        $("#btnPurchase").attr('disabled', true);
+    } else {
+        $("#lblCheckSubtotal").parent().children('strong').text("");
+        $("#btnPurchase").attr('disabled', false);
+    }
+});
+
+
+$("#btnPurchase").click(function () {
+
+    var SaleDetails = [];
+    for (let i = 0; i < $("#tblAddToCart tr").length; i++) {
+        var detailOb = {
+            oid: $("#oid").val(),
+            itemCode: $("#tblAddToCart tr").children(':nth-child(1)')[i].innerText,
+            qty: $("#tblAddToCart tr").children(':nth-child(4)')[i].innerText,
+            unitPrice: $("#tblAddToCart tr").children(':nth-child(5)')[i].innerText
+        }
+        SaleDetails.push(detailOb);
+    }
+    var saleId = $("#oid").val();
+    var date = $("#oDate").val();
+    var total = $("#txtTotal").val();
+    var payment = $("#Payment").val();
+    var totalPoint = $("#point").val();
+    var cashierName = $("#cashierName").val();
+    var customerName = $("#cusName option:selected").text();
+
+
+    var orderOb = {
+        "oid": saleId,
+        "date": date,
+        "txtTotal": total,
+        "payment":payment,
+        "Point":totalPoint,
+        "cashierName": cashierName,
+        "cusName": customerName,
+        "SaleDetails": SaleDetails
+    }
+    console.log(orderOb)
+    console.log(SaleDetails)
+
+    $.ajax({
+        url: "http://localhost:8080/back_End/sales",
+        method: "POST",
+        contentType: "application/json",
+        dataType: "json",
+        data: JSON.stringify(orderOb),
+        success: function (res) {
+            saveUpdateAlert("Sale", res.message);
+            generateOrderID();
+
+        },
+        error: function (error) {
+            let message = JSON.parse(error.responseText).message;
+            unSuccessUpdateAlert("Sale", message);
+        }
+    });
+
+ /*   clearDetails();*/
+    $("#tblAddToCart").empty();
+    $("#btnPurchase").attr('disabled', true);
+    $("#btnAddToCart").attr('disabled', true);
+    total = 0;
 });
