@@ -40,10 +40,7 @@
                 </div>
                 <form class="user m-2 p-3" id="loginForm">
                   <div class="form-group">
-                    <select class="form-control" id="role_Type" name="role_Type" style="border-radius: 30px;height: 3.5em">
-                      <option value="ADMIN">ADMIN</option>
-                      <option value="DRIVER">USER</option>
-                    </select>
+
                   </div>
                   <div class="form-group mt-4">
                     <input type="text" class="form-control form-control-user"
@@ -64,7 +61,11 @@
                   <button id="btnLogin" type="button" class="btn btn-dark btn-user btn-block">
                     Login
                   </button>
-
+                  <a class="nav-link " href="SingUp.html">
+                  <button type="button" class="btn btn-dark btn-user btn-block">
+                    SingUp
+                  </button>
+                    </a>
                 </form>
                 <hr>
                 <div class="text-center">
@@ -88,6 +89,7 @@
 <script src="../assest/vendor/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
 <script src="../assest/vendor/jQuery/jquery-3.6.1.min.js"></script>
 <script src="../assest/vendor/sweetalert2-11.6.16/sweetalert2.all.min.js"></script>
+<script src="../controller/loginController.js"></script>
 
 </body>
 </html>

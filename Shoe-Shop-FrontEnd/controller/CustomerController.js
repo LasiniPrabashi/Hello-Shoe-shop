@@ -1,5 +1,6 @@
-
-loadAllCus()
+$(document).ready(function () {
+    loadAllCus();
+});
 
 function updateDateTime() {
     let currentDateTime = new Date();
@@ -59,9 +60,14 @@ function generateCustomerID() {
 
 function loadAllCus() {
     $("#customerTable").empty();
+    performAuthenticatedRequest();
+    const accessToken = localStorage.getItem('accessToken');
     $.ajax({
         url: "http://localhost:8080/back_End/customer",
         method: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
         dataType: "json",
         success: function (res) {
             console.log(res);
@@ -104,16 +110,44 @@ function loadAllCus() {
     });
 }
 
+$("#btnUpdateCustomer").click(function () {
+    let formData = $("#customerForm").serialize();
+    performAuthenticatedRequest();
+    const accessToken = localStorage.getItem('accessToken');
+    $.ajax({
+        url: "http://localhost:8080/back_End/customer",
+        method: "PUT",
+        data: formData,
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
+        dataType: "json",
+        contentType: "application/x-www-form-urlencoded",
+        success: function (res) {
+            saveUpdateAlert("Item updated", res.message);
+            loadAllCus()
+        },
+        error: function (xhr, status, error) {
+            unSuccessUpdateAlert("Item update failed", JSON.parse(xhr.responseText).message);
+        }
+    });
+
+});
 
 $("#btnSaveCustomer").click(function (){
     let formData = $("#customerForm").serialize();
     let cusId = $("#cusId").val();
     /*formData += "&code="+cusId;*/
     console.log(formData);
+    performAuthenticatedRequest();
+    const accessToken = localStorage.getItem('accessToken');
     $.ajax({
         url: "http://localhost:8080/back_End/customer",
         method: "POST",
         data: formData,
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
         dataType: "json",
         success: function (res) {
             console.log(res)
@@ -199,24 +233,6 @@ function blindClickEventsC() {
 
     $("#btnSaveCustomer").attr('disabled',false);
 }
-
-$("#btnUpdateCustomer").click(function () {
-    let formData = $("#customerForm").serialize();
-
-    $.ajax({
-        url: "http://localhost:8080/back_End/customer",
-        method: "PUT",
-        data: formData,
-        dataType: "json",
-        success: function (res) {
-            saveUpdateAlert("Item updated", res.message);
-            loadAllCus()
-        },
-        error: function (xhr, status, error) {
-            unSuccessUpdateAlert("Item update failed", JSON.parse(xhr.responseText).message);
-        }
-    });
-});
 
 $("#btnDeleteCustomer").click(function () {
     let id = $("#cusId").val();

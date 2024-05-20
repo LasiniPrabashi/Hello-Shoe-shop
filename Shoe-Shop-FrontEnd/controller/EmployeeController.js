@@ -60,7 +60,7 @@ $("#btnSaveEmployee").click(function (){
     }
 
     let formData = $("#EmployeeForm").serializeArray();
-    formData.push({name: "EmpPicture", value: imageUrl});
+    formData.push({name: "pic", value: imageUrl});
 
     console.log(formData);
     $.ajax({

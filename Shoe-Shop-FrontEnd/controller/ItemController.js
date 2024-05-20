@@ -20,7 +20,7 @@ $("#btnSaveInventory").click(function() {
     $.ajax({
         success: function(res) {
             saveUpdateAlert("Item", res.message);
-            loadAllItem()
+            loadAllItem();
         },
         url: "http://localhost:8080/back_End/item",
         method: "POST",
@@ -28,6 +28,15 @@ $("#btnSaveInventory").click(function() {
         dataType: "json",
         error: function(xhr, status, error) {
             unSuccessUpdateAlert("Item", JSON.parse(xhr.responseText).message);
+            try {
+
+                let message = JSON.parse(error.responseText).message;
+                console.log(message);
+            } catch (e) {
+
+                console.error("Failed to parse JSON response:", e);
+                console.error("Response text:", error.responseText);
+            }
         }
     });
 });
@@ -40,8 +49,42 @@ function loadAllItem() {
         method: "GET",
         dataType: "json",
         success: function (res) {
-            console.log(res);
+            console.log(" item : "+res)
+            for (let i of res.data) {
+                let code = i.code;
+                let name = i.name;
+                let qty = i.qty;
+                let itemPicture = i.itemPicture || '';
+                let category = i.category;
+                let size = i.size;
+                let supplier = i.supplier;
+                let supName = i.supName;
+                let salePrice = i.salePrice;
+                let buyPrice = i.buyPrice;
+                let expectedProfit = i.expectedProfit;
+                let profitMargin = i.profitMargin;
+                let status = i.status;
 
+               let supId = supplier?.code || '';
+
+                let row = `<tr><td>${code}</td><td>${name}</td><td>${qty}</td><td>${category}</td><td>${size}</td><td>${supId}</td><td>${supName}</td><td>${salePrice}</td><td>${buyPrice}</td><td>${expectedProfit}</td><td>${profitMargin}</td><td>${status}</td></tr>`;
+                $("#inventoryTable").append(row);
+            }
+            blindClickEventsI();
+            setTextFieldValuesI("", "", "", "", "", "", "", "", "", "", "", "");
+        },
+        error: function (error) {
+        }
+    });
+}
+
+/*function loadAllItem() {
+    $("#inventoryTable").empty();
+    $.ajax({
+        url: "http://localhost:8080/back_End/item",
+        method: "GET",
+        dataType: "json",
+        success: function (res) {
             for (let i of res.data) {
                 let code = i.code;
                 let name = i.name;
@@ -58,25 +101,22 @@ function loadAllItem() {
                 let status = i.status;
 
 
-                // Access address properties correctly
-
                 let supId = supplier.code;
                 let row = `<tr><td>${code}</td><td>${name}</td><td>${qty}</td><td>${category}</td><td>${size}</td><td>${supId}</td><td>${supName}</td><td>${salePrice}</td><td>${buyPrice}</td><td>${expectedProfit}</td><td>${profitMargin}</td><td>${status}</td></tr>`;
                 $("#inventoryTable").append(row);
             }
             blindClickEventsI();
-
-            setTextFieldValuesI("", "", "", "", "", "", "", "", "", "", "", "", "");
-            console.log(res.message);
+            setTextFieldValuesI("", "", "", "", "", "", "", "", "", "", "", "");
         },
         error: function (error) {
             let message = JSON.parse(error.responseText).message;
             console.log(message);
+
         }
 
     });
+}*/
 
-}
 
 
 $("#supplier_id").empty();
@@ -188,7 +228,7 @@ $("#btnDeleteInventory").click(function () {
         dataType: "json",
         success: function (resp) {
             saveUpdateAlert("Supplier", resp.message);
-            loadAllItem()
+            loadAllItem();
         },
         error: function (xhr, status, error) {
             let message = JSON.parse(xhr.responseText).message;
@@ -287,8 +327,8 @@ $("#form1").on("keypress", function (event) {
             },
             error: function (error) {
                 loadAllItem();
-                let message = JSON.parse(error.responseText).message;
-                console.error("Error:", message);
+                /*let message = JSON.parse(error.responseText).message;
+                console.error("Error:", message);*/
             }
         });
     }

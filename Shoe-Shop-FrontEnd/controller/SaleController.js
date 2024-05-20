@@ -74,6 +74,8 @@ $("#Customer_Id").click(function () {
         success: function (res) {
             console.log(res);
             $("#cusName").val(res.name);
+            $("#point").val(res.loyaltyPoints);
+
         },
         error: function (error) {
             let message = JSON.parse(error.responseText).message;
