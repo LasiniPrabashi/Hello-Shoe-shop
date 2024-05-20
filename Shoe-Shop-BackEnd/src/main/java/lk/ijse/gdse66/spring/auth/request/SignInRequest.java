@@ -1,6 +1,5 @@
-package lk.ijse.gdse66.spring.dto;
+package lk.ijse.gdse66.spring.auth.request;
 
-import lk.ijse.gdse66.spring.enums.Role;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -10,9 +9,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class UserDTO {
-    private String id;
+public class SignInRequest {
     private String email;
     private String password;
-    private Role role;
 }

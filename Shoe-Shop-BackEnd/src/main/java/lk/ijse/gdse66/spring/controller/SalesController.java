@@ -32,7 +32,6 @@ public class SalesController {
     }
 
 
-
     @ResponseStatus(HttpStatus.CREATED)
     @GetMapping(path = "/LoadOrders")
     public ResponseUtil LoadOrders() {
@@ -43,8 +42,6 @@ public class SalesController {
     @GetMapping(path = "/LoadOrderDetails")
     public ResponseUtil LoadOrderDetails() {
         return new ResponseUtil("OK", "Successfully Loaded. :", service.LoadOrderDetails());
-}
-
-
+    }
 
 }

@@ -39,7 +39,8 @@ public class CustomerController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PutMapping
-    public ResponseUtil updateCustomer(@ModelAttribute CustomerDTO customerDTO, Address address){
+    public ResponseUtil updateCustomer(@ModelAttribute CustomerDTO customerDTO, @ModelAttribute Address address){
+        System.out.println(customerDTO.toString()+" "+address.toString());
         customerDTO.setAddress(address);
         service.updateCustomer(customerDTO);
         return new ResponseUtil("200", "Successfully Updated. :"+ customerDTO.getCode(),null);

@@ -27,6 +27,6 @@ public class SaleDetails {
     private Sales sale;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "code",referencedColumnName = "code")
+    @JoinColumn(name = "code",referencedColumnName = "code",insertable = false, updatable = false)
     private Item items;
 }

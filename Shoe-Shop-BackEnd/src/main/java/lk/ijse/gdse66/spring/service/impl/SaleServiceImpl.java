@@ -5,9 +5,11 @@ import jakarta.transaction.Transactional;
 import lk.ijse.gdse66.spring.dto.CustomDTO;
 import lk.ijse.gdse66.spring.dto.SaleDetailsDTO;
 import lk.ijse.gdse66.spring.dto.SalesDTO;
+import lk.ijse.gdse66.spring.entity.Customer;
 import lk.ijse.gdse66.spring.entity.Item;
 import lk.ijse.gdse66.spring.entity.SaleDetails;
 import lk.ijse.gdse66.spring.entity.Sales;
+import lk.ijse.gdse66.spring.repo.CustomerRepo;
 import lk.ijse.gdse66.spring.repo.ItemRepo;
 import lk.ijse.gdse66.spring.repo.SaleDetailsRepo;
 import lk.ijse.gdse66.spring.repo.SaleRepo;
@@ -30,6 +32,9 @@ public class SaleServiceImpl implements SaleService{
     @Autowired
     private ItemRepo itemRepo;
 
+    /*@Autowired
+    private CustomerRepo customerRepo;*/
+
     @Autowired
     private SaleDetailsRepo saleDetailsRepo;
 
@@ -37,11 +42,11 @@ public class SaleServiceImpl implements SaleService{
     private ModelMapper mapper;
 
     public void placeOrder(SalesDTO dto) {
-        if (repo.existsById(dto.getOid())){
-            throw new RuntimeException("Order Id "+ dto.getOid()+ "Already Exist.Please Enter another id..!");
+        if (repo.existsById(dto.getOid())) {
+            throw new RuntimeException("Order Id " + dto.getOid() + " already exists. Please enter another id!");
         }
-        Sales sales = mapper.map(dto, Sales.class);
 
+        Sales sales = mapper.map(dto, Sales.class);
         Sales save = repo.save(sales);
 
         for (SaleDetailsDTO saleDetailsDTO : dto.getSaleDetails()) {
@@ -59,12 +64,27 @@ public class SaleServiceImpl implements SaleService{
             // Save entity to database
             saleDetailsRepo.save(saleDetails);
         }
+
+        // Update item quantities and customer loyalty points
         for (SaleDetails sd : save.getSaleDetails()) {
-            Item item = itemRepo.findById(sd.getItemCode()).get();
+            Item item = itemRepo.findById(sd.getItemCode()).orElseThrow(() ->
+                    new RuntimeException("Item not found with code: " + sd.getItemCode())
+            );
             item.setQty(item.getQty() - sd.getQty());
             itemRepo.save(item);
-        }
+
+            // Check if the unit price is greater than 800
+           /* if (sd.getUnitPrice() > 800) {
+                // Update customer loyalty points
+                Customer customer = customerRepo.findById(dto.getCustomer().getCode()).orElseThrow(() ->
+                        new RuntimeException("Customer not found with code: " + dto.getCustomer().getCode())
+                );
+                customer.setLoyaltyPoints(customer.getLoyaltyPoints() + 1);
+                customerRepo.save(customer);
+ }*/
+}
     }
+
 
 
 
@@ -107,5 +127,7 @@ public class SaleServiceImpl implements SaleService{
             throw new EntityNotFoundException("Order with id " + id + " not found");
          }
 }
+
+
 
 }
