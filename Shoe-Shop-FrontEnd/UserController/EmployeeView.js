@@ -1,11 +1,19 @@
 
-loadAllEmployeeD()
+
+$(document).ready(function () {
+    loadAllEmployeeD()
+});
 
 function loadAllEmployeeD() {
     $("#employeeTable").empty();
+    performAuthenticatedRequest();
+    const accessToken = localStorage.getItem('accessToken');
     $.ajax({
         url: "http://localhost:8080/back_End/employee/loadAllEmployee",
         method: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
         dataType: "json",
         success: function (res) {
             console.log(res);
@@ -56,9 +64,14 @@ $("#form1").on("keypress", function (event) {
     if (event.which === 13) {
         var search = $("#form1").val();
         $("#employeeTable").empty();
+        performAuthenticatedRequest();
+        const accessToken = localStorage.getItem('accessToken');
         $.ajax({
             url: "http://localhost:8080/back_End/employee/searchEmployee",
             method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             data: {
                 code: search, // Provide the 'code' parameter
                 name: search  // Provide the 'name' parameter

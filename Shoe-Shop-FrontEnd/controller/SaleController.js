@@ -5,9 +5,14 @@ $("#btnPurchase").attr('disabled', true);
 /*$("#btnAddToCart").attr('disabled', true);*/
 
 function generateOrderID() {
+    performAuthenticatedRequest();
+    const accessToken = localStorage.getItem('accessToken');
     $.ajax({
         url: "http://localhost:8080/back_End/sales/OrderIdGenerate",
         method: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
         contentType: "application/json",
         dataType: "json",
         success: function (resp) {
@@ -44,7 +49,7 @@ function generateOrderID() {
 
 $("#Customer_Id").empty();
 $.ajax({
-    url:  "http://localhost:8080/back_End/customer",
+    url: "http://localhost:8080/back_End/customer",
     method: "GET",
     dataType: "json",
     success: function (res) {
@@ -64,37 +69,48 @@ $.ajax({
 
 });
 
-$("#Customer_Id").click(function () {
-    var search = $("#Customer_Id").val();
-    $.ajax({
-        url: "http://localhost:8080/back_End/customer/searchCus?code="+ search,
-        method: "GET",
-        contentType: "application/json",
-        dataType: "json",
-        success: function (res) {
-            console.log(res);
-            $("#cusName").val(res.name);
-            $("#point").val(res.loyaltyPoints);
-
-        },
-        error: function (error) {
-            let message = JSON.parse(error.responseText).message;
-            console.log(message);
-        }
-    })
+$("#Customer_Id").keypress(function (e) {
+    if (e.which == 13) { // Enter key pressed
+        var search = $("#Customer_Id").val();
+        performAuthenticatedRequest();
+        const accessToken = localStorage.getItem('accessToken');
+        $.ajax({
+            url: "http://localhost:8080/back_End/customer/searchCus?code="+ search,
+            method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
+            contentType: "application/json",
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                $("#cusName").val(res.name);
+                $("#point").val(res.loyaltyPoints);
+                // $("#qtyOnHand").val(res.qty);
+            },
+            error: function (error) {
+                let message = JSON.parse(error.responseText).message;
+                console.log(message);
+            }
+        });
+    }
 });
 
 $("#Item_Code").empty();
+/*performAuthenticatedRequest();
+const accessToken = localStorage.getItem('accessToken');*/
 $.ajax({
-    url:  "http://localhost:8080/back_End/item",
+    url: "http://localhost:8080/back_End/item",
     method: "GET",
+    /* headers: {
+         'Authorization': 'Bearer ' + accessToken
+     },*/
     dataType: "json",
     success: function (res) {
         console.log(res);
 
         for (let i of res.data) {
             let id = i.code;
-
             $("#Item_Code").append(`<option>${id}</option>`);
         }
         console.log(res.message);
@@ -103,29 +119,35 @@ $.ajax({
         let message = JSON.parse(error.responseText).message;
         console.log(message);
     }
-
 });
 
-$("#Item_Code").click(function () {
-    var search = $("#Item_Code").val();
-    $.ajax({
-        url: "http://localhost:8080/back_End/item/searchItemId?code="+ search,
-        method: "GET",
-        contentType: "application/json",
-        dataType: "json",
-        success: function (res) {
-            console.log(res);
-            $("#itemName").val(res.name);
-            $("#itemPrice").val(res.salePrice);
-            $("#qtyOnHand").val(res.qty);
-        },
-        error: function (error) {
-            let message = JSON.parse(error.responseText).message;
-            console.log(message);
-        }
-    })
+// Add event listener for keypress on the dropdown
+$("#Item_Code").keypress(function (e) {
+    if (e.which == 13) { // Enter key pressed
+        var search = $("#Item_Code").val();
+        performAuthenticatedRequest();
+        const accessToken = localStorage.getItem('accessToken');
+        $.ajax({
+            url:  "http://localhost:8080/back_End/item/searchItemId?code=" + search,
+            method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
+            contentType: "application/json",
+            dataType: "json",
+            success: function (res) {
+                console.log(res);
+                $("#itemName").val(res.name);
+                $("#itemPrice").val(res.salePrice);
+                $("#qtyOnHand").val(res.qty);
+            },
+            error: function (error) {
+                let message = JSON.parse(error.responseText).message;
+                console.log(message);
+            }
+        });
+    }
 });
-
 function updateDateTime() {
     let currentDateTime = new Date();
 
@@ -302,10 +324,14 @@ $("#btnPurchase").click(function () {
 
    /* console.log(orderOb)
     console.log(SaleDetails)*/
-
+    performAuthenticatedRequest();
+    const accessToken = localStorage.getItem('accessToken');
     $.ajax({
         url: "http://localhost:8080/back_End/sales",
         method: "POST",
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
         contentType: "application/json",
         dataType: "json",
         data: JSON.stringify(orderOb),

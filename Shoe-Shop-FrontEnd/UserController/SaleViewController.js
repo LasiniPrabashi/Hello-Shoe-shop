@@ -1,12 +1,23 @@
 
-loadAllSales()
-loadAllOrderDetails()
+$(document).ready(function () {
+    loadAllSales()
+});
+
+$(document).ready(function () {
+    loadAllOrderDetails()
+});
+
 
 function loadAllSales() {
     $("#tblOrder").empty();
+    performAuthenticatedRequest();
+    const accessToken = localStorage.getItem('accessToken');
     $.ajax({
         url:  "http://localhost:8080/back_End/sales/LoadOrders",
         method: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
         dataType: "json",
         success: function (res) {
             console.log(res);
@@ -39,9 +50,14 @@ function loadAllSales() {
 
 function loadAllOrderDetails() {
     $("#tblOrderDetails").empty();
+    performAuthenticatedRequest();
+    const accessToken = localStorage.getItem('accessToken');
     $.ajax({
         url: "http://localhost:8080/back_End/sales/LoadOrderDetails",
         method: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
         dataType: "json",
         success: function (res) {
             console.log(res);
