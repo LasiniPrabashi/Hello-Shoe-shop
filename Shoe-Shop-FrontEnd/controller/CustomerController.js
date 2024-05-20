@@ -29,9 +29,14 @@ $("#btnDeleteCustomer").attr('disabled', false);
 
 function generateCustomerID() {
     $("#cusId").val("C00-001");
+    performAuthenticatedRequest();
+    const accessToken = localStorage.getItem('accessToken');
     $.ajax({
         url: "http://localhost:8080/back_End/customer/cusIdGenerate",
         method: "GET",
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
         contentType: "application/json",
         dataType: "json",
         success: function (resp) {
@@ -236,9 +241,14 @@ function blindClickEventsC() {
 
 $("#btnDeleteCustomer").click(function () {
     let id = $("#cusId").val();
+    performAuthenticatedRequest();
+    const accessToken = localStorage.getItem('accessToken');
     $.ajax({
         url: "http://localhost:8080/back_End/customer?code=" + id,
         method: "DELETE",
+        headers: {
+            'Authorization': 'Bearer ' + accessToken
+        },
         dataType: "json",
         success: function (resp) {
             saveUpdateAlert("Customer", resp.message);
@@ -255,9 +265,14 @@ $("#form2").on("keypress", function (event) {
     if (event.which === 13) {
         var search = $("#form2").val();
         $("#customerTable").empty();
+        performAuthenticatedRequest();
+        const accessToken = localStorage.getItem('accessToken');
         $.ajax({
             url: "http://localhost:8080/back_End/customer/searchCustomer",
             method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
             data: {
                 code: search, // Provide the 'code' parameter
                 name: search  // Provide the 'name' parameter
