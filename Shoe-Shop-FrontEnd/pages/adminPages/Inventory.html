@@ -102,201 +102,6 @@
 
 
 <!-- ======= Main ======= -->
-<!--<main id="main" class="main">
-
-    &lt;!&ndash; ======= Customer Manage ======= &ndash;&gt;
-    <div class="pageTitle" id="pagetwo">
-        <h1>Inventory Manage</h1>
-
-        <section class="container-fluid mt-3" id="manageInventory">
-            &lt;!&ndash;<nav>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item"><a href="../AdminDashBoard.html">Home</a></li>
-                    <li class="breadcrumb-item active">Manage / Inventory</li>
-                </ol>
-            </nav>&ndash;&gt;
-
-            <div class="row mt-3" >
-                <div class="card info-card" style="background-color: #dfe4ea ">
-                    <div class="search-bar mt-4">
-                        <div class="search-form d-flex align-items-center">
-                            <input type="search" id="form1" class="form-control" style="width: 300px" placeholder="Search"/>
-                            <button type="button" title="Search"><i class="bi bi-search"></i></button>
-                        </div>
-                    </div>
-
-                    <div class="col-12 m-3 p-1">
-                        <form class="row" id="InventoryForm">
-                            <section id="sec1Customer" class="col-md-4 mt-3">
-
-                                <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="itemId">Item code</label>
-                                    <input  type="text" name="code" class="form-control" id="itemId">
-                                    <span class="control-error"></span>
-                                </div>
-                                <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="itemName">Item Name</label>
-                                    <input type="text" name="name" class="form-control" id="itemName">
-                                    <span class="control-error"></span>
-                                </div>
-                                <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="qty">Item Qty</label>
-                                    <input type="text" name="qty" class="form-control" id="qty">
-                                    <span class="control-error"></span>
-                                </div>
-
-
-                                <div class="col">
-                                    <label for="category" class="form-label">Category</label>
-                                    <select id="category" name="category" class="form-select" aria-label="Default select example">
-                                        <option selected></option>
-                                        <option value="MEN">Men</option>
-                                        <option value="WOMEN">Women</option>
-                                    </select>
-                                    </div>
-                                <div class="col">
-                                    <label for="size" class="form-label">Size</label>
-                                    <select id="size" name="size" class="form-select" aria-label="Default select example">
-                                        <option selected></option>
-                                        <option value="5">Size 5</option>
-                                        <option value="6">Size 6</option>
-                                        <option value="7">Size 7</option>
-                                        <option value="8">Size 8</option>
-                                        <option value="9">Size 9</option>
-                                        <option value="10">Size 10</option>
-                                    </select>
-                                    </div>
-
-                            </section>
-
-
-                            <section id="sec2Customer" class="col-md-4 mt-3">
-                                <div class="col">
-                                    <label for="supplier_id" class="form-label">Supplier Code</label>
-                                    <input type="text" name="supplier" class="form-control"  id="supplier_id"
-                                           placeholder="Supplier name">
-                                </div>
-
-                                <div class="mb-sm-0">
-                                    <label class="form-label" for="supName">Supplier name</label>
-                                    <input type="text" name="supName" class="form-control" readonly id="supName"
-                                           placeholder="Supplier name">
-                                    <span class="control-error"></span>
-                                </div>
-
-                                <div class="mb-sm-0">
-                                    <label class="form-label" for="salePrice">Unit price-Sale</label>
-                                    <input type="text" name="salePrice" class="form-control" id="salePrice">
-                                    <span class="control-error"></span>
-                                </div>
-                                <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="buyPrice">unit price-Buy</label>
-                                    <input type="text" name="buyPrice" class="form-control" id="buyPrice">
-                                    <span class="control-error"></span>
-                                </div>
-                                <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="expectedProfit">Expected Profit</label>
-                                    <input type="text" name="expectedProfit" class="form-control" id="expectedProfit">
-                                    <span class="control-error"></span>
-                                </div>
-                                <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="profitMargin">Profit margin</label>
-                                    <input type="text" name="profitMargin" class="form-control" id="profitMargin">
-                                    <span class="control-error"></span>
-                                </div>
-
-
-                            </section>
-
-                            <section id="sec3" class="col-md-4 mt-3">
-                                <div class="mb-sm-0 mt-3">
-                                    <label class="form-label" for="status">Status</label>
-                                    <input type="text" name="Status" class="form-control" id="status">
-                                    <span class="control-error"></span>
-                                </div>
-
-                                <div class="input-group mb-3">
-                                    <div class="col me-3">
-                                        <input type="file" class="form-control" id="itemPicture">
-                                        <label class="input-group-text  w-25  text-white" for="itemPicture">Upload</label>
-                                    </div>
-
-                                </div>
-
-                                &lt;!&ndash;                <div class="mb-sm-0">&ndash;&gt;
-                                &lt;!&ndash;                  <label for="role_Type" class="form-label">Role type</label>&ndash;&gt;
-                                &lt;!&ndash;&lt;!&ndash;                  <select class="form-control" id="role_Type" name="role_Type">&ndash;&gt;&ndash;&gt;
-                                &lt;!&ndash;&lt;!&ndash;                    <option value="REGISTERED_USER">REGISTERED_USER</option>&ndash;&gt;&ndash;&gt;
-                                &lt;!&ndash;&lt;!&ndash;                  </select>&ndash;&gt;&ndash;&gt;
-                                &lt;!&ndash;                  <span class="control-error"></span>&ndash;&gt;
-                                &lt;!&ndash;                </div>&ndash;&gt;
-                                &lt;!&ndash;                <div class="mb-sm-0 mt-3">&ndash;&gt;
-                                &lt;!&ndash;                  <label for="user_Name" class="form-label">User Name</label>&ndash;&gt;
-                                &lt;!&ndash;                  <div class="input-group has-validation">&ndash;&gt;
-                                &lt;!&ndash;                    <span class="input-group-text" id="inputGroupPrepend">@</span>&ndash;&gt;
-                                &lt;!&ndash;                    <input type="text" name="user_Name" class="form-control" id="user_Name"&ndash;&gt;
-                                &lt;!&ndash;                           placeholder="User Name">&ndash;&gt;
-                                &lt;!&ndash;                    <span class="control-error"></span>&ndash;&gt;
-                                &lt;!&ndash;                  </div>&ndash;&gt;
-                                &lt;!&ndash;                </div>&ndash;&gt;
-                                &lt;!&ndash;                <div class="mb-sm-0 mt-3">&ndash;&gt;
-                                &lt;!&ndash;                  <label class="form-label" for="password">Password</label>&ndash;&gt;
-                                &lt;!&ndash;                  <input type="password" name="password" class="form-control" id="password"&ndash;&gt;
-                                &lt;!&ndash;                         placeholder="Enter Password">&ndash;&gt;
-                                &lt;!&ndash;                  <span class="control-error"></span>&ndash;&gt;
-                                &lt;!&ndash;                </div>&ndash;&gt;
-
-                                <img name="itemPicture" id="imgItem" src="../../assest/img/login.jpg" height="300px" width="300px"/>
-                               <input type="file" id="imgInput" accept="image/*" style="display:none">
-
-
-
-                                <div class="mt-4 mb-3 d-grid gap-2 d-sm-flex justify-content-md-center">
-                                    <button class="btn btn-success me-md-1" id="btnSaveInventory" type="button">Save</button>
-                                    <button class="btn btn-warning me-md-1" id="btnUpdateInventory" type="button">Update</button>
-                                    <button type="button" class="btn btn-danger me-md-1" id="btnDeleteInventory">Delete</button>
-                                </div>
-                            </section>
-
-                        </form>
-                    </div>
-                </div>
-                <div class="card info-card" style="background-color: #dfe4ea ">
-                    &lt;!&ndash; View Customer Details Table Start &ndash;&gt;
-                    <div class="row mt-1 mt-md-2 mt-lg-4 mm-2 p-2 justify-content-around" style="height: 350px;">
-                        <div class="col-11 justify-content-around sectionBorder"
-                             style="height: 290px; background: white">
-                            <div class="table-responsive customerTableDiv overflow-auto " style="height: 300px;">
-                                <table class="table table-light table-striped table-bordered table-hover">
-                                    <thead class="text-white table-dark text-center  table-bordered sticky-top">
-                                    <tr>
-                                        <th scope="col">Item code</th>
-                                        <th scope="col">Item Name</th>
-                                        <th scope="col">Item Qty</th>
-                                        <th scope="col">Category</th>
-                                        <th scope="col">Size</th>
-                                        <th scope="col">Supplier Code</th>
-                                        <th scope="col">Supplier name</th>
-                                        <th scope="col">Unit price-Sale</th>
-                                        <th scope="col">unit price-Buy</th>
-                                        <th scope="col">Expected Profit</th>
-                                        <th scope="col">Profit margin</th>
-                                        <th scope="col">Status</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody id="inventoryTable"></tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-    </div>
-
-
-</main>-->
 
 <main id="main" class="main">
 
@@ -305,12 +110,7 @@
         <h1 style="color: black">Manage Inventory</h1>
 
         <section class="container-fluid mt-3" id="manageInventory">
-            <!--            <nav>-->
-            <!--                <ol class="breadcrumb">-->
-            <!--                    <li class="breadcrumb-item"><a href="../AdminDashBoard.html">Home</a></li>-->
-            <!--                    <li class="breadcrumb-item active">Manage / Inventory</li>-->
-            <!--                </ol>-->
-            <!--            </nav>-->
+
 
             <div class="row mt-3">
                 <div class="card info-card" style="background-color: #dfe4ea ">
@@ -332,8 +132,7 @@
                                 </div>
                                 <div class="mb-sm-0 mt-3">
                                     <label class="form-label" for="inv_Item_Desc">Item Name</label>
-                                    <input type="text" name="Name" class="form-control" id="inv_Item_Desc"
-                                           placeholder="Item Desc">
+                                    <input type="text" name="Name" class="form-control" id="inv_Item_Desc">
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
@@ -379,8 +178,7 @@
                                 </div>
                                 <div class="mb-sm-0">
                                     <label class="form-label" for="inv_Supplier_name">Supplier name</label>
-                                    <input type="text" name="supName" class="form-control"  id="inv_Supplier_name"
-                                           placeholder="Supplier name">
+                                    <input type="text" name="supName" class="form-control"  id="inv_Supplier_name" readonly>
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0">
@@ -397,12 +195,12 @@
                                 </div>
                                 <div class="mb-sm-0 mt-3">
                                     <label class="form-label" for="Expected_Profit">Expected Profit</label>
-                                    <input type="text" name="expectedProfit" class="form-control"  id="Expected_Profit">
+                                    <input type="text" name="expectedProfit" class="form-control"  id="Expected_Profit" readonly>
                                     <span class="control-error"></span>
                                 </div>
                                 <div class="mb-sm-0 mt-3">
                                     <label class="form-label" for="Profit_margin">Profit margin</label>
-                                    <input type="text" name="profitMargin" class="form-control"  id="Profit_margin">
+                                    <input type="text" name="profitMargin" class="form-control"  id="Profit_margin" readonly>
                                     <span class="control-error"></span>
                                 </div>
 
@@ -428,7 +226,7 @@
 
                             <section>
                                 <div class="mt-4 mb-3 d-grid gap-2 d-sm-flex justify-content-md-center">
-                                    <button class="btn btn-success me-md-1" id="btnAddInventory" type="button">Add</button>
+                                    <button class="btn btn-success me-md-1" id="btnAddInventory" type="button">Save</button>
                                     <button class="btn btn-warning me-md-1" id="btnUpdateInventory" type="button">Update</button>
                                     <button type="button" class="btn btn-danger me-md-1" id="btnDeleteInventory">Delete</button>
                                     <button type="button" class="btn btn-primary bt me-md-1" id="btnClearItem">Clear</button>
@@ -466,7 +264,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- View Customer Details Table End -->
+
                 </div>
             </div>
         </section>

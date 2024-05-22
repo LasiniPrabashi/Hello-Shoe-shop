@@ -3,6 +3,7 @@ $(document).ready(function () {
     loadAllCus();
 });
 
+
 function updateDateTime() {
     let currentDateTime = new Date();
 
@@ -369,6 +370,10 @@ $("#btnClearCustomer").click(function () {
 });
 
 
+
+/**
+ * Customer Validation
+ */
 /**
  * Auto Forces Input Fields Save
  * */
@@ -488,7 +493,7 @@ $("#customer_email").on('keydown', function (event) {
 $("#customer_email").on('keydown', function (event) {
     if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#customer_email"))) {
         if (event.which === 13) {
-            $('#btnAddCustomer').focus();
+            $('#btnSaveCustomer').focus();
         }
     }
 });

@@ -468,7 +468,7 @@ $("#Employee_code,#employee_name,#E_status,#E_Attached,#E_address_1,#E_address_2
 });
 
 $("#Employee_code").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusID, $("#Employee_code"))) {
+    if (event.key === "Enter" && check(regExEmpID, $("#Employee_code"))) {
         $("#employee_name").focus();
     } else {
         focusText($("#Employee_code"));
@@ -476,58 +476,58 @@ $("#Employee_code").on('keydown', function (event) {
 });
 
 $("#employee_name").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusName, $("#employee_name"))) {
+    if (event.key === "Enter" && check(regExEmpName, $("#employee_name"))) {
         focusText($("#E_gender"));
     }
 });
 
 $("#E_status").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusPoint, $("#E_status"))) {
+    if (event.key === "Enter" && check(regExEmpStatus, $("#E_status"))) {
         focusText($("#E_Designation"));
     }
 });
 
 $("#E_address_1").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusAddress1, $("#E_address_1"))) {
+    if (event.key === "Enter" && check(regExEmpAddress1, $("#E_address_1"))) {
         focusText($("#E_address_2"));
     }
 });
 
 $("#E_address_2").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusAddress2, $("#E_address_2"))) {
+    if (event.key === "Enter" && check(regExEmpAddress2, $("#E_address_2"))) {
         focusText($("#E_address_3"));
     }
 });
 
 $("#E_address_3").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusAddress3, $("#E_address_3"))) {
+    if (event.key === "Enter" && check(regExEmpAddress3, $("#E_address_3"))) {
         focusText($("#E_address_4"));
     }
 });
 
 $("#E_address_4").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusAddress2, $("#E_address_4"))) {
+    if (event.key === "Enter" && check(regExEmpAddress4, $("#E_address_4"))) {
         focusText($("#E_address_5"));
     }
 });
 $("#E_ContactNo").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusContactNum, $("#E_ContactNo"))) {
+    if (event.key === "Enter" && check(regExEmpContactNum, $("#E_ContactNo"))) {
         focusText($("#E_email"));
     }
 });
 $("#E_email").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#E_email"))) {
+    if (event.key === "Enter" && check(regExEmpEmailEmpAddress, $("#E_email"))) {
         focusText($("#ICE"));
     }
 });
 $("#ICE").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#ICE"))) {
+    if (event.key === "Enter" && check(regExEmpEmergency, $("#ICE"))) {
         focusText($("#E_E_contact"));
     }
 });
 $("#E_E_contact").on('keydown', function (event) {
-    if (event.key === "Enter" && check(regExCusEmailCusAddress, $("#E_E_contact"))) {
-        focusText($("#EProfile_pic"));
+    if (event.key === "Enter" && check(regExEmpEmergencyContactNum, $("#E_E_contact"))) {
+        focusText($("#btnSaveEmployee"));
     }
 });
 
