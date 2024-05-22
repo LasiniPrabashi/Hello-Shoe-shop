@@ -15,10 +15,10 @@ $("#btnUpdateUser").click(function () {
                 data: JSON.stringify(value),
                 contentType: "application/json",
                 success: function (res, textStatus, jsXH) {
-                    saveUpdateAlert("Update", resp.message);
+                    saveUpdateAlert("Update", res.message);
                 },
                 error: function (ob, textStatus, error) {
-                    unSuccessUpdateAlert("Update", message);
+                    unSuccessUpdateAlert("Update", ob.message);
                 }
             });
 

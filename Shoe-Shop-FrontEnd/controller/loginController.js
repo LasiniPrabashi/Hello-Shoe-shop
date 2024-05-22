@@ -13,14 +13,14 @@ $("#btnSingUp").click(function() {
         contentType: "application/json",
         success: function (res, textStatus, jsXH) {
              localStorage.setItem('accessToken', res.token);
-             alert("Error User Added");
+            saveUpdateAlert("User", res.message);
             // console.log(res);
             /* $("#inputEmail").val("");
              $("#inputPassword").val("");
              $("#reInputPassword").val("");*/
         },
         error: function (ob, textStatus, error) {
-            alert("Error User Not Added");
+            unSuccessUpdateAlert("User", JSON.parse(error.responseText).message);
         }
     });
 
@@ -59,6 +59,7 @@ $("#btnLogin").click(function() {
                     } else if(res.role === "USER"){
                         window.location.href = "UserDashBoard.html";
                     }
+                    /*saveUpdateAlert("Successfully Added", res.message);*/
                 },
                 error: function (ob, textStatus, error) {
                    // swal("Error","Error Sign in", "error");

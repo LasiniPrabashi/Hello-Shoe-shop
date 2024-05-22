@@ -368,7 +368,7 @@ $("#btnClearItem").click(function () {
  */
 
 $("#item_code").focus();
-const regExItemID = /^(I00-)[0-9]{3,4}$/;
+const regExItemID =  /^[A-z0-9/ ]{3,20}$/;
 const regExItemName = /^[A-z ]{3,20}$/;
 const regExItemQty = /^[0-9]{0,}[.]?[0-9]{1,2}$/;
 const regExSupID = /^(S00-)[0-9]{3,4}$/;
@@ -378,7 +378,7 @@ const regExItemStatus = /^[A-z ]{3,20}$/;
 
 let itemValidations = [];
 itemValidations.push({
-    reg: regExItemID, field: $('#item_code'), error: 'Item ID Pattern is Wrong : I00-001'
+    reg: regExItemID, field: $('#item_code'), error: 'Item ID Pattern is Wrong :A-z 3-20 '
 });
 itemValidations.push({
     reg: regExItemName, field: $('#inv_Item_Desc'), error: 'Item Name Pattern is Wrong : A-z 3-20'
