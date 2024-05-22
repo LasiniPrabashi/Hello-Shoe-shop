@@ -1,10 +1,7 @@
 package lk.ijse.gdse66.spring.service.impl;
 
-import lk.ijse.gdse66.spring.dto.CustomerDTO;
 import lk.ijse.gdse66.spring.dto.UserDTO;
-import lk.ijse.gdse66.spring.entity.Customer;
 import lk.ijse.gdse66.spring.entity.User;
-import lk.ijse.gdse66.spring.enums.Role;
 import lk.ijse.gdse66.spring.repo.UserRepo;
 import lk.ijse.gdse66.spring.service.UserService;
 import lombok.RequiredArgsConstructor;

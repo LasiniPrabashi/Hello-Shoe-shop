@@ -1,5 +1,5 @@
 package lk.ijse.gdse66.spring.service;
-import lk.ijse.gdse66.spring.dto.CustomerDTO;
+
 import lk.ijse.gdse66.spring.dto.UserDTO;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
