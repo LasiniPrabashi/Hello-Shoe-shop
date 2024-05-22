@@ -2,6 +2,7 @@ package lk.ijse.gdse66.spring.controller;
 import lk.ijse.gdse66.spring.auth.request.SignInRequest;
 import lk.ijse.gdse66.spring.auth.request.SignUpRequest;
 import lk.ijse.gdse66.spring.auth.response.JwtAuthResponse;
+import lk.ijse.gdse66.spring.dto.CustomerDTO;
 import lk.ijse.gdse66.spring.dto.UserDTO;
 import lk.ijse.gdse66.spring.repo.UserRepo;
 import lk.ijse.gdse66.spring.service.AuthenticationService;
@@ -39,4 +40,17 @@ public class UserController {
     public UserDTO getUser(@PathVariable("id") String id) {
         return userService.searchUser(id);
     }
+
+    @PutMapping(path = "/user")
+    public ResponseEntity<Void> updateUser(@RequestBody UserDTO dto) {
+        System.out.println(dto.toString());
+        userService.updateUser(dto);
+        return ResponseEntity.noContent().build();
+    }
+    @ResponseStatus(HttpStatus.OK)
+    @DeleteMapping(path = "/user")
+    public ResponseEntity<Void> deleteUser(@RequestBody UserDTO dto) {
+        userService.deleteUser(dto);
+        return ResponseEntity.noContent().build();
+      }
 }

@@ -1,6 +1,9 @@
 package lk.ijse.gdse66.spring.service.impl;
 
+import lk.ijse.gdse66.spring.dto.CustomerDTO;
 import lk.ijse.gdse66.spring.dto.UserDTO;
+import lk.ijse.gdse66.spring.entity.Customer;
+import lk.ijse.gdse66.spring.entity.User;
 import lk.ijse.gdse66.spring.enums.Role;
 import lk.ijse.gdse66.spring.repo.UserRepo;
 import lk.ijse.gdse66.spring.service.UserService;
@@ -33,5 +36,27 @@ public class UserServiceImpl implements UserService {
                 .map(user -> mapper.map(user, UserDTO.class)
                 )
                 .orElseThrow(() -> new RuntimeException("User Not Exist"));
+    }
+
+    @Override
+    public void updateUser(UserDTO dto) {
+        userRepo.findByEmail(dto.getEmail()).ifPresentOrElse(
+                user -> {
+                    userRepo.save(new User(user.getId(), dto.getEmail(), passwordEncoder.encode(dto.getPassword()), dto.getRole()));
+                },
+                () -> {
+                    throw new RuntimeException("User Not Exist");
+                });
+    }
+    @Override
+    public void deleteUser(UserDTO dto) {
+        userRepo.findByEmail(dto.getEmail()).ifPresentOrElse(
+                user -> {
+                    userRepo.deleteByEmail(dto.getEmail());
+                },
+                () -> {
+                    throw new RuntimeException("User Not Exist");
+                }
+                );
     }
 }
