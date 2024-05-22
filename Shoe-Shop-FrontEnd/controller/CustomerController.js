@@ -1,3 +1,4 @@
+
 $(document).ready(function () {
     loadAllCus();
 });
@@ -23,10 +24,18 @@ updateDateTime();
 
 setInterval(updateDateTime,1000);
 
+/**
+ * Customer Save
+ * */
 $("#btnSaveCustomer").attr('disabled', false);
 $("#btnUpdateCustomer").attr('disabled', false);
 $("#btnDeleteCustomer").attr('disabled', false);
 
+
+/**
+ * Customer Save
+ * Customer ID
+ * */
 function generateCustomerID() {
     $("#cusId").val("C00-001");
     performAuthenticatedRequest();
@@ -63,6 +72,9 @@ function generateCustomerID() {
     });
 }
 
+/**
+ * load all Customer Table Method
+ * */
 function loadAllCus() {
     $("#customerTable").empty();
     performAuthenticatedRequest();
@@ -115,6 +127,10 @@ function loadAllCus() {
     });
 }
 
+
+/**
+ * Update Customer
+ * */
 $("#btnUpdateCustomer").click(function () {
     let formData = $("#customerForm").serialize();
     performAuthenticatedRequest();
@@ -139,6 +155,10 @@ $("#btnUpdateCustomer").click(function () {
 
 });
 
+
+/**
+ * Button Add New Customer
+ * */
 $("#btnSaveCustomer").click(function (){
     let formData = $("#customerForm").serialize();
     let cusId = $("#cusId").val();
@@ -167,6 +187,9 @@ $("#btnSaveCustomer").click(function (){
 });
 
 
+/**
+ lear input fields Values Method
+ * */
 function setTextFieldValuesC(code, name,gender,loyaltyDate,level,loyaltyPoints,dob,address1,address2,address3,address4,address5,contact,email,recentPurchaseDate) {
     $("#cusId").val(code);
     $("#customer_name").val(name);
@@ -192,6 +215,9 @@ function setTextFieldValuesC(code, name,gender,loyaltyDate,level,loyaltyPoints,d
     $("#btnDeleteCustomer").attr('disabled', false);
 }
 
+/**
+ * Table Listener Click and Load textFields
+ * */
 function blindClickEventsC() {
     $("#customerTable").on("click", "tr", function () {
         let code = $(this).children().eq(0).text();
@@ -239,6 +265,9 @@ function blindClickEventsC() {
     $("#btnSaveCustomer").attr('disabled',false);
 }
 
+/**
+ * Delete Customer
+ * */
 $("#btnDeleteCustomer").click(function () {
     let id = $("#cusId").val();
     performAuthenticatedRequest();
@@ -261,6 +290,10 @@ $("#btnDeleteCustomer").click(function () {
     });
 });
 
+
+/**
+ * Search id and name Load Table
+ * */
 $("#form2").on("keypress", function (event) {
     if (event.which === 13) {
         var search = $("#form2").val();
@@ -323,58 +356,17 @@ $("#form2").on("keypress", function (event) {
 });
 
 
-/*$("#form2").on("keypress", function (event) {
-    if (event.which === 13) {
-        var search = $("#form2").val();
-        $("#customerTable").empty();
-        $.ajax({
-            url: "http://localhost:8080/back_End/customer/searchCustomer?code=" + search,
-            method: "GET",
-            contentType: "application/json",
-            dataType: "json",
-            data: { supplier_Id: search }, // Send the search parameter as an object
-            success: function (res) {
-                console.log(res);
-                if (res) {
-                    let code = res.code;
-                    let name = res.name;
-                    let gender = res.gender;
-                    let level = res.level;
-                    let loyaltyDate = res.loyaltyDate;
-                    let points = res.points;
-                    let dob = res.dob;
-                    let address = res.address || '';
-                    let time = res.contact;
-                    let email = res.email;
-                    let recentPurchaseDate = res.recentPurchaseDate;
+/**
+ * Clear Method
+ */
+function clearDetails() {
+    $('#customer_name,#gender,#loyaltyDate,#level,#total_point,#DOB,#c_address_01,#c_address_02,#c_address_03,#c_address_04,#c_address_05,#c_contact_num,#customer_email').val("");
 
-                    let ad1 = address.address1 || '';
-                    let ad2 = address.address2 || '';
-                    let ad3 = address.address3 || '';
-                    let ad4 = address.address4 || '';
-                    let ad5 = address.address5 || '';
+}
 
-                    // Concatenate address properties
-                    let addressColumn = `${ad1}, ${ad2}, ${ad3}, ${ad4}, ${ad5}`;
-
-                    let row = "<tr><td>" + code + "</td><td>" + name  + "</td><td>" + gender + "</td><td>" + level + "</td><td>" + loyaltyDate + "</td><td>" + points + "</td><td>" + dob + "</td><td>" + addressColumn + "</td><td>" + time + "</td><td>" + email + "</td><td>" + recentPurchaseDate +"</td></tr>";
-                    $("#customerTable").append(row);
-                    blindClickEventsC()
-                } else {
-                    // No data found
-                    console.log("No data found");
-                    // Handle this case if required
-                }
-            },
-            error: function (xhr, status, error) {
-                console.error("Error:", error);
-                loadAllCus() // Load all employees as fallback
-                let message = xhr.responseJSON ? xhr.responseJSON.message : "An error occurred";
-                emptyMassage(message);
-            }
-        });
-    }
-});*/
+$("#btnClearCustomer").click(function () {
+    clearDetails();
+});
 
 
 

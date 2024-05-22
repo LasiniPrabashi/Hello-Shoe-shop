@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="../../assest/vendor/sweetalert2-11.6.16/sweetalert2.css">
     <link rel="stylesheet" href="../../assest/css/dashboardStyle.css">
 
+
 </head>
 
 <body>
@@ -94,9 +95,9 @@
     </ul>
 
 </aside>
-<main id="main" class="main">
 
-    <!-- ======= Customer Manage ======= -->
+<!--<main id="main" class="main">
+
     <div class="pageTitle" id="pagetwo">
         <h1>Manage</h1>
 
@@ -116,7 +117,7 @@
                             <button type="button" title="Search"><i class="bi bi-search"></i></button>
                         </div>
                     </div>
-                    <!-- End Search Bar -->
+                    &lt;!&ndash; End Search Bar &ndash;&gt;
                     <div class="col-12 m-3 p-1">
                         <form class="row" id="userForm">
                             <section id="sec1User" class="col-md-4 mt-3">
@@ -175,7 +176,7 @@
                     </div>
                 </div>
                 <div class="card info-card">
-                    <!-- View Customer Details Table Start -->
+                    &lt;!&ndash; View Customer Details Table Start &ndash;&gt;
                     <div class="row mt-1 mt-md-2 mt-lg-4 mm-2 p-2 justify-content-around" style="height: 350px;">
                         <div class="col-11 justify-content-around sectionBorder"
                              style="height: 290px; background: white">
@@ -195,13 +196,114 @@
                             </div>
                         </div>
                     </div>
+                    &lt;!&ndash; View Customer Details Table End &ndash;&gt;
+                </div>
+            </div>
+        </section>
+    </div>
+    &lt;!&ndash; End Customer Manage &ndash;&gt;
+
+</main>-->
+
+<main id="main" class="main">
+
+    <!-- ======= Customer Manage ======= -->
+    <div class="pageTitle" id="pagetwo">
+        <h1>User Manage</h1>
+
+        <section class="container-fluid mt-3" id="manageUser">
+
+            <div class="row mt-3">
+                <div class="card info-card">
+                    <div class="search-bar mt-4">
+                        <div class="search-form d-flex align-items-center">
+                            <input type="search" name="user_Id" id="search_UId" placeholder="Search" title="Enter search keyword">
+                            <button type="button" title="Search"><i class="bi bi-search"></i></button>
+                        </div>
+                    </div>
+                    <!-- End Search Bar -->
+                    <div class="col-12 m-3 p-1">
+                        <form class="row" id="userForm">
+                            <section id="sec1User" class="col-md-4 mt-3">
+
+                                <div class="mb-sm-0 ">
+                                    <label class="form-label" for="Useremail">User email</label>
+                                    <input type="text" name="User_email" class="form-control" id="Useremail"
+                                           placeholder="User email">
+                                    <span class="control-error"></span>
+                                </div>
+                                <div class="mb-sm-0 mt-3">
+                                    <label class="form-label" for="userpass">Password</label>
+                                    <input type="text" name="userpass" class="form-control" id="userpass"
+                                           placeholder="Pass word">
+                                    <span class="control-error"></span>
+                                </div>
+                                <div class="mb-sm-0 mt-3">
+                                    <label class="form-label" for="Userrole">Role</label>
+                                    <select class="form-control" id="Userrole" name="User_role">
+                                        <option>ADMIN</option>
+                                        <option>USER</option>
+
+                                    </select>
+
+                                    <span class="control-error"></span>
+                                </div>
+
+
+                            </section>
+
+
+
+                            <section id="sec3User" class="col-md-4 mt-3">
+                                <div class="mt-4 mb-3 d-grid gap-2 d-sm-flex justify-content-md-center">
+                                    <button class="btn btn-warning me-md-1" id="btnUpdateUser" type="button">Update</button>
+                                    <button type="button" class="btn btn-danger me-md-1" id="btnDeleteUser">Delete</button>
+                                </div>
+                            </section>
+
+
+                        </form>
+                    </div>
+                </div>
+
+                <div class="card info-card">
+                    <!-- View Customer Details Table Start -->
+                    <div class="row mt-1 mt-md-2 mt-lg-4 mm-2 p-2 justify-content-around" style="height: 350px;">
+                        <div class="col-11 justify-content-around sectionBorder"
+                             style="height: 290px; background: white">
+                            <div class="table-responsive customerTableDiv overflow-auto " style="height: 300px;">
+                                <table class="table table-light table-striped table-bordered table-hover">
+                                    <thead class="text-white table-dark text-center  table-bordered sticky-top">
+                                    <tr>
+                                        <th scope="col">User code</th>
+                                        <th scope="col">User name</th>
+                                        <th scope="col">User email</th>
+                                        <th scope="col">Pass word</th>
+                                        <th scope="col">Role</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody id="userTable"></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                     <!-- View Customer Details Table End -->
                 </div>
             </div>
         </section>
     </div>
-    <!-- End Customer Manage -->
+    <!-- End Customer Manage-->
 
 </main>
+
+<!-- Vendor JS Files -->
+<script src="../../assest/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="../../assest/vendor/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
+<script src="../../assest/vendor/jQuery/jquery-3.6.1.min.js"></script>
+<script src="../../assest/vendor/sweetalert2-11.6.16/sweetalert2.all.min.js"></script>
+<script src="../../assest/vendor/fontawesome-free/js/all.min.js"></script>
+
+<script src="../../controller/loginController.js"></script>
+<script src="../../controller/UserController.js"></script>
 </body>
 </html>

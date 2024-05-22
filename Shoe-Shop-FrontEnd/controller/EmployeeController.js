@@ -58,7 +58,6 @@ function generateEmployeeID() {
 /**
  * Button Add New Employee
  * */
-
 $("#btnSaveEmployee").click(function (){
 
     var image = $("#imgEmp");
@@ -129,7 +128,6 @@ function setTextFieldValues(code, name, pic, gender,status,designation,role,birt
 /**
 load all Employee Method
 * */
-
 function loadAllEmployee() {
     $("#employeeTable").empty();
     performAuthenticatedRequest();
@@ -186,6 +184,9 @@ function loadAllEmployee() {
     });
 }
 
+/**
+ * Set Employee Pic
+ */
 $('#EProfile_pic').change(function() {
     var fileInput = $('#EProfile_pic')[0];
     var file = fileInput.files[0];
@@ -207,7 +208,9 @@ $('#EProfile_pic').change(function() {
 
 });
 
-
+/**
+ * Table Listener Click and Load textFields
+ * */
 function blindClickEventsE() {
     $("#employeeTable").on("click", "tr", function () {
         let code = $(this).children().eq(0).text();
@@ -258,6 +261,10 @@ function blindClickEventsE() {
     $("#btnSaveEmployee").attr('disabled',false);
 }
 
+
+/**
+ * Update Employee
+ * */
 $("#btnUpdateEmployee").click(function () {
     let formData = $("#EmployeeForm").serialize();
     console.log(formData);
@@ -283,6 +290,9 @@ $("#btnUpdateEmployee").click(function () {
 });
 
 
+/**
+ * Delete Employee
+ * */
 $("#btnDeleteEmployee").click(function () {
     let id = $("#Employee_code").val();
     performAuthenticatedRequest();
@@ -305,6 +315,9 @@ $("#btnDeleteEmployee").click(function () {
 });
 
 
+/**
+ * Search id and name Load Table
+ * */
 $("#form1").on("keypress", function (event) {
     if (event.which === 13) {
         var search = $("#form1").val();
@@ -368,4 +381,14 @@ $("#form1").on("keypress", function (event) {
     }
 });
 
+/**
+ * Clear Method
+ */
+function clearDetails() {
+    $('#employee_name,#E_gender,#E_status,#E_Designation,#E_AccessRole,#E_dob,#E_DOF,#E_Attached,#E_address_1,#E_address_2,#E_address_3,#E_address_4,#E_address_5,#E_ContactNo,#E_email,#ICE,#E_E_contact,#EProfile_pic').val("");
 
+}
+
+$("#btnClearEmployee").click(function () {
+    clearDetails();
+});

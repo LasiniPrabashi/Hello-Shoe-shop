@@ -5,7 +5,7 @@
 
 body {
     font-family: "Open Sans", sans-serif;
-    background: white;
+    background: #f7f7f2;
     color: #444444;
 }
 
@@ -49,6 +49,23 @@ h6 {
         padding: 20px;
     }
 }
+
+.sale_item{
+    width: 20vw;
+    height: 25vh;
+}
+
+.item{
+    position: absolute;
+}
+
+/*.shadow-lg {
+    position: absolute;
+    width: 400px;
+    height: 600px;
+    right: 50vh;
+    bottom: 50vh;
+}*/
 
 /*--------------------------------------------------------------
 # Page Title
@@ -841,9 +858,9 @@ form .btn {
     padding: 8px 15px;
 }
 
-/* Info Cards */
 .dashboard .info-card {
     padding-bottom: 10px;
+    padding-left: 40px;
 }
 
 .dashboard .info-card h6 {

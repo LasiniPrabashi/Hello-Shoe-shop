@@ -27,6 +27,7 @@
 
 
 
+
 </head>
 <body>
 <!-- ======= Header ======= -->
@@ -43,6 +44,7 @@
     <input class="form-control border-0" type="search" placeholder="Search">
   </form>
 
+
 </header>
 
 
@@ -54,7 +56,7 @@
     <li class="nav-item">
       <a class="nav-link " href="AdminDashBoard.html">
         <i class="bi bi-grid"></i>
-        <span>Dashboard</span>
+        <span>Admin Panal</span>
       </a>
     </li>
 
@@ -112,13 +114,8 @@
 <main id="main" class="main">
 
   <div class="pageTitle" id="pageOne">
-    <h1>Admin Dashboard</h1>
-    <nav>
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="AdminDashBoard.html">Home</a></li>
-        <li class="breadcrumb-item active">Dashboard</li>
-      </ol>
-    </nav>
+    <h1>Admin Panal</h1>
+
   </div>
 
 
@@ -131,15 +128,19 @@
         <div class="row">
 
 
-          <div class="col-xxl-4 col-md-6">
-            <div class="card info-card car-card">
+          <div class="col-xxl-4 col-md-6" >
+            <div class="card info-card " style="background-color: skyblue">
               <div class="card-body">
-                <h5 class="card-title">Today <span>| Customers</span></h5>
+                <h5 class="card-title">Total  Profit</span></h5>
                 <div class="d-flex align-items-center">
-                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
-                    <i class="bi bi-car-front-fill"></i>
+                 <!-- <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                  </div>-->
+
+                  <div>
+                    <i class="fa-solid fa-truck"></i>
                   </div>
                   <div class="ps-3">
+
                     <h6 id="customerCount">0</h6>
                   </div>
                 </div>
@@ -148,15 +149,15 @@
           </div>
 
           <div class="col-xxl-4 col-md-6">
-            <div class="card info-card car-card">
+            <div class="card info-card car-card" style="background-color: skyblue">
               <div class="card-body">
-                <h5 class="card-title">Today <span>| Employees</span></h5>
+                <h5 class="card-title">Total  Sales</span></h5>
                 <div class="d-flex align-items-center">
-                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                  <!--<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                     <i class="bi bi-car-front-fill"></i>
-                  </div>
+                  </div>-->
                   <div class="ps-3">
-                    <h6 id="employeeCount">0</h6>
+                    <h2 id="employeeCount">$0.00</h2>
                   </div>
                 </div>
               </div>
@@ -165,15 +166,15 @@
 
 
           <div class="col-xxl-4 col-md-6">
-            <div class="card info-card car-card">
-              <div class="car-body">
-                <h5 class="card-title">Today <span>| Suppliers</span></h5>
+            <div class="card info-card car-card" style="background-color: skyblue">
+              <div class="card-body">
+                <h5 class="card-title">The most Sale Item Qty</span></h5>
                 <div class="d-flex align-items-center">
-                  <div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
+                  <!--<div class="card-icon rounded-circle d-flex align-items-center justify-content-center">
                     <i class="bi bi-car-front-fill"></i>
-                  </div>
+                  </div>-->
                   <div class="ps-3">
-                    <h6 id="suppliersCount">0</h6>
+                    <h6 id="countItem">0</h6>
                   </div>
                 </div>
               </div>
@@ -182,26 +183,29 @@
 
 
         </div>
-        <div class="img">
-          <img class="testimg" src="../assets/img/AdminDashBoard.jpg" alt="">
-        </div>
+
+
+    </div>
+
+
+    <div>
+      <h3>Most Sale Item</h3>
+      <img class="sale_item" src="../assest/img/file.png">
+    </div>
+
+      <div>
+        <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="position: absolute; width: 300px; height: 40px; left: 50vh; top: 71vh";>Item code</div>
+        <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="position: absolute; width: 300px; height: 40px; left: 50vh; top: 78vh";>Item name</div>
+        <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="position: absolute; width: 300px; height: 40px; left: 50vh; top: 85vh";>Sale price</div>
+        <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="position: absolute; width: 300px; height: 40px; left: 50vh; top: 92vh";>Sale QTY</div>
       </div>
 
     </div>
   </section>
+
 </main>
 
 
-
-<!-- ======= Footer ======= -->
-<footer id="footer" class="footer">
-  <div class="copyright">
-    &copy; Copyright <strong><span>Hello Shoe pvt</span></strong>. All Rights Reserved
-  </div>
-  <div class="credits">
-    Designed by <a href="">Lasini Prabashi</a>
-  </div>
-</footer>
 
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
         class="bi bi-arrow-up-short"></i></a>
@@ -211,13 +215,12 @@
 <script src="../assest/vendor/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
 <script src="../assest/vendor/jQuery/jquery-3.6.1.min.js"></script>
 <script src="../assest/vendor/sweetalert2-11.6.16/sweetalert2.all.min.js"></script>
-
+<script src="../assest/vendor/fontawesome-free/js/all.min.js"></script>
 
 <!-- Template Dashboard Main JS File -->
 <script src="../assest/js/dashboardMain.js"></script>
 
-<!-- Controller JS File -->
-<script src="../controller/DashBoardController.js"></script>
+
 
 </body>
 </html>

@@ -10,9 +10,6 @@ $("#btnUpdateSupplier").attr('disabled', false);
 $("#btnDeleteSupplier").attr('disabled', false);
 
 
-
-
-
 /**
  * Supplier Save
  * Supplier ID
@@ -51,7 +48,6 @@ function generateSupplierID() {
 /**
  * Button Add New Supplier
  * */
-
 $("#btnSaveSupplier").click(function() {
     let formData = $("#supplierForm").serializeArray();
 
@@ -75,6 +71,9 @@ $("#btnSaveSupplier").click(function() {
     });
 });
 
+/**
+  lear input fields Values Method
+* */
 function setTextFieldValuesS(code, name, category, address1, address2, address3, address4, address5, contact1, contact2, email) {
     $("#Supplier_code").val(code);
     $("#name").val(name);
@@ -96,6 +95,9 @@ function setTextFieldValuesS(code, name, category, address1, address2, address3,
 }
 
 
+/**
+ * load all Supplier Method
+ * */
 function loadAllSupplier() {
     $("#suppliersTable").empty();
     performAuthenticatedRequest();
@@ -137,6 +139,9 @@ function loadAllSupplier() {
     });
 }
 
+/**
+ * Table Listener Click and Load textFields
+ * */
 function blindClickEventsS() {
     $("#suppliersTable").on("click", "tr", function () {
         let code = $(this).children().eq(0).text();
@@ -175,7 +180,9 @@ function blindClickEventsS() {
     $("#btnSaveSupplier").attr('disabled',false);
 }
 
-
+/**
+ * Update Supplier
+ * */
 $("#btnUpdateSupplier").click(function () {
     let formData = $("#supplierForm").serialize();
 
@@ -199,6 +206,10 @@ $("#btnUpdateSupplier").click(function () {
     });
 });
 
+
+/**
+ * Delete Supplier
+ * */
 $("#btnDeleteSupplier").click(function () {
     let id = $("#supplier_code").val();
     performAuthenticatedRequest();
@@ -221,6 +232,9 @@ $("#btnDeleteSupplier").click(function () {
     });
 });
 
+/**
+ * Search id and name Load Table
+ * */
 $("#form1").on("keypress", function (event) {
     performAuthenticatedRequest();
     const accessToken = localStorage.getItem('accessToken');
@@ -280,54 +294,15 @@ $("#form1").on("keypress", function (event) {
     }
 });
 
+/**
+ * Clear Method
+ */
+function clearDetails() {
+    $('#name,#category,#S_address_1,#S_address_2,#S_address_3,#S_address_4,#S_address_5,#ContactNo1,#ContactNo2,#email').val("");
 
-/*$("#form1").on("keypress", function (event) {
-    if (event.which === 13) {
-        var search = $("#form1").val();
-        $("#suppliersTable").empty();
-        $.ajax({
-            url: "http://localhost:8080/back_End/supplier/searchSupplier?code="+ search,
-            method: "GET",
-            contentType: "application/json",
-            dataType: "json",
-            success: function (res) {
-                console.log(res);
-                if (res) {
-                    let code = res.code;
-                    let name = res.name;
-                    let category = res.category;
-                    let address = res.address || '';
-                    let contact1 = res.contact1;
-                    let contact2 = res.contact2;
-                    let email = res.email;
+}
 
-                    let ad1 = address.address1 || '';
-                    let ad2 = address.address2 || '';
-                    let ad3 = address.address3 || '';
-                    let ad4 = address.address4 || '';
-                    let ad5 = address.address5 || '';
-
-                    // Concatenate address properties
-                    let addressColumn = `${ad1}, ${ad2}, ${ad3}, ${ad4}, ${ad5}`;
-
-
-                    let row = "<tr><td>" + code + "</td><td>" + name + "</td><td>" + category +  "</td><td>" + addressColumn + "</td><td>" + contact1 + "</td><td>" + contact2 + "</td><td>"  + email +  "</td></tr>";
-                    $("#suppliersTable").append(row);
-                    blindClickEventsS()
-                }
-            },
-            error: function (error) {
-                loadAllSupplier()
-                let message = JSON.parse(error.responseText).message;
-                Swal.fire({
-                    icon: "error",
-                    title: "Request failed",
-                    showConfirmButton: false,
-                    timer: 1500
-                });
-            }
-        })
-    }
-
-});*/
+$("#btnClearSupplier").click(function () {
+    clearDetails();
+});
 

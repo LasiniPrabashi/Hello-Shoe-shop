@@ -47,6 +47,7 @@ function generateOrderID() {
     });
 }
 
+
 $("#Customer_Id").empty();
 $.ajax({
     url: "http://localhost:8080/back_End/customer",
@@ -351,5 +352,17 @@ $("#btnPurchase").click(function () {
     $("#btnPurchase").attr('disabled', true);
     $("#btnAddToCart").attr('disabled', true);
     total = 0;
+});
+
+/**
+ * Clear Method
+ */
+function clearDetails() {
+    $('#Customer_Id,#cusName,#Item_Code,#itemName,#itemPrice,#qtyOnHand,#buyQty,#cashierName,#point,#txtTotal,#txtDiscount,#txtSubTotal,#Payment,#txtCash,#txtBalance').val("");
+
+}
+
+$("#btnClearAll").click(function () {
+    clearDetails();
 });
 

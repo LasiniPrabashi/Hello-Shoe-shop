@@ -62,6 +62,7 @@ $("#btnLogin").click(function() {
                 },
                 error: function (ob, textStatus, error) {
                    // swal("Error","Error Sign in", "error");
+
                 }
             });
 
@@ -81,7 +82,7 @@ function performAuthenticatedRequest() {
     const accessToken = localStorage.getItem('accessToken');
     if (!accessToken || isTokenExpired(accessToken)) {
         $.ajax({
-            url: "http://localhost:8080/helloshoes/api/v1/auth/signin",
+            url: "http://localhost:8080/back_End/api/v1/auth/signin",
             method: "POST",
             data: JSON.stringify({
                 email: localStorage.getItem('email'),
