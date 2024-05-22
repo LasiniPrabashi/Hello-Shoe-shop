@@ -51,21 +51,18 @@ h6 {
 }
 
 .sale_item{
-    width: 20vw;
-    height: 25vh;
+    width: 15vw;
+    height: 20vh;
 }
 
 .item{
     position: absolute;
 }
 
-/*.shadow-lg {
-    position: absolute;
-    width: 400px;
-    height: 600px;
-    right: 50vh;
-    bottom: 50vh;
-}*/
+.image{
+    width: 5vw;
+    height: 10vh;
+}
 
 /*--------------------------------------------------------------
 # Page Title

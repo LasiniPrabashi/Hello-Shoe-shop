@@ -23,7 +23,7 @@ function setTextFieldValueI(code, Name, qty, itemPicture, category, size, suppli
     $("#inv_Item_pic").attr('src',itemPicture);
 
     $("#item_code").focus();
-
+    checkValidity(itemValidations);
     $("#btnAddInventory").attr('disabled', false);
     $("#btnUpdateInventory").attr('disabled', false);
     $("#btnDeleteInventory").attr('disabled', false);
@@ -364,3 +364,20 @@ $("#btnClearItem").click(function () {
 });
 
 
+
+$("#item_code").focus();
+const regExItemID = /^(I00-)[0-9]{3,4}$/;
+
+
+let itemValidations = [];
+itemValidations.push({
+    reg: regExItemID, field: $('#item_code'), error: 'Item ID Pattern is Wrong : I00-001'
+});
+
+$("#item_code").on('keydown', function (event) {
+    if (event.key === "Enter" && check(regExItemID, $("#item_code"))) {
+        $("#inv_Item_Desc").focus();
+    } else {
+        focusText($("#item_code"));
+    }
+});

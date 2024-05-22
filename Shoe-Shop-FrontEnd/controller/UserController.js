@@ -114,36 +114,17 @@ function searchUser(name) {
             for (let i of res.data) {
                 let code = i.code;
                 let name = i.name;
-                let pic = i.pic || ''; // Use empty string if pic is null
-                let gender = i.gender;
-                let status = i.status;
-                let designation = i.designation;
-                let role = i.role;
-                let birth = i.birth;
-                let joinDate = i.joinDate;
-                let branch = i.branch;
-                let address = i.address || {}; // Use empty object if address is null
-                let contact = i.contact;
                 let email = i.email;
-                let person = i.person;
-                let EmgContact = i.emgContact;
-                // Access address properties correctly
-                let ad1 = address.address1 || '';
-                let ad2 = address.address2 || '';
-                let ad3 = address.address3 || '';
-                let ad4 = address.address4 || '';
-                let ad5 = address.address5 || '';
-
-                // Concatenate address properties
-                let addressColumn =` ${ad1}, ${ad2}, ${ad3}, ${ad4}, ${ad5}`;
+                let password = i.password;
+                let role = i.role;
 
 
-                let row = `<tr><td>${code}</td><td>${name}</td><td>${gender}</td><td>${status}</td><td>${designation}</td><td>${role}</td><td>${birth}</td><td>${joinDate}</td><td>${branch}</td><td>${addressColumn}</td><td>${contact}</td><td>${email}</td><td>${person}</td><td>${EmgContact}</td></tr>`;
-                $("#employeeTable").append(row);
+
+                let row = `<tr><td>${code}</td><td>${name}</td><td>${email}</td><td>${password}</td><td>${role}</td></tr>`;
+                $("#userTable").append(row);
             }
-            blindClickEventsE();
-            generateEmployeeID();
-            setTextFieldValues("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "","","");
+            /!*blindClickEventsE();
+            setTextFieldValues("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "","","");*!/
             console.log(res.message);
         },
         error: function (error) {
