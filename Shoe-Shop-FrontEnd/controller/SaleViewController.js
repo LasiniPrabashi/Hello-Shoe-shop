@@ -27,7 +27,6 @@ function loadAllSales() {
                 let purchaseDate = i.purchaseDate;
                 let total = i.total;
                 let paymentMethod = i.paymentMethod;
-                let totalPoints = i.totalPoints;
                 let cashier = i.cashier;
                 let cus = i.customer;
 
@@ -37,7 +36,7 @@ function loadAllSales() {
 
                 let customer = `${id}-${name}`;
 
-                let row = "<tr><td>" + oid + "</td><td>" + purchaseDate + "</td><td>" + total + "</td><td>" + paymentMethod + "</td><td>"+ totalPoints + "</td><td>" + cashier + "</td><td>" + customer + "</td></tr>";
+                let row = "<tr><td>" + oid + "</td><td>" + purchaseDate + "</td><td>" + total + "</td><td>" + paymentMethod + "</td><td>" + cashier + "</td><td>" + customer + "</td></tr>";
                 $("#tblOrder").append(row);
             }
             console.log(res.message);

@@ -27,7 +27,6 @@
 
 
 
-
 </head>
 <body>
 <!-- ======= Header ======= -->
@@ -89,6 +88,13 @@
     </li>
 
     <li class="nav-item">
+      <a class="nav-link " href="adminPages/Return.html">
+        <i class="bi bi-bar-chart"></i>
+        <span>ReturnForm</span>
+      </a>
+    </li>
+
+    <li class="nav-item">
       <a class="nav-link " href="adminPages/userSetting.html">
         <i class="bi bi-grid"></i>
         <span>UserSetting</span>
@@ -133,13 +139,13 @@
               <div class="card-body">
                 <h5 class="card-title">Total  Profit</span></h5>
                 <div class="d-flex align-items-center">
-                <img class="image" src="../assest/img/analytics.gif">
+                <img class="image" src="../assest/img/money-bag.gif">
                   <div>
                     <i class="fa-solid fa-truck"></i>
                   </div>
                   <div class="ps-3">
 
-                    <h6 id="customerCount">0</h6>
+                    <h6 id="customerCount">$0.00</h6>
                   </div>
                 </div>
               </div>
@@ -151,9 +157,9 @@
               <div class="card-body">
                 <h5 class="card-title">Total  Sales</span></h5>
                 <div class="d-flex align-items-center">
-                  <img class="image" src="../assest/img/money-bag.gif">
+                  <img class="image" src="../assest/img/analytics.gif">
                   <div class="ps-3">
-                    <h2 id="employeeCount">$0.00</h2>
+                    <h2 id="todaySales">0</h2>
                   </div>
                 </div>
               </div>
@@ -214,8 +220,8 @@
 
 <!-- Template Dashboard Main JS File -->
 <script src="../assest/js/dashboardMain.js"></script>
-
-
+<script src="../controller/AdminPanalController.js"></script>
+<script src="../controller/loginController.js"></script>
 
 </body>
 </html>

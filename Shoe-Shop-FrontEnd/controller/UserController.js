@@ -97,39 +97,4 @@ function searchUser(name) {
 
 }
 
-/*function loadAllUser() {
-    $("#userTable").empty();
-    /!*performAuthenticatedRequest();
-    const accessToken = localStorage.getItem('accessToken');*!/
-    $.ajax({
-        url: "http://localhost:8080/back_End/api/v1/auth",
-        method: "GET",
-        /!*headers: {
-            'Authorization': 'Bearer ' + accessToken
-        },*!/
-        dataType: "json",
-        success: function (res) {
-            console.log(res);
 
-            for (let i of res.data) {
-                let code = i.code;
-                let name = i.name;
-                let email = i.email;
-                let password = i.password;
-                let role = i.role;
-
-
-
-                let row = `<tr><td>${code}</td><td>${name}</td><td>${email}</td><td>${password}</td><td>${role}</td></tr>`;
-                $("#userTable").append(row);
-            }
-            /!*blindClickEventsE();
-            setTextFieldValues("", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "","","");*!/
-            console.log(res.message);
-        },
-        error: function (error) {
-            let message = JSON.parse(error.responseText).message;
-            console.log(message);
-        }
-    });
-}*/

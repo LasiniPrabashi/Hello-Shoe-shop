@@ -302,10 +302,11 @@ $("#btnPurchase").click(function () {
         alert("Customer information must not be null");
         return;
     }
+
     var date = $("#oDate").val();
     var payment = $("#Payment").val();
     var total = $("#txtTotal").val();
-    var totalPoint = $("#point").val();
+    var totalPoints = $("#point").val();
     var cashierName = $("#cashierName").val();
 
 
@@ -315,9 +316,11 @@ $("#btnPurchase").click(function () {
         total: total,
         paymentMethod:payment,
         cashier: cashierName,
+        totalPoints: totalPoints,
         customer: {
             code: customerCode,
-            name: customerName
+            name: customerName,
+
         },
         saleDetails: SaleDetails
     };
