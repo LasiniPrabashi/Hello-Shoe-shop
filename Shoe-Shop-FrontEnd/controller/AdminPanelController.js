@@ -28,9 +28,12 @@
     }
 });*/
 
+$(document).ready(function () {
+    setAdminPanel();
+});
 
 
-setAdminPanel()
+
 
 function getAdminPanel() {
     return new Promise(function (resolve, reject) {
@@ -106,6 +109,28 @@ function getCustomerCount() {
         console.log(accessToken);
         $.ajax({
             url:"http://localhost:8080/back_End/customer/total",
+            method: "GET",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
+            dataType: "json",
+            success: function (res, textStatus, xhr) {
+                resolve(res);
+            },
+            error: function (ob, textStatus, error) {
+                resolve(error);
+            }
+        });
+    });
+}
+
+function getEmployeeCount() {
+    return new Promise(function (resolve, reject) {
+        performAuthenticatedRequest();
+        const accessToken = localStorage.getItem('accessToken');
+        console.log(accessToken);
+        $.ajax({
+            url:"http://localhost:8080/back_End/employee/total",
             method: "GET",
             headers: {
                 'Authorization': 'Bearer ' + accessToken
@@ -200,11 +225,11 @@ function setAdminPanel() {
         }
     });
 
-/*    getEmployeeCount().then(function (count) {
+    getEmployeeCount().then(function (count) {
         if (count !== 0 || count !== null) {
             $("#totalEmployee").text(count);
         } else {
             $("#totalEmployee").text("0");
         }
-    });*/
+    });
 }

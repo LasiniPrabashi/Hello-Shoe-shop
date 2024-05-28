@@ -19,11 +19,11 @@
         rel="stylesheet">
 
   <!-- Vendor CSS Files -->
-  <link rel="stylesheet" href="../assest/vendor/bootstrap-5.2.1-dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="../assest/vendor/bootstrap-icons/bootstrap-icons.css">
-  <link rel="stylesheet" href="../assest/vendor/boxicons/css/boxicons.css">
-  <link rel="stylesheet" href="../assest/vendor/sweetalert2-11.6.16/sweetalert2.css">
-  <link rel="stylesheet" href="../assest/css/dashboardStyle.css">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-5.2.1-dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="../assets/vendor/bootstrap-icons/bootstrap-icons.css">
+  <link rel="stylesheet" href="../assets/vendor/boxicons/css/boxicons.css">
+  <link rel="stylesheet" href="../assets/vendor/sweetalert2-11.6.16/sweetalert2.css">
+  <link rel="stylesheet" href="../assets/css/dashboardStyle.css">
 
 
 
@@ -139,7 +139,7 @@
               <div class="card-body">
                 <h5 class="card-title">Total  Profit</span></h5>
                 <div class="d-flex align-items-center">
-                <img class="image" src="../assest/img/money-bag.gif">
+                <img class="image" src="../assets/img/money-bag.gif">
                   <div>
                     <i class="fa-solid fa-truck"></i>
                   </div>
@@ -157,9 +157,9 @@
               <div class="card-body">
                 <h5 class="card-title">Total  Sales</span></h5>
                 <div class="d-flex align-items-center">
-                  <img class="image" src="../assest/img/analytics.gif">
+                  <img class="image" src="../assets/img/analytics.gif">
                   <div class="ps-3">
-                    <h2 id="todaySales">0</h2>
+                    <h2 id="totalSales">0</h2>
                   </div>
                 </div>
               </div>
@@ -170,11 +170,11 @@
           <div class="col-xxl-4 col-md-6">
             <div class="card info-card car-card" style="background-color: #C4E4FF">
               <div class="card-body">
-                <h5 class="card-title">The most Sale Item Qty</span></h5>
+                <h5 class="card-title">Total Employee</span></h5>
                 <div class="d-flex align-items-center">
-                  <img class="image" src="../assest/img/sale.gif">
+                  <img class="image" src="../assets/img/businessman.gif">
                   <div class="ps-3">
-                    <h6 id="countItem">0</h6>
+                    <h6 id="totalEmployee">0</h6>
                   </div>
                 </div>
               </div>
@@ -190,17 +190,44 @@
 
     <div>
       <h3>Most Sale Item</h3>
-      <img class="sale_item" src="../assest/img/file.png">
+      <img id="panelImg" class="sale_item" src="../assets/img/file.gif">
 
     </div>
 
       <div>
-        <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="position: absolute; width: 300px; height: 40px; left: 50vh; top: 71vh";>Item code</div>
-        <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="position: absolute; width: 300px; height: 40px; left: 50vh; top: 78vh";>Item name</div>
-        <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="position: absolute; width: 300px; height: 40px; left: 50vh; top: 85vh";>Sale price</div>
-        <div class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="position: absolute; width: 300px; height: 40px; left: 50vh; top: 92vh";>Sale QTY</div>
+        <div id="dashItemCode" class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="position: absolute; width: 300px; height: 40px; left: 50vh; top: 71vh";>Item code</div>
+        <div id="dashItemDesc" class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="position: absolute; width: 300px; height: 40px; left: 50vh; top: 78vh";>Item name</div>
+        <div id="dashItemSale" class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="position: absolute; width: 300px; height: 40px; left: 50vh; top: 85vh";>Sale price</div>
+        <div id="dashItemQTY"  class="shadow-lg p-3 mb-5 bg-body-tertiary rounded" style="position: absolute; width: 300px; height: 40px; left: 50vh; top: 92vh";>Sale QTY</div>
       </div>
 
+    </div>
+
+    <div class="col-xxl-3 col-md-6" style="position: absolute; left: 105vh; bottom: 25vh">
+      <div class="card info-card car-card" style="background-color: #C4E4FF">
+        <div class="card-body">
+          <h5 class="card-title">Total  Item</span></h5>
+          <div class="d-flex align-items-center">
+            <img class="image" src="../assets/img/document.gif">
+            <div class="ps-3">
+              <h2 id="totalItems">0</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xxl-3 col-md-6" style="position: absolute; left: 163vh; bottom: 25vh">
+      <div class="card info-card car-card" style="background-color: #C4E4FF">
+        <div class="card-body">
+          <h5 class="card-title">Total  Customer</span></h5>
+          <div class="d-flex align-items-center">
+            <img class="image" src="../assets/img/customer.gif">
+            <div class="ps-3">
+              <h2 id="totalCustomers">0</h2>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -212,15 +239,15 @@
         class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
-<script src="../assest/vendor/apexcharts/apexcharts.min.js"></script>
-<script src="../assest/vendor/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
-<script src="../assest/vendor/jQuery/jquery-3.6.1.min.js"></script>
-<script src="../assest/vendor/sweetalert2-11.6.16/sweetalert2.all.min.js"></script>
-<script src="../assest/vendor/fontawesome-free/js/all.min.js"></script>
+<script src="../assets/vendor/apexcharts/apexcharts.min.js"></script>
+<script src="../assets/vendor/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/vendor/jQuery/jquery-3.6.1.min.js"></script>
+<script src="../assets/vendor/sweetalert2-11.6.16/sweetalert2.all.min.js"></script>
+<script src="../assets/vendor/fontawesome-free/js/all.min.js"></script>
 
 <!-- Template Dashboard Main JS File -->
-<script src="../assest/js/dashboardMain.js"></script>
-<script src="../controller/AdminPanalController.js"></script>
+<script src="../assets/js/dashboardMain.js"></script>
+<script src="../controller/AdminPanelController.js"></script>
 <script src="../controller/loginController.js"></script>
 
 </body>
