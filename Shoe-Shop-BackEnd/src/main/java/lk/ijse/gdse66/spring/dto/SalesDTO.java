@@ -23,6 +23,6 @@ public class SalesDTO {
     private CustomerDTO customer;
 
     private List<SaleDetailsDTO> saleDetails = new ArrayList<>();
-
+    private String status;
 
 }

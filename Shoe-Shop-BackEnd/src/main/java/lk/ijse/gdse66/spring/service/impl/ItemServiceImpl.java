@@ -90,4 +90,9 @@ public class ItemServiceImpl implements ItemService {
     public CustomDTO getSumItem() {
          return new CustomDTO(repo.getSumItem());
     }
+
+    @Override
+    public Integer getTotalItemCount() {
+        return repo.totalItemCount();
+    }
 }

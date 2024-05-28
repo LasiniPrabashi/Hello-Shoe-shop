@@ -88,4 +88,9 @@ public class EmployeeServiceImpl implements EmployeeService{
 
         return new CustomDTO(repo.getSumEmployee());
     }
+
+    @Override
+    public Integer getTotalEmployeeCount() {
+        return repo.totalEmployeeCount();
+    }
 }

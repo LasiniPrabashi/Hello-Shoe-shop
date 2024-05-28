@@ -1,5 +1,6 @@
 package lk.ijse.gdse66.spring.dto;
 
+import jakarta.validation.constraints.Pattern;
 import lk.ijse.gdse66.spring.entity.Supplier;
 import lombok.AllArgsConstructor;
 import lombok.Data;

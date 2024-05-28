@@ -77,6 +77,11 @@ public class CustomerServiceImpl implements CustomerService {
 
              }
 
+    @Override
+    public Integer getTotalCustomerCount() {
+        return customerRepo.totalCustomerCount();
+    }
+
 
     @Override
     public CustomerDTO searchCustId(String code) {

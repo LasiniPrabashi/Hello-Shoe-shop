@@ -82,4 +82,10 @@ public class EmployeeController {
         return service.getSumEmployee();
      }
 
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(path = "/total")
+    public Integer getTotalEmployeeCount() {
+        return service.getTotalEmployeeCount();
+    }
+
 }

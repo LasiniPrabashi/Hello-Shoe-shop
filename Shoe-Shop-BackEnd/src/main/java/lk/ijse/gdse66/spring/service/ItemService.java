@@ -21,4 +21,5 @@ public interface ItemService {
     ItemDTO searchItemId(String id);
     @ResponseBody
     CustomDTO getSumItem();
+    Integer getTotalItemCount();
 }

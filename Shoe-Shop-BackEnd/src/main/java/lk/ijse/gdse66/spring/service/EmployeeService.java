@@ -20,5 +20,5 @@ public interface EmployeeService {
     CustomDTO EmployeeIdGenerate();
     @ResponseBody
     CustomDTO getSumEmployee();
-
+    Integer getTotalEmployeeCount();
 }

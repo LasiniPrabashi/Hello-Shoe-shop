@@ -74,4 +74,10 @@ public class CustomerController {
         return service.searchCustId(code);
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(path = "/total")
+    public Integer getTotalCustomerCount() {
+        return service.getTotalCustomerCount();
+}
+
 }

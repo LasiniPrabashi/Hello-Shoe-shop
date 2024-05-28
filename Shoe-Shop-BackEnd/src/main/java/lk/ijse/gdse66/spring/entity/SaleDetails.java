@@ -18,7 +18,6 @@ public class SaleDetails {
     @Id
     private String itemCode;
 
-
     private int qty;
     private double unitPrice;
 
@@ -29,4 +28,8 @@ public class SaleDetails {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "code",referencedColumnName = "code",insertable = false, updatable = false)
     private Item items;
+
+    private Double itmTotal;
+    private String status;
+    private int return_qty;
 }

@@ -30,5 +30,7 @@ public class Sales {
 
     @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "sale")
     private List<SaleDetails> saleDetails = new ArrayList<>();
+    private String status;
+
 
 }

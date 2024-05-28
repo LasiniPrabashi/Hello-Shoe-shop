@@ -14,5 +14,6 @@ public class SaleDetailsDTO {
     private String itemCode;
     private int qty;
     private double unitPrice;
-
+    private String status;
+    private int return_qty;
 }

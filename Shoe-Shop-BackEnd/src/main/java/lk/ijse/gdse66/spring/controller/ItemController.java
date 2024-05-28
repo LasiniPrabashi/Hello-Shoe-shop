@@ -81,6 +81,12 @@ public class ItemController {
         return itemService.searchItemId(code);
     }
 
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(path = "/total")
+    public Integer getTotalItemCount() {
+        return itemService.getTotalItemCount();
+     }
+
 
 }
 
