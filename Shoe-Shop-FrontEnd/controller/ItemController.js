@@ -20,7 +20,7 @@ function setTextFieldValueI(code, Name, qty, itemPicture, category, size, suppli
     $("#Expected_Profit").val(expectedProfit);
     $("#Profit_margin").val(profitMargin);
     $("#Inv_Status").val(status);
-    $("#inv_Item_pic").attr('src',itemPicture);
+    $("#inv_Item_pic").attr('src'.val(itemPicture));
 
     $("#item_code").focus();
     $("#btnAddInventory").attr('disabled', false);

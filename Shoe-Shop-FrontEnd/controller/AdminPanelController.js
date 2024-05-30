@@ -1,38 +1,7 @@
 
-/*$(document).ready(function() {
-    performAuthenticatedRequest();
-
-    function performAuthenticatedRequest() {
-        const accessToken = localStorage.getItem('accessToken');
-        $.ajax({
-            url: "http://localhost:8080/back_End/sales/TodayOrders",
-            method: "GET",
-            headers: {
-                'Authorization': 'Bearer ' + accessToken
-            },
-            contentType: "application/json",
-            dataType: "json",
-            success: function(resp) {
-                console.log("Response received:", resp);
-                if (resp.state === "OK"){
-                    let num = resp.data.length;
-                    $("#todaySales").text(num);
-                } else {
-                    console.error("Unexpected response format:", resp);
-                }
-            },
-            error: function(ob, statusText, error) {
-                console.error("Error fetching today's sales:", statusText, error);
-            }
-        });
-    }
-});*/
-
 $(document).ready(function () {
     setAdminPanel();
 });
-
-
 
 
 function getAdminPanel() {
@@ -189,7 +158,7 @@ function setAdminPanel() {
                 }
             });
         } else {
-            $("#panelImg").attr('src', "../assets/img/yello-shoe-removebg-preview-png;base64"+value.pic);
+            $("#panelImg").attr('src', "../assets/img/file.gif");
             $("#dashItemCode").text("");
             $("#dashItemDesc").text("");
             $("#dashItemSale").text("");

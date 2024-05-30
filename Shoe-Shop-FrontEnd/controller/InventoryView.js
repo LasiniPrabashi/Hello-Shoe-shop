@@ -3,7 +3,9 @@ $(document).ready(function () {
     loadAllItemD()
 });
 
-
+/**
+ load all Item Method
+ * */
 function loadAllItemD() {
     $("#inventoryTable").empty();
     performAuthenticatedRequest();
@@ -46,6 +48,9 @@ function loadAllItemD() {
     });
 }
 
+/**
+ * Search id and name Load Table
+ * */
 $("#search_inv_Id").on("keypress", function (event) {
     if (event.which === 13) {
         var search = $("#search_inv_Id").val();

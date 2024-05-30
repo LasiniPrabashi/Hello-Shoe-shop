@@ -2,7 +2,9 @@ $(document).ready(function () {
     loadAllSupplierDe()
 });
 
-
+/**
+ * load all Supplier Method
+ * */
 function loadAllSupplierDe() {
     $("#suppliersTable").empty();
     performAuthenticatedRequest();
@@ -44,6 +46,9 @@ function loadAllSupplierDe() {
     });
 }
 
+/**
+ * Search id and name Load Table
+ * */
 $("#form1").on("keypress", function (event) {
     if (event.which === 13) {
         var search = $("#form1").val();

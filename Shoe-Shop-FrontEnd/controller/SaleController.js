@@ -4,6 +4,10 @@ generateOrderID();
 $("#btnPurchase").attr('disabled', true);
 /*$("#btnAddToCart").attr('disabled', true);*/
 
+
+/**
+ * Sale ID
+ * */
 function generateOrderID() {
     performAuthenticatedRequest();
     const accessToken = localStorage.getItem('accessToken');
@@ -48,6 +52,9 @@ function generateOrderID() {
 }
 
 
+/**
+ * Customer Search Id
+ */
 $("#Customer_Id").empty();
 $.ajax({
     url: "http://localhost:8080/back_End/customer",
@@ -97,6 +104,10 @@ $("#Customer_Id").keypress(function (e) {
     }
 });
 
+
+/**
+ * Item Search Id
+ */
 $("#Item_Code").empty();
 /*performAuthenticatedRequest();
 const accessToken = localStorage.getItem('accessToken');*/

@@ -40,7 +40,7 @@ $('#btnAddReturn').click(function (){
     })
 });
 
-function returnOrder(code) {
+/*function returnOrder(code) {
     performAuthenticatedRequest();
     const accessToken = localStorage.getItem('accessToken');
     $.ajax({
@@ -61,7 +61,61 @@ function returnOrder(code) {
         }
     });
 
+}*/
+
+function returnOrder(code) {
+    performAuthenticatedRequest();
+    const accessToken = localStorage.getItem('accessToken');
+    if ($("#option").val()==='FullOrder'){
+
+        $.ajax({
+            url: "http://localhost:8080/back_End/sales/" + code,
+            method: "POST",
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
+            contentType: "application/json",
+            dataType: "json",
+            success: function (resp) {
+                loadReturnOrders();
+            },
+            error: function (ob, statusText, error) {
+                let message = JSON.parse(error.responseText).message;
+                console.log(message);
+
+            }
+        });
+    }else {
+        const data = {
+            oid : code,
+            itemCode : $("#return_item_code").val(),
+            qty: $("#return_item_qty").val()
+
+        }
+        console.log("not work");
+        $.ajax({
+            url:  "http://localhost:8080/back_End/sales/returnOneOrder" ,
+            method: "POST",
+            data: JSON.stringify(data),
+            headers: {
+                'Authorization': 'Bearer ' + accessToken
+            },
+            contentType: "application/json",
+            // dataType: "json",
+            success: function (resp) {
+                loadReturnOrders();
+            },
+            error: function (ob, statusText, error) {
+                // let message = JSON.parse(error.responseText).message;
+                // console.log(message);
+
+            }
+        });
+    }
+
+
 }
+
 
 function loadReturnOrders(){
     // performAuthenticatedRequest();

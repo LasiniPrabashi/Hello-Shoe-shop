@@ -1,154 +1,141 @@
-/* ::after, ::before {
-    box-sizing: border-box;
+.hello1{
     position: absolute;
-    top: 20px;
-    left: 25px;
-}*/
+    color: black;
+    left: 150vh;
+    top: 20vh;
+    font-size: 10vh;
 
-
-.img{
-    width: 40vw;
-    height: 50vh;
-    box-sizing: border-box;
-    position: absolute;
-    top: 30vh;
-    left: 35vh;
 }
 
-.main{
-    /*width: 100vw;*/
-    height: 100vh;
-    background-color: #f7f7f2;
+#btnMainS{
+    background-color: red;
+    position: relative;
+    left: 70vh;
+    top: 65vh;
+    border-radius: 50px;
+    size: 10vh;
 }
 
-/*--------------------------------------------------------------
-# Header
---------------------------------------------------------------*/
-.logo {
-    line-height: 1;
+.shadow-lg{
+    background-color: #f5f5ed;
 }
 
-@media (min-width: 1200px) {
-    .logo {
-        width: 280px;
-    }
-}
+@import url('https://fonts.googleapis.com/css2?family=Poetsen+One&display=swap');
 
-.logo span {
-    font-size: 28px;
-    font-weight: bolder;
-    color: #000000;
-    font-family: "Inter", sans-serif;
-    margin-left: 10px;
-}
-
-.logo span span {
-    color: #378CE7;
-}
-
-.header {
-    transition: all 0.5s;
-    z-index: 997;
-    height: 60px;
-    background-color: #f7f7f2;
-    padding-left: 20px;
-    /* Toggle Sidebar Button */
-    /* Search Bar */
-}
-
-.header .toggle-sidebar-btn {
-    font-size: 32px;
-    padding-left: 10px;
-    cursor: pointer;
-    color: #012970;
-}
-
-
-@media (max-width: 1199px) {
-    .search-bar {
-        position: fixed;
-        top: 50px;
-        left: 0;
-        right: 0;
-        padding: 20px;
-        box-shadow: 0 0 15px 0 rgba(1, 41, 112, 0.1);
-        background: white;
-        z-index: 9999;
-        transition: 0.3s;
-        visibility: hidden;
-        opacity: 0;
-    }
-
-    .search-bar-show {
-        top: 60px;
-        visibility: visible;
-        opacity: 1;
-    }
-}
-
-.search-form {
-    width: 100%;
-}
-
-.search-form input {
-    font-size: 1em;
-    color: #012970;
-    border: 1px solid rgba(1, 41, 112, 0.2);
-    padding: 7px 38px 7px 8px;
-    border-radius: 10px;
-    transition: 0.3s;
-    width: 25%;
-    font-weight: bolder;
-}
-
-.search-form input:focus,
-.search-form input:hover {
-    outline: none;
-    box-shadow: 0 0 10px 0 rgba(1, 41, 112, 0.15);
-    border: 1px solid rgba(1, 41, 112, 0.3);
-}
-
-.search-form button {
-    border: 0;
+*{
+    margin: 0;
     padding: 0;
-    margin-left: -30px;
-    background: none;
 }
-
-.search-form button i {
-    color: #012970;
-}
-
-@media (min-width: 768px) {
-.d-md-flex {
-    display: flex !important;
-    right: 25px;
+.img {
+    box-sizing: border-box;
     position: absolute;
-}
-}
-
-@media (min-width: 768px) {
-    .col-md-8 {
-        flex: 0 0 66.66667%;
-        max-width: 66.66667%;
-        position: absolute;
-        right: 10px;
-        top: 80px;
-    }
+    top: 20vh;
+    right: 120vh;
+    width: 600px;
 }
 
-@media (min-width: 768px) {
-    .col-md-9 {
-        flex: 0 0 75%;
-        max-width: 60%;
-    }
+.right {
+    position: relative;
+    left: 65%;
+    top: 10rem;
+    width: 30%;
 }
 
-@media (min-width: 768px) {
-    .col-md-9 {
-        flex: 0 0 75%;
-        max-width: 60%;
-        top: 15vh;
-        left: 45vh;
-    }
+.hello1 {
+    position: absolute;
+    color: black;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-size: 10vh;
+}
+.hello1::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: #FFA633;
+    animation: showRight 2s ease forwards;
+    animation-delay: 2s;
+}
+
+.hello2 {
+    position: absolute;
+    color: black;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    font-size: 10vh;
+    top: 5rem;
+}
+.hello2::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: -1.5%;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: showRight 1.5s ease forwards;
+    animation-delay: 2.2s;
+}
+
+.buttons {
+    position: relative;
+    display: flex;
+    top: 15rem;
+}
+.buttons a{
+    text-decoration: none;
+}
+
+.btn{
+    background-color: #FFA633;
+    border-radius: 20px;
+    border: 2px solid black;
+    padding: 5px 10px;
+    font-size: 25px;
+    font-family: "Poetsen One", sans-serif;
+    font-weight: 400;
+    color: #000;
+    margin-right: 15px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+.btn::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    background: white;
+    animation: showRight 3s ease forwards;
+    animation-delay: 3s;
+}
+
+.btn:hover{
+    background-color: rgb(217, 18, 18);
+    border: 2px solid white;
+    color: #000;
+}
+
+#preloader {
+    background: black url(../img/rainbow.gif) no-repeat center center;
+    /* left: 10rem; */
+    background-size: 10rem;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    z-index: 100;
+}
+
+iframe{
+    display: none;
+}
+
+@keyframes showRight {
+    100% {
+        width:0;
+        }
 }

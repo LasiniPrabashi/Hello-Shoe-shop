@@ -1,5 +1,6 @@
-
-
+/**
+ * btn SingUp Method
+ */
 $("#btnSingUp").click(function() {
     let value = {
         email: $("#upUser_Name").val(),
@@ -32,6 +33,9 @@ $("#btnSingUp").click(function() {
     });
 });
 
+/**
+ * btn LogIn Method
+ */
 $("#btnLogin").click(function() {
     let value = {
         email: $("#user_Name").val(),
@@ -59,6 +63,12 @@ $("#btnLogin").click(function() {
             });
         }
     });
+});
+
+$(document).ready(function() {
+    var username = localStorage.getItem('email');
+    $("#greeting").text("Welcome, " +username);
+    $("#cashierName").val(username);
 });
 
 function fetchUserDetails(email, token) {
