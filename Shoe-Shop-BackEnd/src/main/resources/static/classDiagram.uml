@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>DATABASE</ID>
+  <OriginalElement>643dd6ea-bd10-4832-84dc-d3f51a4350db</OriginalElement>
+  <nodes>
+    <node x="342.625" y="44.0">643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.supplier</node>
+    <node x="0.0" y="0.0">643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.customer</node>
+    <node x="152.75" y="788.0">643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.sale_details</node>
+    <node x="618.625" y="0.0">643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.employee</node>
+    <node x="255.0" y="1044.0">643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.user</node>
+    <node x="0.0" y="1044.0">643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.admin_panel</node>
+    <node x="280.5" y="415.0">643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.item</node>
+    <node x="5.5" y="470.0">643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.sales</node>
+    <node x="369.125" y="854.5">643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.supplier_items</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.sales" target="643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.customer" relationship="REFERENCES">
+      <point x="0.0" y="-105.5" />
+      <point x="0.0" y="182.5" />
+    </edge>
+    <edge source="643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.sale_details" target="643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.sales" relationship="REFERENCES">
+      <point x="-39.75" y="-105.5" />
+      <point x="192.5" y="762.0" />
+      <point x="123.0" y="762.0" />
+      <point x="0.0" y="105.5" />
+    </edge>
+    <edge source="643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.supplier_items" target="643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.item" relationship="REFERENCES">
+      <point x="-44.5" y="-39.0" />
+      <point x="413.625" y="762.0" />
+      <point x="361.5" y="762.0" />
+      <point x="0.0" y="160.5" />
+    </edge>
+    <edge source="643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.sale_details" target="643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.item" relationship="REFERENCES">
+      <point x="39.75" y="-105.5" />
+      <point x="272.0" y="762.0" />
+      <point x="361.5" y="762.0" />
+      <point x="0.0" y="160.5" />
+    </edge>
+    <edge source="643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.item" target="643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.supplier" relationship="REFERENCES">
+      <point x="0.0" y="-160.5" />
+      <point x="361.5" y="390.0" />
+      <point x="458.125" y="390.0" />
+      <point x="0.0" y="138.5" />
+    </edge>
+    <edge source="643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.supplier_items" target="643dd6ea-bd10-4832-84dc-d3f51a4350db.TABLE:shoeshop.supplier" relationship="REFERENCES">
+      <point x="44.5" y="-39.0" />
+      <point x="502.625" y="762.0" />
+      <point x="503.875" y="762.0" />
+      <point x="503.875" y="390.0" />
+      <point x="458.125" y="390.0" />
+      <point x="0.0" y="138.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="0.537774167343623" showDependencies="false" x="565.0" y="595.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Columns</Category>
+    <Category>Key columns</Category>
+    <Category>Virtual foreign keys</Category>
+  </Categories>
+</Diagram>
+
