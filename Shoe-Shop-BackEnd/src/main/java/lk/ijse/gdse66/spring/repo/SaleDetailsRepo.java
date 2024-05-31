@@ -27,4 +27,10 @@ public interface SaleDetailsRepo extends JpaRepository<SaleDetails, String> {
     List<SaleDetails> findAllBySale(Sales sales);
 
     List<SaleDetails> findAllByStatus(String status);
+
+    boolean existsByOidAndItemCode(String oid,String itemCode);
+
+    SaleDetails findByOidAndItemCode(String oid,String itemCode);
+
+    List<SaleDetails> findAllByOid(String oid);
 }

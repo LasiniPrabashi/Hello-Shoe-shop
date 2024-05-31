@@ -38,4 +38,6 @@ public interface SaleService {
     ArrayList<SaleDetailsDTO> returnFullOrder(String id);
 
     ArrayList<SaleDetailsDTO> loadReturnOrders();
+
+    void returnOneOrder(SaleDetailsDTO saleDetailsDTO);
 }
