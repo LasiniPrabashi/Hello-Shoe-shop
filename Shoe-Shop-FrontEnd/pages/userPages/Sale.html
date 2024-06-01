@@ -22,7 +22,8 @@
     <link rel="stylesheet" href="../../assets/vendor/sweetalert2-11.6.16/sweetalert2.css">
     <link rel="stylesheet" href="../../assets/vendor/bootstrap-5.2.1-dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="../../assets/css/UserDashBord.css">
-
+    <link rel="stylesheet" href="../../assets/css/payment.css">
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
 
 
 </head>
@@ -262,7 +263,7 @@
                      </div>
 
 
-                         <div class="row mt-1">
+                    <div class="row mt-1">
                         <div class="d-grid col-12 col-md-5 mt-4">
                             <button class="btn btn-success rounded-2 bold sectionBorder" id="btnPurchase" type="button">Purchase
                             </button>
@@ -272,7 +273,104 @@
                             <button class="btn btn-primary rounded-2 bold sectionBorder" id="btnCard" type="button">Card
                             </button>
                         </div>
-                         </div>
+
+                        <div id="myPopup" class="popup">
+                            <div class="popup-content">
+                                <span>Payment Method</span>
+                                <button id="closePopup"><i class='bx bxs-x-square'></i></button>
+                                <div class="card">
+
+                                    <div class="accordion" id="accordionExample">
+
+
+
+                                        <div class="card">
+                                            <div class="card-header p-0">
+                                                <h2 class="mb-0">
+                                                    <button class="btn btn-light btn-block text-left p-3 rounded-0" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                                        <div class="d-flex align-items-center justify-content-between">
+
+                                                            <span>Credit card</span>
+                                                            <div class="icons">
+                                                                <img src="https://i.imgur.com/2ISgYja.png" width="30">
+                                                                <img src="https://i.imgur.com/W1vtnOV.png" width="30">
+                                                                <img src="https://i.imgur.com/35tC99g.png" width="30">
+                                                                <img src="https://i.imgur.com/2ISgYja.png" width="30">
+                                                            </div>
+
+                                                        </div>
+                                                    </button>
+                                                </h2>
+                                            </div>
+
+                                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                                <div class="card-body payment-card-body">
+
+                                                    <span class="font-weight-normal card-text">Card Number</span>
+                                                    <div class="input">
+
+                                                        <i class="fa fa-credit-card"></i>
+                                                        <input type="text" class="form-control" placeholder="0000 0000 0000 0000">
+
+                                                    </div>
+
+                                                    <div class="row mt-3 mb-3">
+
+                                                        <div class="col-md-6">
+
+                                                            <span class="font-weight-normal card-text">Expiry Date</span>
+                                                            <div class="input">
+
+                                                                <i class="fa fa-calendar"></i>
+                                                                <input type="text" class="form-control" placeholder="MM/YY">
+
+                                                            </div>
+
+                                                        </div>
+
+
+                                                        <div class="col-md-6">
+
+                                                            <span class="font-weight-normal card-text">CVC/CVV</span>
+                                                            <div class="input">
+
+                                                                <i class="fa fa-lock"></i>
+                                                                <input type="text" class="form-control" placeholder="000">
+
+                                                            </div>
+
+
+                                                        </div>
+                                                        <div class="mb-sm-0 mt-3">
+                                                            <label class="fw-light" for="txtBankName">Bank name</label>
+                                                            <input class="form-control " id="txtBankName" type="text">
+                                                        </div>
+
+                                                    </div>
+
+                                                    <!--<div class="d-grid col-12 col-md-5 mt-4">
+                                                        <button class="btn btn-primary rounded-2 bold sectionBorder" id="btnCardp" type="button">Card
+                                                        </button>
+                                                    </div>-->
+
+                                                    <div class="d-grid col-12 col-md-5 mt-4">
+                                                        <button class="btn btn-success rounded-2 bold sectionBorder" id="btnPurchaseP" type="button">Purchase
+                                                        </button>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+
 
                     </div>
                     <!-- Order Details Section End -->
@@ -315,6 +413,9 @@
                 </div>
 
 
+    </div>
+
+
 <!--    </section>-->
 
 </main>
@@ -330,7 +431,7 @@
 <script src="../../assets/vendor/bootstrap-5.2.1-dist/js/bootstrap.bundle.min.js"></script>
 <script src="../../assets/vendor/jQuery/jquery-3.6.1.min.js"></script>
 <script src="../../assets/vendor/sweetalert2-11.6.16/sweetalert2.all.min.js"></script>
-
+<script src="../../controller/payment.js"></script>
 <script src="../../controller/loginController.js"></script>
 <!-- Template Dashboard Main JS File -->
 <script src="../../assets/js/dashboardMain.js"></script>

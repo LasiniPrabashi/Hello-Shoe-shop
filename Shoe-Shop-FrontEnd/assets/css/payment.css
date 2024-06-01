@@ -1,24 +1,61 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:weight@100;200;300;400;500;600;700;800&display=swap");
 
 
-body{
+/*body{
     background-or:#f5eee7;
     font-family: "Poppins", sans-serif;
     font-weight: 300;
+}*/
+
+.popup {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: none;
+}
+.popup-content {
+    background-color: white;
+    margin: 4% auto;
+    padding: 20px;
+    border: 1px solid #888888;
+    width: 35%;
+    height: 80%;
+    font-weight: bolder;
+}
+.popup-content button {
+    display: block;
+    margin: 0 auto;
+}
+.show {
+    display: block;
 }
 
-.container{
+#closePopup{
+    background-color: white;
+    border: none;
+    display: inline-block;
+    margin-bottom:10px;
+    position: relative;
+    left: 65%;
+}
+
+/*.container{
 
     height: 100vh;
 
-}
+}*/
 
-.card{
+/*.card{
 
     border: none;
     width: 25vw;
     height: 20vh;
-}
+}*/
 
 .card-header {
     padding: .5rem 1rem;

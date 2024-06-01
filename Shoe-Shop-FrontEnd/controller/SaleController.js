@@ -288,6 +288,14 @@ $(document).on("change keyup blur", "#txtCash", function () {
 
 
 $("#btnPurchase").click(function () {
+    purchase();
+});
+
+$("#btnPurchaseP").click(function () {
+    purchase();
+});
+
+function purchase(){
 
     var SaleDetails = [];
     for (let i = 0; i < $("#tblAddToCart tr").length; i++) {
@@ -366,7 +374,7 @@ $("#btnPurchase").click(function () {
     $("#btnPurchase").attr('disabled', true);
     $("#btnAddToCart").attr('disabled', true);
     total = 0;
-});
+}
 
 /**
  * Clear Method
